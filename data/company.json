@@ -1,0 +1,48 @@
+{
+  "name": "Nexatel",
+  "legalName": "Nexatel Group",
+  "tagline": "Engineering Connections. Building Tomorrow.",
+  "description": "Nexatel is a multi-vertical engineering and technology group with deep roots in Kerala and operations across Kuwait. We design, deploy and maintain mission-critical infrastructure for telecom, IT, structured cabling and clean-energy installations.",
+  "shortDescription": "Multi-vertical engineering & technology group serving Kerala and Kuwait.",
+  "founded": "2009",
+  "yearsOfExperience": 16,
+  "stats": [
+    { "label": "Years of Experience", "value": "16+" },
+    { "label": "Projects Delivered", "value": "1,200+" },
+    { "label": "Active Clients", "value": "180+" },
+    { "label": "Countries Served", "value": "2" }
+  ],
+  "verticals": [
+    "IT Services & Solutions",
+    "Fiber Optics & Structured Cabling",
+    "Telecom Infrastructure",
+    "Electrical, Solar & Energy",
+    "IT Hardware Supply"
+  ],
+  "offices": [
+    {
+      "city": "Kuwait City",
+      "country": "Kuwait",
+      "address": "Block 2, Salhiya Commercial Complex, Kuwait City, State of Kuwait",
+      "phone": "+965 0000 0000",
+      "email": "kuwait@nexatel.example",
+      "isHeadquarters": true
+    },
+    {
+      "city": "Kochi",
+      "country": "India",
+      "address": "InfoPark Phase II, Kakkanad, Kochi, Kerala 682030, India",
+      "phone": "+91 484 000 0000",
+      "email": "india@nexatel.example",
+      "isHeadquarters": false
+    }
+  ],
+  "social": {
+    "linkedin": "https://www.linkedin.com/",
+    "twitter": "",
+    "facebook": "",
+    "instagram": ""
+  },
+  "supportEmail": "hello@nexatel.example",
+  "supportPhone": "+965 0000 0000"
+}

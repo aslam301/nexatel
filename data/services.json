@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "it-services",
+    "title": "IT Services & Solutions",
+    "summary": "Managed IT, networking, cybersecurity and cloud transformation for enterprises across Kuwait and India.",
+    "icon": "cpu",
+    "highlights": [
+      "Managed IT support & helpdesk",
+      "Network design & administration",
+      "Cybersecurity & endpoint protection",
+      "Cloud migration & Microsoft 365",
+      "Server, storage and virtualization"
+    ],
+    "details": "Our IT services practice helps growing enterprises modernise their infrastructure without disrupting operations. From day-to-day managed services to multi-year transformation roadmaps, we provide certified engineers and 24x7 support contracts tailored to the GCC and Indian markets.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=70&auto=format&fit=crop"
+  },
+  {
+    "slug": "fiber-optics-cabling",
+    "title": "Fiber Optics & Structured Cabling",
+    "summary": "OFC backbones, FTTx rollouts and Cat6/6A/7 structured cabling for data centres and commercial facilities.",
+    "icon": "fiber",
+    "highlights": [
+      "Single-mode & multi-mode OFC",
+      "FTTH / FTTB / FTTx deployments",
+      "Cat6, Cat6A and Cat7 cabling",
+      "Splicing, OTDR testing & certification",
+      "Data centre passive infrastructure"
+    ],
+    "details": "Nexatel is one of the region's preferred partners for high-density structured cabling and fiber optic backbones. Our certified technicians deliver fully tested installations with full BICSI-aligned documentation, OTDR reports and warranty support.",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=70&auto=format&fit=crop"
+  },
+  {
+    "slug": "telecom-infrastructure",
+    "title": "Telecom Infrastructure",
+    "summary": "End-to-end telecom installation including towers, in-building solutions, IP-PBX and unified communications.",
+    "icon": "tower",
+    "highlights": [
+      "Tower & rooftop installations",
+      "IBS / DAS in-building solutions",
+      "IP-PBX & VoIP systems",
+      "Unified communication platforms",
+      "Carrier interconnect & last-mile"
+    ],
+    "details": "We partner with national carriers, system integrators and enterprises to deliver telecom infrastructure that just works. From core IP-PBX rollouts to multi-site DAS coverage in malls, hospitals and high-rises, we own the project end to end.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=70&auto=format&fit=crop"
+  },
+  {
+    "slug": "electrical-solar",
+    "title": "Electrical, Solar & Energy",
+    "summary": "Licensed electrical installation, rooftop solar PV systems and energy-efficiency retrofits.",
+    "icon": "bolt",
+    "highlights": [
+      "LV & MV electrical installation",
+      "Rooftop & ground-mount solar PV",
+      "Battery storage & hybrid systems",
+      "Lighting & energy retrofits",
+      "Annual maintenance contracts"
+    ],
+    "details": "Our electrical and energy division is licensed for low- and medium-voltage installations and certified by leading PV inverter and panel manufacturers. We deliver turn-key solar projects from feasibility and financing to commissioning and O&M.",
+    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=70&auto=format&fit=crop"
+  },
+  {
+    "slug": "it-hardware-supply",
+    "title": "IT Hardware Supply",
+    "summary": "Sourcing and supply of laptops, servers, networking gear and audio-visual equipment from tier-1 OEMs.",
+    "icon": "box",
+    "highlights": [
+      "Laptops, desktops & workstations",
+      "Servers, storage & SAN",
+      "Networking & WiFi equipment",
+      "AV, displays & conferencing",
+      "Annual rate contracts"
+    ],
+    "details": "Through long-standing OEM relationships in the GCC and India, we offer competitive pricing on tier-1 hardware backed by warranty registration, asset tagging and on-site delivery. Bulk and rate-contract pricing available for government and enterprise tenders.",
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=70&auto=format&fit=crop"
+  }
+]

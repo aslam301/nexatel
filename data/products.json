@@ -1,0 +1,110 @@
+[
+  {
+    "id": "nx-fo-sm-24",
+    "slug": "single-mode-fiber-cable-24f",
+    "name": "Single-Mode Fiber Optic Cable (24F)",
+    "category": "Fiber Optics",
+    "shortDescription": "Outdoor armoured single-mode 24-fiber cable for long-haul backbone deployments.",
+    "description": "G.652D compliant single-mode loose-tube armoured cable rated for direct burial and aerial installation. Compatible with all major splicing and termination platforms.",
+    "features": [
+      "ITU-T G.652D compliant",
+      "Steel-tape armouring",
+      "Direct burial / aerial / duct rated",
+      "PE outer sheath, UV stabilised",
+      "Operating temp: -40°C to +70°C"
+    ],
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "nx-cat6a-utp",
+    "slug": "cat6a-utp-cable-305m",
+    "name": "Cat6A U/UTP Cable (305m)",
+    "category": "Structured Cabling",
+    "shortDescription": "10G-ready Cat6A U/UTP LSZH cable in 305m pull box.",
+    "description": "Tier-1 Cat6A U/UTP cable certified to TIA-568.2-D, supporting 10GBASE-T to 100m. LSZH jacket for indoor backbone and horizontal runs in commercial buildings.",
+    "features": [
+      "TIA-568.2-D Cat6A certified",
+      "10GBASE-T to 100m",
+      "LSZH low-smoke zero-halogen jacket",
+      "23 AWG solid copper",
+      "Fluke channel & permanent link tested"
+    ],
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-09-15T00:00:00.000Z"
+  },
+  {
+    "id": "nx-otdr-pro",
+    "slug": "otdr-test-set-pro",
+    "name": "OTDR Test Set Pro",
+    "category": "Test Equipment",
+    "shortDescription": "Field-grade OTDR with 1310/1550nm dual wavelength and 40dB dynamic range.",
+    "description": "Hand-held OTDR ideal for splicing teams and acceptance testing. Generates Bellcore SR-4731 reports compatible with all major OEM analysis tools.",
+    "features": [
+      "Dual wavelength 1310 / 1550 nm",
+      "40 dB dynamic range",
+      "Event dead zone < 1 m",
+      "Bellcore SR-4731 reports",
+      "8-hour Li-ion runtime"
+    ],
+    "image": "https://images.unsplash.com/photo-1581090700227-1e8e29d4c3b1?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-10-04T00:00:00.000Z"
+  },
+  {
+    "id": "nx-solar-550w",
+    "slug": "monocrystalline-solar-panel-550w",
+    "name": "Monocrystalline Solar Panel 550W",
+    "category": "Solar & Energy",
+    "shortDescription": "High-efficiency 550W mono PERC half-cut solar panel for commercial rooftop arrays.",
+    "description": "Tier-1 manufacturer 550W half-cut mono PERC module with 21.3% efficiency and 25-year linear power warranty. IEC 61215, IEC 61730 and salt-mist certified for GCC environments.",
+    "features": [
+      "550W nominal output",
+      "21.3% module efficiency",
+      "Half-cut PERC technology",
+      "25-year linear warranty",
+      "IEC + salt-mist certified"
+    ],
+    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-11-20T00:00:00.000Z"
+  },
+  {
+    "id": "nx-rack-42u",
+    "slug": "data-centre-rack-42u",
+    "name": "42U Data Centre Server Rack",
+    "category": "Data Centre",
+    "shortDescription": "42U 800x1000 mesh-door server rack with cable management and PDU mounts.",
+    "description": "Heavy-gauge welded server rack designed for high-density data centre deployments. Includes adjustable mounting rails, vertical cable managers, mesh front and rear doors and tool-less side panels.",
+    "features": [
+      "42U usable height",
+      "800 x 1000 mm footprint",
+      "Mesh front & split rear doors",
+      "Vertical cable management",
+      "1500 kg static load"
+    ],
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-01-10T00:00:00.000Z"
+  },
+  {
+    "id": "nx-ipphone-x7",
+    "slug": "enterprise-ip-phone-x7",
+    "name": "Enterprise IP Phone X7",
+    "category": "Telecom",
+    "shortDescription": "Gigabit IP phone with HD audio, 6 SIP accounts and PoE support.",
+    "description": "Productivity-grade IP phone for enterprise UC platforms. HD voice, dual gigabit ports, 6 SIP accounts and integrated Bluetooth/EHS headset support. Compatible with all major SIP platforms.",
+    "features": [
+      "HD wideband audio",
+      "6 SIP account support",
+      "Dual gigabit ports + PoE",
+      "Bluetooth & EHS ready",
+      "4.3-inch colour display"
+    ],
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-01T00:00:00.000Z"
+  }
+]

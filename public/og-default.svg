@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061a2e"/>
+      <stop offset="1" stop-color="#0a2540"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.6">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="#ffffff14" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(80,90)">
+    <rect width="64" height="64" rx="16" fill="#ffffff"/>
+    <path d="M22 50V18h5l13 17V18h5v32h-5L27 33v17h-5z" fill="#f59e0b"/>
+  </g>
+  <text x="160" y="138" font-family="Inter, system-ui, Arial" font-weight="700" font-size="44" fill="#fff" letter-spacing="-1">Nexatel</text>
+  <text x="80" y="320" font-family="Inter, system-ui, Arial" font-weight="700" font-size="78" fill="#fff" letter-spacing="-2">Engineering connections.</text>
+  <text x="80" y="408" font-family="Inter, system-ui, Arial" font-weight="700" font-size="78" fill="#f59e0b" letter-spacing="-2">Powering tomorrow.</text>
+  <text x="80" y="500" font-family="Inter, system-ui, Arial" font-weight="500" font-size="30" fill="#cbd5e1">IT services · Fiber optics · Telecom · Solar &amp; energy</text>
+  <text x="80" y="554" font-family="Inter, system-ui, Arial" font-weight="600" font-size="24" fill="#94a3b8" letter-spacing="2">KERALA · KUWAIT</text>
+</svg>

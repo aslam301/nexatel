@@ -1,0 +1,56 @@
+[
+  {
+    "id": "p-001",
+    "title": "Smart Campus Backbone — Kuwait University",
+    "client": "Confidential, Kuwait",
+    "category": "Fiber Optics",
+    "summary": "10 km single-mode OFC backbone connecting 14 academic buildings with redundant ring topology.",
+    "year": "2024",
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop"
+  },
+  {
+    "id": "p-002",
+    "title": "Tier-III Data Centre Cabling — Kochi",
+    "client": "InfoPark Tenant, Kerala",
+    "category": "Structured Cabling",
+    "summary": "1,800-port Cat6A and OM4 fiber cabling with full Fluke certification for a financial services tenant.",
+    "year": "2023",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop"
+  },
+  {
+    "id": "p-003",
+    "title": "Rooftop Solar PV — 1.2 MW Industrial",
+    "client": "Manufacturing Group, Kuwait",
+    "category": "Solar & Energy",
+    "summary": "1.2 MW grid-tied rooftop PV plant with on-line monitoring and 5-year O&M contract.",
+    "year": "2024",
+    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=70&auto=format&fit=crop"
+  },
+  {
+    "id": "p-004",
+    "title": "IBS / DAS — Mall of GCC",
+    "client": "Retail Operator, Kuwait",
+    "category": "Telecom",
+    "summary": "Multi-operator in-building DAS covering 220,000 sqm with neutral-host commercial model.",
+    "year": "2023",
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop"
+  },
+  {
+    "id": "p-005",
+    "title": "Managed IT Services — Healthcare Group",
+    "client": "Hospital Network, Kerala",
+    "category": "IT Services",
+    "summary": "24x7 managed IT, network and cybersecurity services across 6 hospital sites.",
+    "year": "2022",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop"
+  },
+  {
+    "id": "p-006",
+    "title": "FTTH Rollout — Residential Township",
+    "client": "Property Developer, Kerala",
+    "category": "Fiber Optics",
+    "summary": "GPON FTTH deployment for 2,400 homes with full splicing, OTDR testing and OLT integration.",
+    "year": "2024",
+    "image": "https://images.unsplash.com/photo-1581090700227-1e8e29d4c3b1?w=1200&q=70&auto=format&fit=crop"
+  }
+]
