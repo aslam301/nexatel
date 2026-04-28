@@ -8,6 +8,7 @@ export const metadata = buildMetadata({
   description:
     "Selected Nexatel projects across fiber optics, structured cabling, telecom infrastructure, IT services and solar energy.",
   path: "/projects",
+  image: "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&h=630&fit=crop&q=70&auto=format",
 });
 
 export default async function ProjectsPage() {

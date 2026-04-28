@@ -8,6 +8,15 @@ export const metadata = buildMetadata({
   description:
     "Browse Nexatel's catalogue of fiber optic cables, structured cabling, test equipment, solar panels, telecom and data-centre hardware.",
   path: "/products",
+  image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop&q=70&auto=format",
+  keywords: [
+    "fiber optic cable Kuwait",
+    "Cat6A cable",
+    "OTDR test equipment",
+    "solar panel Kuwait",
+    "data centre rack",
+    "IP phone GCC",
+  ],
 });
 
 export const revalidate = 60;

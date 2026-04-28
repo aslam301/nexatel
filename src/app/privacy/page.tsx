@@ -4,6 +4,7 @@ export const metadata = buildMetadata({
   title: "Privacy Policy",
   description: "How Nexatel collects, uses and protects your information.",
   path: "/privacy",
+  // Allow indexing but mark as low-priority via standard policy page conventions.
 });
 
 export default function PrivacyPage() {

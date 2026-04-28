@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getServices, getServiceBySlug } from "@/lib/data";
+import { getCompany, getServices, getServiceBySlug } from "@/lib/data";
 import { Icon } from "@/components/Icon";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbsJsonLd, buildMetadata, serviceJsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const services = await getServices();
@@ -18,16 +18,32 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: service.title,
     description: service.summary,
     path: `/services/${slug}`,
-    image: service.image,
+    image: { url: service.image, alt: service.title },
+    ogType: "article",
   });
 }
 
 export default async function ServiceDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const service = await getServiceBySlug(slug);
+  const [service, company] = await Promise.all([getServiceBySlug(slug), getCompany()]);
   if (!service) notFound();
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      serviceJsonLd(service, company),
+      breadcrumbsJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: service.title, path: `/services/${service.slug}` },
+      ]),
+    ],
+  };
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
       <section className="hero-gradient text-white">
         <div className="container-wide py-16 md:py-20">
           <Link href="/services" className="text-sm text-slate-300 hover:text-white inline-flex items-center gap-1 mb-6">

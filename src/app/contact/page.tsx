@@ -2,19 +2,25 @@ import { Hero } from "@/components/Hero";
 import { Icon } from "@/components/Icon";
 import { ContactForm } from "@/components/ContactForm";
 import { getCompany } from "@/lib/data";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, localBusinessJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Contact",
   description:
     "Talk to Nexatel about IT services, fiber optics, telecom infrastructure, structured cabling and solar installations across Kuwait and Kerala.",
   path: "/contact",
+  image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=630&fit=crop&q=70&auto=format",
 });
 
 export default async function ContactPage() {
   const company = await getCompany();
+  const businesses = localBusinessJsonLd(company);
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": businesses }) }}
+      />
       <Hero
         eyebrow="Contact"
         title="Let's scope your next deployment."

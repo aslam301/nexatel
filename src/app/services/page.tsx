@@ -8,6 +8,15 @@ export const metadata = buildMetadata({
   description:
     "IT services, fiber optics, structured cabling, telecom infrastructure and clean-energy installations from Nexatel.",
   path: "/services",
+  image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&h=630&fit=crop&q=70&auto=format",
+  keywords: [
+    "managed IT services Kuwait",
+    "fiber optic installation Kerala",
+    "structured cabling GCC",
+    "telecom infrastructure Kuwait",
+    "rooftop solar Kuwait",
+    "BICSI cabling",
+  ],
 });
 
 export default async function ServicesPage() {

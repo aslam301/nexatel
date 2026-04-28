@@ -8,6 +8,8 @@ export const metadata = buildMetadata({
   title: "Get a quote",
   description: "Request a project quote from Nexatel — IT services, fiber optics, telecom, structured cabling and solar installations across Kuwait and Kerala.",
   path: "/get-quote",
+  image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&h=630&fit=crop&q=70&auto=format",
+  keywords: ["request quote", "Nexatel quotation", "IT project Kuwait", "fiber optic quote"],
 });
 
 interface SearchParams { service?: string }

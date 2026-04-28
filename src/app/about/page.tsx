@@ -10,6 +10,14 @@ export async function generateMetadata() {
     title: "About",
     description: `${company.name} is a multi-vertical engineering and technology group with deep roots in Kerala and operations across Kuwait.`,
     path: "/about",
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&h=630&fit=crop&q=70&auto=format",
+    keywords: [
+      "about Nexatel",
+      "Kerala IT company",
+      "Kuwait IT services",
+      "GCC engineering",
+      "fiber optic specialist",
+    ],
   });
 }
 

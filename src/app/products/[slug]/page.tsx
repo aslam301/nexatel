@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProductBySlug, getProducts } from "@/lib/data";
+import { getCompany, getProductBySlug, getProducts } from "@/lib/data";
 import { Icon } from "@/components/Icon";
-import { buildMetadata } from "@/lib/seo";
+import { breadcrumbsJsonLd, buildMetadata, productJsonLd } from "@/lib/seo";
 
 export const dynamic = "force-static";
 export const revalidate = 60;
@@ -21,17 +21,34 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: p.name,
     description: p.shortDescription,
     path: `/products/${slug}`,
-    image: p.image,
+    image: { url: p.image, alt: p.name },
+    ogType: "article",
+    keywords: [p.name, p.category, "Nexatel product"],
   });
 }
 
 export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = await getProductBySlug(slug);
+  const [product, company] = await Promise.all([getProductBySlug(slug), getCompany()]);
   if (!product) notFound();
+  const graph = {
+    "@context": "https://schema.org",
+    "@graph": [
+      productJsonLd(product, company),
+      breadcrumbsJsonLd([
+        { name: "Home", path: "/" },
+        { name: "Products", path: "/products" },
+        { name: product.name, path: `/products/${product.slug}` },
+      ]),
+    ],
+  };
 
   return (
     <section className="container-wide py-12 md:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
       <Link href="/products" className="text-sm text-slate-500 hover:text-[var(--primary)] inline-flex items-center gap-1 mb-6">
         ← All products
       </Link>
