@@ -58,3 +58,36 @@ export interface Project {
   year: string;
   image: string;
 }
+
+export interface Settings {
+  notificationEmail: string;
+  ccEmails: string[];
+  emailSubjectPrefix: string;
+  autoReplyEnabled: boolean;
+  updatedAt: string;
+}
+
+export type SubmissionKind = "contact" | "quote";
+
+export interface Submission {
+  id: string;
+  kind: SubmissionKind;
+  createdAt: string;
+  name: string;
+  email: string;
+  organisation?: string;
+  phone?: string;
+  topic?: string;
+  // Quote-specific
+  serviceArea?: string;
+  scope?: string;
+  budget?: string;
+  timeline?: string;
+  location?: string;
+  // Common
+  message: string;
+  // Delivery
+  emailDelivered: boolean;
+  emailError?: string;
+  ip?: string;
+}

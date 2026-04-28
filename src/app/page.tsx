@@ -161,7 +161,7 @@ export default async function HomePage() {
               can scope, price and deliver — across Kuwait and Kerala.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-accent">Request a proposal <Icon name="arrow" size={16} /></Link>
+              <Link href="/get-quote" className="btn-accent">Request a proposal <Icon name="arrow" size={16} /></Link>
               <a href={`mailto:${company.supportEmail}`} className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10">
                 <Icon name="mail" size={16} /> {company.supportEmail}
               </a>

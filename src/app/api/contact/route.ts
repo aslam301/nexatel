@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
+import { randomUUID } from "node:crypto";
 import { checkRateLimit, clientIdFromHeaders } from "@/lib/rateLimit";
+import { appendSubmission, getSettings } from "@/lib/data";
+import { sendSubmissionEmail } from "@/lib/email";
+import type { Submission } from "@/lib/types";
 
 export const runtime = "nodejs";
 
@@ -31,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Invalid request" }, { status: 400 });
   }
 
-  // Honeypot — silently accept but discard
+  // Honeypot — silently accept but discard.
   if (data.company_website) {
     return NextResponse.json({ ok: true });
   }
@@ -49,19 +53,26 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Please provide a valid email" }, { status: 400 });
   }
 
-  // Log so users see submissions in `vercel logs` until an email/CRM provider is wired up.
-  console.log(
-    JSON.stringify({
-      type: "contact_form_submission",
-      at: new Date().toISOString(),
-      ip,
-      name,
-      email,
-      organisation,
-      topic,
-      messagePreview: message.slice(0, 200),
-    }),
-  );
+  const settings = await getSettings();
+
+  const submission: Submission = {
+    id: `c-${randomUUID()}`,
+    kind: "contact",
+    createdAt: new Date().toISOString(),
+    name,
+    email,
+    organisation: organisation || undefined,
+    topic,
+    message,
+    emailDelivered: false,
+    ip,
+  };
+
+  const emailRes = await sendSubmissionEmail(submission, settings);
+  submission.emailDelivered = emailRes.ok;
+  if (!emailRes.ok) submission.emailError = emailRes.error;
+
+  await appendSubmission(submission);
 
   return NextResponse.json({ ok: true });
 }

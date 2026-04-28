@@ -36,6 +36,8 @@ npm run start
 | `NEXT_PUBLIC_SITE_URL` | yes | Public origin used for canonical links, OG tags and the sitemap. |
 | `ADMIN_PASSWORD` | yes | Password for `/admin/login`. Min 6 characters. |
 | `ADMIN_SESSION_SECRET` | yes | Random string used to sign the admin session cookie. Min 32 chars. Generate with `openssl rand -hex 32`. |
+| `RESEND_API_KEY` | no | Enables outbound email for contact + quote submissions. Without it, submissions are still saved and visible in the admin, but no email is sent. |
+| `EMAIL_FROM` | no | Verified sender address for outgoing emails (e.g. `Nexatel <hello@nexatel.org>`). |
 
 `.env.example` is the template. `.env.local` is git-ignored.
 
@@ -53,9 +55,13 @@ npm run start
 | `/products/[slug]` | Product detail |
 | `/projects` | Selected work |
 | `/contact` | Contact form (POSTs to `/api/contact`) |
+| `/get-quote` | Quote request form (POSTs to `/api/quote`) |
 | `/privacy`, `/terms` | Legal placeholders |
 | `/admin/login` | Admin sign-in |
+| `/admin/dashboard` | Stats, recent submissions, email status |
 | `/admin/products` | List / add / edit / delete products |
+| `/admin/submissions` | Read-only view of all contact + quote submissions |
+| `/admin/settings` | Edit notification email and CC list |
 
 ---
 
@@ -77,6 +83,16 @@ data/
 - `products.json` — managed through the admin UI at `/admin/products`. Locally the API writes the file directly. On Vercel (read-only filesystem) the API returns a 503 with guidance — see *Admin on Vercel* below.
 
 After admin writes, affected pages are revalidated automatically.
+
+### Submissions
+
+`/contact` and `/get-quote` both POST to API routes that:
+
+1. Validate input + apply per-IP rate limiting and a honeypot.
+2. Try to send an email through **Resend** (only if `RESEND_API_KEY` is set; otherwise the payload is logged to stdout and visible via `vercel logs`).
+3. Append the submission to `data/submissions.json` (when the filesystem is writable — local dev or any non-Vercel host).
+
+The admin **Submissions** page renders the file as a read-only list with a per-row detail drawer. The recipient address is editable in **Settings** and lives in `data/settings.json`.
 
 ---
 

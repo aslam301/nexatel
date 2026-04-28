@@ -1,0 +1,33 @@
+[
+  {
+    "id": "q-de5d9501-689d-4b62-b105-9f8e3b854991",
+    "kind": "quote",
+    "createdAt": "2026-04-28T17:12:10.290Z",
+    "name": "Test Ltd",
+    "email": "buyer@example.com",
+    "organisation": "Test Ltd",
+    "phone": "+965 12345",
+    "serviceArea": "fiber-optics",
+    "scope": "5km OFC backbone",
+    "budget": "$25k � $100k",
+    "timeline": "1 � 3 months",
+    "location": "Kuwait City",
+    "message": "Need a budgetary number for an OFC backbone.",
+    "emailDelivered": false,
+    "ip": "::1",
+    "emailError": "RESEND_API_KEY not configured"
+  },
+  {
+    "id": "c-2a53b618-19ce-40f2-a4ed-3082c2336e6d",
+    "kind": "contact",
+    "createdAt": "2026-04-28T17:12:09.392Z",
+    "name": "Aslam Test",
+    "email": "aslam@example.com",
+    "organisation": "E2E Co",
+    "topic": "fiber",
+    "message": "Verifying contact form end-to-end.",
+    "emailDelivered": false,
+    "ip": "::1",
+    "emailError": "RESEND_API_KEY not configured"
+  }
+]

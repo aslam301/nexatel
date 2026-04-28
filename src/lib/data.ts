@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import type { Company, Service, Product, Project } from "./types";
+import type { Company, Service, Product, Project, Settings, Submission } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -38,6 +38,52 @@ export async function getProductById(id: string): Promise<Product | undefined> {
 
 export async function saveProducts(products: Product[]): Promise<void> {
   await writeJson("products.json", products);
+}
+
+const DEFAULT_SETTINGS: Settings = {
+  notificationEmail: "rafiq@nexatel.org",
+  ccEmails: [],
+  emailSubjectPrefix: "[Nexatel]",
+  autoReplyEnabled: false,
+  updatedAt: new Date(0).toISOString(),
+};
+
+export async function getSettings(): Promise<Settings> {
+  try {
+    return await readJson<Settings>("settings.json");
+  } catch {
+    return DEFAULT_SETTINGS;
+  }
+}
+
+export async function saveSettings(settings: Settings): Promise<void> {
+  await writeJson("settings.json", settings);
+}
+
+export async function getSubmissions(): Promise<Submission[]> {
+  try {
+    const list = await readJson<Submission[]>("submissions.json");
+    return Array.isArray(list) ? list : [];
+  } catch {
+    return [];
+  }
+}
+
+export async function appendSubmission(submission: Submission): Promise<{ saved: boolean; reason?: string }> {
+  if (!isFsWritable()) {
+    // On Vercel runtime, the filesystem is read-only — skip persistence.
+    return { saved: false, reason: "read-only-fs" };
+  }
+  try {
+    const list = await getSubmissions();
+    list.unshift(submission);
+    // Cap to a reasonable size to keep the JSON small.
+    const capped = list.slice(0, 500);
+    await writeJson("submissions.json", capped);
+    return { saved: true };
+  } catch (err) {
+    return { saved: false, reason: err instanceof Error ? err.message : "unknown" };
+  }
 }
 
 export function isFsWritable(): boolean {

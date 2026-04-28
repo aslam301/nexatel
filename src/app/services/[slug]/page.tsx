@@ -51,8 +51,9 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
               </li>
             ))}
           </ul>
-          <div className="pt-2">
-            <Link href="/contact" className="btn-primary">Discuss your requirement <Icon name="arrow" size={16} /></Link>
+          <div className="pt-2 flex flex-wrap gap-3">
+            <Link href={`/get-quote?service=${service.slug.replace(/-cabling$/, "").replace(/-/g, "-")}`} className="btn-primary">Get a quote <Icon name="arrow" size={16} /></Link>
+            <Link href="/contact" className="btn-outline">Talk to our team</Link>
           </div>
         </div>
         <div className="lg:col-span-2 relative aspect-[4/3] rounded-2xl overflow-hidden">

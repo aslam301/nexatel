@@ -62,7 +62,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
           )}
 
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-primary">Request quotation <Icon name="arrow" size={16} /></Link>
+            <Link href="/get-quote?service=it-hardware" className="btn-primary">Request quotation <Icon name="arrow" size={16} /></Link>
             {product.datasheetUrl && (
               <a href={product.datasheetUrl} className="btn-outline" target="_blank" rel="noreferrer">
                 Datasheet
