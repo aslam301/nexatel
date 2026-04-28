@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { ConditionalFooter } from "@/components/ConditionalFooter";
 import { getCompany } from "@/lib/data";
 import { buildMetadata, organizationJsonLd } from "@/lib/seo";
 
@@ -54,7 +54,7 @@ export default async function RootLayout({
         />
         <Header />
         <main className="flex-1">{children}</main>
-        <Footer company={company} />
+        <ConditionalFooter company={company} />
       </body>
     </html>
   );

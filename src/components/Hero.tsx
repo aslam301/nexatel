@@ -41,19 +41,26 @@ export function Hero({
           fill
           sizes="100vw"
           priority
-          quality={70}
-          className="absolute inset-0 -z-10 object-cover opacity-60 mix-blend-luminosity"
+          quality={75}
+          className="absolute inset-0 object-cover"
         />
       )}
 
-      {/* Layer 2 — dark gradient overlay for text legibility */}
+      {/* Layer 2 — directional gradient overlay: darker on the left/bottom (where copy lives),
+         lighter on the right (so the image clearly shows through). */}
       <div
         className="absolute inset-0"
         aria-hidden
         style={{
           background:
-            "linear-gradient(180deg, rgba(6,26,46,0.55) 0%, rgba(6,26,46,0.85) 70%, rgba(6,26,46,0.95) 100%)",
+            "linear-gradient(105deg, rgba(6,26,46,0.92) 0%, rgba(6,26,46,0.75) 35%, rgba(6,26,46,0.45) 65%, rgba(6,26,46,0.30) 100%)",
         }}
+      />
+      {/* Subtle bottom fade so the next section doesn't fight the image */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-24"
+        aria-hidden
+        style={{ background: "linear-gradient(180deg, transparent, rgba(6,26,46,0.65))" }}
       />
 
       {/* Layer 3 — grid pattern, very subtle */}
@@ -73,7 +80,7 @@ export function Hero({
       <div className={`container-wide relative ${padding}`}>
         <div className="max-w-3xl">
           {showStatus && (
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 backdrop-blur-sm">
               <span className="relative inline-flex h-2 w-2">
                 <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
                 <span className="relative inline-block h-2 w-2 rounded-full bg-emerald-400" />
@@ -85,12 +92,16 @@ export function Hero({
           )}
 
           {eyebrow && (
-            <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[var(--accent)]">
-              {eyebrow}
-            </span>
+            <div className={showStatus ? "mt-8" : ""}>
+              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[var(--accent)]">
+                {eyebrow}
+              </span>
+            </div>
           )}
 
-          <h1 className="mt-4 text-[2.5rem] sm:text-5xl md:text-[4.25rem] font-semibold leading-[1.05] tracking-[-0.03em]">
+          <h1 className={`text-[2.5rem] sm:text-5xl md:text-[4.25rem] font-semibold leading-[1.05] tracking-[-0.03em] ${
+            eyebrow ? "mt-3" : showStatus ? "mt-8" : "mt-0"
+          }`}>
             {title}
           </h1>
 

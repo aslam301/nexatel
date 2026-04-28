@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 
 const NAV = [
@@ -14,6 +15,7 @@ const NAV = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -23,6 +25,9 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Admin pages have their own AdminShell chrome — don't double-stack site nav.
+  if (pathname?.startsWith("/admin")) return null;
 
   return (
     <header

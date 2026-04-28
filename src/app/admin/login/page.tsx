@@ -33,7 +33,7 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-[var(--surface)] flex items-start md:items-center justify-center px-5 py-16">
+    <div className="min-h-screen bg-[var(--surface)] flex items-start md:items-center justify-center px-5 py-16">
       <div className="w-full max-w-sm card p-7">
         <h1 className="text-xl font-semibold text-[var(--primary)]">Admin sign-in</h1>
         <p className="text-sm text-slate-600 mt-1.5">

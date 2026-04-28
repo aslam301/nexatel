@@ -9,17 +9,19 @@ export function SubmissionsClient({ submissions }: { submissions: Submission[] }
 
   if (submissions.length === 0) {
     return (
-      <div className="card p-12 text-center">
+      <div className="card p-12 text-center min-h-[60vh] flex flex-col items-center justify-center">
         <div className="text-slate-500 text-sm">No submissions yet.</div>
         <p className="mt-2 text-xs text-slate-400">When visitors submit the contact or quote forms, they&rsquo;ll appear here.</p>
       </div>
     );
   }
 
+  // Split-pane on lg+ : both columns share a fixed viewport-based height with
+  // their own internal scroll. On mobile the layout reverts to normal page flow.
   return (
-    <div className="grid lg:grid-cols-5 gap-5">
-      <div className={`lg:col-span-${open ? "3" : "5"} card overflow-hidden`}>
-        <div className="overflow-x-auto">
+    <div className="grid gap-5 lg:grid-cols-5 lg:h-[calc(100vh-11rem)]">
+      <div className={`${open ? "lg:col-span-3" : "lg:col-span-5"} card overflow-hidden flex flex-col`}>
+        <div className="overflow-auto flex-1">
           <table className="w-full text-sm">
             <thead className="bg-slate-50">
               <tr className="text-left text-xs uppercase tracking-wider text-slate-500">
@@ -73,7 +75,7 @@ export function SubmissionsClient({ submissions }: { submissions: Submission[] }
       </div>
 
       {open && (
-        <div className="lg:col-span-2 card p-5 sticky top-20 self-start">
+        <div className="lg:col-span-2 card p-5 lg:overflow-y-auto">
           <div className="flex items-start justify-between gap-3 mb-3">
             <div className="min-w-0">
               <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${

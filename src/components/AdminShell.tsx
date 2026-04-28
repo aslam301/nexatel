@@ -29,10 +29,10 @@ export function AdminShell({ children, title, subtitle, actions }: { children: R
   }
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-[var(--surface)]">
+    <div className="min-h-screen bg-[var(--surface)]">
       <div className="flex">
         {/* Sidebar — desktop */}
-        <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-[var(--border)] bg-white min-h-[calc(100vh-4rem)] sticky top-16">
+        <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-[var(--border)] bg-white min-h-screen sticky top-0">
           <div className="px-5 py-5 border-b border-[var(--border)] flex items-center justify-between">
             <Logo size={24} />
             <span className="text-[10px] tracking-widest uppercase font-semibold text-[var(--accent-strong)] bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">

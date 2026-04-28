@@ -39,8 +39,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-a {
-  color: inherit;
+/* Wrapped in @layer base so Tailwind utility classes (text-white, text-slate-700,
+   etc.) override this default — without the layer, source-order would beat
+   utilities and cause unreadable text on dark backgrounds (e.g. admin sidebar). */
+@layer base {
+  a {
+    color: inherit;
+  }
 }
 
 /* Reusable UI helpers */

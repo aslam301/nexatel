@@ -23,7 +23,7 @@ export default async function AboutPage() {
         subtitle="We build and maintain the physical and digital infrastructure that powers ambitious organisations across Kuwait and India."
         size="compact"
         showStatus={false}
-        backgroundImage="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=70&auto=format&fit=crop"
+        backgroundImage="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=2000&q=75&auto=format&fit=crop"
       />
 
       <section className="container-wide py-20 grid lg:grid-cols-5 gap-12">
