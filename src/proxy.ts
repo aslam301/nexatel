@@ -7,7 +7,7 @@ export const config = {
 
 const PUBLIC_ADMIN_PATHS = ["/admin/login", "/api/admin/login"];
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (PUBLIC_ADMIN_PATHS.some((p) => pathname === p || pathname.startsWith(p + "/"))) {
     return NextResponse.next();

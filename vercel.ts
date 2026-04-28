@@ -8,7 +8,6 @@ export const config: VercelConfig = {
     routes.cacheControl("/(.*)\\.(?:svg|jpg|jpeg|png|webp|avif|ico)", {
       public: true,
       maxAge: "30 days",
-      immutable: false,
     }),
   ],
 };

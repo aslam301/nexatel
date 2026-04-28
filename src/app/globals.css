@@ -145,11 +145,11 @@ a {
   width: 100%;
 }
 
-/* Hero gradient */
+/* Hero gradient (placeholder color shown while image loads) */
 .hero-gradient {
   background:
     radial-gradient(1200px 500px at 80% -10%, rgba(245, 158, 11, 0.18), transparent 60%),
-    radial-gradient(800px 400px at -10% 20%, rgba(56, 189, 248, 0.12), transparent 60%),
+    radial-gradient(800px 400px at -10% 20%, rgba(56, 189, 248, 0.14), transparent 60%),
     linear-gradient(180deg, #061a2e 0%, #0a2540 100%);
 }
 
@@ -160,6 +160,46 @@ a {
     linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
   background-size: 48px 48px;
 }
+
+/* Animated horizontal scan line on hero */
+.hero-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-scan::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.55), transparent);
+  filter: blur(0.5px);
+  animation: hero-scan 9s linear infinite;
+  opacity: 0.7;
+}
+@keyframes hero-scan {
+  0%   { transform: translateY(-10%); }
+  100% { transform: translateY(110vh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scan::before { animation: none; opacity: 0; }
+}
+
+/* Corner brackets — tech / minimal accent */
+.hero-bracket {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(255,255,255,0.25);
+  border-style: solid;
+  border-width: 0;
+}
+.hero-bracket--tl { top: 18px;    left: 18px;    border-top-width: 1px; border-left-width: 1px; }
+.hero-bracket--tr { top: 18px;    right: 18px;   border-top-width: 1px; border-right-width: 1px; }
+.hero-bracket--bl { bottom: 18px; left: 18px;    border-bottom-width: 1px; border-left-width: 1px; }
+.hero-bracket--br { bottom: 18px; right: 18px;   border-bottom-width: 1px; border-right-width: 1px; }
 
 /* Forms */
 .input, .textarea, .select {

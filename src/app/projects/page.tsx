@@ -18,6 +18,9 @@ export default async function ProjectsPage() {
         eyebrow="Selected work"
         title="Built. Tested. Trusted."
         subtitle="A short selection of recent Nexatel deployments across Kuwait and Kerala."
+        size="compact"
+        showStatus={false}
+        backgroundImage="https://images.unsplash.com/photo-1545987796-200677ee1011?w=2000&q=70&auto=format&fit=crop"
       />
       <section className="container-wide py-16">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

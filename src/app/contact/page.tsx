@@ -19,6 +19,9 @@ export default async function ContactPage() {
         eyebrow="Contact"
         title="Let's scope your next deployment."
         subtitle="Tell us about your project — we usually reply within one business day."
+        size="compact"
+        showStatus={false}
+        backgroundImage="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&q=70&auto=format&fit=crop"
       />
       <section className="container-wide py-16 grid lg:grid-cols-5 gap-12">
         <div className="lg:col-span-2 space-y-6">

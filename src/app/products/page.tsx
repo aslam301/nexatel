@@ -21,6 +21,9 @@ export default async function ProductsPage() {
         eyebrow="Catalogue"
         title="Engineered hardware, sourced and supplied."
         subtitle="Tier-1 OEM hardware backed by Nexatel warranty registration, asset tagging and on-site delivery across Kuwait and India."
+        size="compact"
+        showStatus={false}
+        backgroundImage="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=2000&q=70&auto=format&fit=crop"
       />
       <section className="container-wide py-20">
         <div className="flex flex-wrap gap-2 mb-8">

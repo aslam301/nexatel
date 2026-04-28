@@ -46,17 +46,18 @@ export function createSessionToken(): string {
 
 export function verifySessionToken(token: string | undefined): SessionToken | null {
   if (!token) return null;
-  const [payload, sig] = token.split(".");
-  if (!payload || !sig) return null;
-  const expected = sign(payload);
-  const a = Buffer.from(sig, "hex");
-  const b = Buffer.from(expected, "hex");
-  if (a.length !== b.length || !timingSafeEqual(a, b)) return null;
   try {
+    const [payload, sig] = token.split(".");
+    if (!payload || !sig) return null;
+    const expected = sign(payload);
+    const a = Buffer.from(sig, "hex");
+    const b = Buffer.from(expected, "hex");
+    if (a.length !== b.length || !timingSafeEqual(a, b)) return null;
     const data = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as SessionToken;
     if (typeof data.exp !== "number" || data.exp < Date.now()) return null;
     return data;
   } catch {
+    // Missing secret, malformed token, or any other unexpected issue → not authenticated.
     return null;
   }
 }

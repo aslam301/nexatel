@@ -21,6 +21,9 @@ export default async function AboutPage() {
         eyebrow="About Nexatel"
         title="Quiet engineering. Loud results."
         subtitle="We build and maintain the physical and digital infrastructure that powers ambitious organisations across Kuwait and India."
+        size="compact"
+        showStatus={false}
+        backgroundImage="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=70&auto=format&fit=crop"
       />
 
       <section className="container-wide py-20 grid lg:grid-cols-5 gap-12">

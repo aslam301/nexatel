@@ -25,6 +25,7 @@ export default async function HomePage() {
         subtitle="Nexatel is a multi-vertical engineering and technology group delivering fiber optics, structured cabling, telecom, IT services and clean-energy installations across the GCC and India."
         primaryCta={{ href: "/services", label: "Explore services" }}
         secondaryCta={{ href: "/contact", label: "Talk to our team" }}
+        backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=2400&q=70&auto=format&fit=crop"
       />
 
       {/* Stats */}

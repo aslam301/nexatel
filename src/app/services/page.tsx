@@ -18,6 +18,9 @@ export default async function ServicesPage() {
         eyebrow="Services"
         title="End-to-end engineering, under one roof."
         subtitle="Five specialised divisions, each led by domain experts and backed by Nexatel's regional support footprint."
+        size="compact"
+        showStatus={false}
+        backgroundImage="https://images.unsplash.com/photo-1518770660439-4636190af475?w=2000&q=70&auto=format&fit=crop"
       />
       <section className="container-wide py-20">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
