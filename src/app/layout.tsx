@@ -54,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a2540",
+  themeColor: "#050816",
   width: "device-width",
   initialScale: 1,
 };
@@ -69,7 +69,7 @@ export default async function RootLayout({
   };
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <body className="min-h-screen flex flex-col bg-white text-[var(--foreground)]">
+      <body className="min-h-screen flex flex-col text-[var(--foreground)]" style={{ background: "var(--background)" }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}

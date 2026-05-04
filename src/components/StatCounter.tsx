@@ -76,10 +76,17 @@ export function StatCounter({ value, label, durationMs = 1400 }: StatCounterProp
 
   return (
     <div ref={ref} className="text-center md:text-left">
-      <div className="text-3xl md:text-5xl font-bold text-[var(--primary)] tracking-tight tabular-nums">
+      <div
+        className="text-3xl md:text-5xl font-semibold tracking-tight tabular-nums"
+        style={{
+          background: "linear-gradient(135deg, #ffffff 0%, #c7d2fe 60%, #a5f3fc 100%)",
+          backgroundClip: "text",
+          color: "transparent",
+        }}
+      >
         {display}
       </div>
-      <div className="mt-1.5 text-[11px] md:text-xs uppercase tracking-[0.16em] text-slate-500 font-medium">
+      <div className="mt-2 text-[11px] md:text-xs uppercase tracking-[0.18em] text-slate-400 font-medium">
         {label}
       </div>
     </div>

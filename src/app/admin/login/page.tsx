@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Logo } from "@/components/Logo";
 
 function LoginForm() {
   const router = useRouter();
@@ -33,10 +34,36 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[var(--surface)] flex items-start md:items-center justify-center px-5 py-16">
-      <div className="w-full max-w-sm card p-7">
-        <h1 className="text-xl font-semibold text-[var(--primary)]">Admin sign-in</h1>
-        <p className="text-sm text-slate-600 mt-1.5">
+    <div
+      className="min-h-screen flex items-start md:items-center justify-center px-5 py-16 relative overflow-hidden"
+      style={{ background: "var(--background)" }}
+    >
+      <div
+        className="pointer-events-none absolute -top-32 right-[-10%] h-[420px] w-[420px] rounded-full opacity-50 blur-3xl"
+        aria-hidden
+        style={{ background: "radial-gradient(closest-side, rgba(124,58,237,0.45), transparent)" }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-40 left-[-10%] h-[460px] w-[460px] rounded-full opacity-40 blur-3xl"
+        aria-hidden
+        style={{ background: "radial-gradient(closest-side, rgba(6,182,212,0.40), transparent)" }}
+      />
+      <div className="relative w-full max-w-sm card p-8">
+        <div className="flex items-center justify-between">
+          <Logo size={28} />
+          <span
+            className="text-[10px] tracking-widest uppercase font-semibold px-2 py-0.5 rounded"
+            style={{
+              color: "var(--violet)",
+              background: "rgba(124,58,237,0.10)",
+              border: "1px solid rgba(124,58,237,0.30)",
+            }}
+          >
+            Admin
+          </span>
+        </div>
+        <h1 className="mt-6 text-xl font-semibold text-white">Admin sign-in</h1>
+        <p className="text-sm text-slate-400 mt-2">
           Enter the admin password to manage the product catalogue and submissions.
         </p>
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
@@ -65,7 +92,7 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div className="max-w-sm mx-auto card p-7">Loading…</div>}>
+    <Suspense fallback={<div className="max-w-sm mx-auto card p-7 text-slate-300">Loading…</div>}>
       <LoginForm />
     </Suspense>
   );

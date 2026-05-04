@@ -36,7 +36,7 @@ export default async function AboutPage() {
       />
 
       {/* Who we are */}
-      <section className="container-wide py-20 md:py-24 grid lg:grid-cols-5 gap-12">
+      <section className="container-wide py-24 md:py-28 grid lg:grid-cols-5 gap-12">
         <div className="lg:col-span-3 space-y-6">
           <span className="eyebrow">Who we are</span>
           <h2 className="section-title">Engineering depth, delivered on the ground.</h2>
@@ -56,7 +56,7 @@ export default async function AboutPage() {
             part of your extended team.
           </p>
         </div>
-        <div className="lg:col-span-2 relative aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-[var(--border)]">
+        <div className="lg:col-span-2 relative aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-[var(--border-strong)]">
           <Image
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70&auto=format&fit=crop"
             alt="Nexatel project review"
@@ -64,37 +64,36 @@ export default async function AboutPage() {
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="object-cover"
           />
+          <div
+            className="absolute inset-0"
+            aria-hidden
+            style={{ background: "linear-gradient(180deg, transparent 40%, rgba(5,8,22,0.6))" }}
+          />
         </div>
       </section>
 
       {/* Mission / Vision */}
-      <section className="bg-[var(--surface)] border-y border-[var(--border)]">
-        <div className="container-wide py-20 md:py-24">
+      <section className="border-y border-[var(--border)] section-glow" style={{ background: "var(--background-2)" }}>
+        <div className="container-wide py-24 md:py-28">
           <span className="eyebrow">Direction</span>
-          <h2 className="section-title mt-2 max-w-3xl">Mission &amp; vision.</h2>
-          <div className="mt-10 grid lg:grid-cols-2 gap-5">
+          <h2 className="section-title mt-3 max-w-3xl">Mission &amp; vision.</h2>
+          <div className="mt-12 grid lg:grid-cols-2 gap-5">
             {company.mission && (
-              <div className="card p-7 lg:p-8">
-                <div
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 ring-[var(--border)] text-[var(--primary)]"
-                  style={{ background: "linear-gradient(135deg, rgba(6,182,212,0.10), rgba(245,158,11,0.10))" }}
-                >
-                  <Icon name="globe" size={22} />
+              <div className="card p-8 lg:p-10">
+                <div className="icon-tile icon-tile-lg">
+                  <Icon name="globe" size={26} />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-[var(--primary)]">Our mission</h3>
-                <p className="mt-3 text-[15px] text-slate-600 leading-relaxed">{company.mission}</p>
+                <h3 className="mt-6 text-xl font-semibold text-white">Our mission</h3>
+                <p className="mt-3 text-[15px] text-slate-400 leading-relaxed">{company.mission}</p>
               </div>
             )}
             {company.vision && (
-              <div className="card p-7 lg:p-8">
-                <div
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 ring-[var(--border)] text-[var(--primary)]"
-                  style={{ background: "linear-gradient(135deg, rgba(6,182,212,0.10), rgba(245,158,11,0.10))" }}
-                >
-                  <Icon name="sparkle" size={22} />
+              <div className="card p-8 lg:p-10">
+                <div className="icon-tile icon-tile-lg">
+                  <Icon name="sparkle" size={26} />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-[var(--primary)]">Our vision</h3>
-                <p className="mt-3 text-[15px] text-slate-600 leading-relaxed">{company.vision}</p>
+                <h3 className="mt-6 text-xl font-semibold text-white">Our vision</h3>
+                <p className="mt-3 text-[15px] text-slate-400 leading-relaxed">{company.vision}</p>
               </div>
             )}
           </div>
@@ -103,22 +102,19 @@ export default async function AboutPage() {
 
       {/* Values */}
       {company.values && company.values.length > 0 && (
-        <section className="container-wide py-20 md:py-24">
+        <section className="container-wide py-24 md:py-28">
           <span className="eyebrow">What we stand for</span>
-          <h2 className="section-title mt-2 max-w-3xl">Our values.</h2>
-          <p className="lead mt-3">
+          <h2 className="section-title mt-3 max-w-3xl">Our values.</h2>
+          <p className="lead mt-4">
             Excel with integrity, expertise, teamwork and client focus.
           </p>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {company.values.map((v) => (
               <div key={v} className="card p-6 flex items-center gap-4">
-                <div
-                  className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ring-1 ring-[var(--border)] text-[var(--primary)]"
-                  style={{ background: "linear-gradient(135deg, rgba(6,182,212,0.10), rgba(245,158,11,0.10))" }}
-                >
+                <div className="icon-tile shrink-0">
                   <Icon name="check" size={20} />
                 </div>
-                <h3 className="text-base font-semibold text-[var(--primary)]">{v}</h3>
+                <h3 className="text-base font-semibold text-white">{v}</h3>
               </div>
             ))}
           </div>
@@ -126,28 +122,31 @@ export default async function AboutPage() {
       )}
 
       {/* Office */}
-      <section className="bg-[var(--surface)] border-y border-[var(--border)]">
-        <div className="container-wide py-20 md:py-24">
+      <section className="border-y border-[var(--border)]" style={{ background: "var(--background-2)" }}>
+        <div className="container-wide py-24 md:py-28">
           <span className="eyebrow">Where to find us</span>
-          <h2 className="section-title mt-2">Headquartered in Kerala.</h2>
-          <div className="grid md:grid-cols-2 gap-5 mt-10">
+          <h2 className="section-title mt-3">Headquartered in Kerala.</h2>
+          <div className="grid md:grid-cols-2 gap-5 mt-12">
             {company.offices.map((o) => (
-              <div key={o.city} className="card p-7">
+              <div key={o.city} className="card p-8">
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg" style={{ background: "rgba(245,158,11,0.12)", color: "var(--accent-strong)" }}>
+                  <div className="icon-tile">
                     <Icon name="pin" size={20} />
                   </div>
-                  <h3 className="text-xl font-semibold text-[var(--primary)]">
+                  <h3 className="text-xl font-semibold text-white">
                     {o.city}, {o.country}
                     {o.isHeadquarters && (
-                      <span className="ml-2 align-middle text-[10px] uppercase tracking-wider text-[var(--accent-strong)] bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">HQ</span>
+                      <span
+                        className="ml-2 align-middle text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded"
+                        style={{ color: "var(--tech)", background: "rgba(6,182,212,0.10)", border: "1px solid rgba(6,182,212,0.25)" }}
+                      >HQ</span>
                     )}
                   </h3>
                 </div>
-                <p className="mt-4 text-sm text-slate-600 leading-relaxed">{o.address}</p>
-                <div className="mt-4 flex flex-col gap-1.5 text-sm text-slate-700">
+                <p className="mt-5 text-sm text-slate-400 leading-relaxed">{o.address}</p>
+                <div className="mt-5 flex flex-col gap-2 text-sm text-slate-300">
                   <span className="inline-flex items-center gap-2"><Icon name="phone" size={16} /> {o.phone}</span>
-                  <a href={`mailto:${o.email}`} className="inline-flex items-center gap-2 hover:text-[var(--primary)]"><Icon name="mail" size={16} /> {o.email}</a>
+                  <a href={`mailto:${o.email}`} className="inline-flex items-center gap-2 hover:text-white transition-colors"><Icon name="mail" size={16} /> {o.email}</a>
                 </div>
               </div>
             ))}
@@ -156,20 +155,26 @@ export default async function AboutPage() {
                 href={company.partner.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card p-7 group hover:border-slate-300 transition-colors"
+                className="card p-8 group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg ring-1 ring-[var(--border)] text-[var(--primary)]" style={{ background: "linear-gradient(135deg, rgba(6,182,212,0.12), rgba(245,158,11,0.10))" }}>
+                  <div className="icon-tile">
                     <Icon name="partner" size={20} />
                   </div>
-                  <h3 className="text-xl font-semibold text-[var(--primary)]">
+                  <h3 className="text-xl font-semibold text-white">
                     {company.partner.name}, {company.partner.country}
-                    <span className="ml-2 align-middle text-[10px] uppercase tracking-wider text-cyan-700 bg-cyan-50 border border-cyan-100 px-1.5 py-0.5 rounded">Sister company</span>
+                    <span
+                      className="ml-2 align-middle text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded"
+                      style={{ color: "var(--violet)", background: "rgba(124,58,237,0.10)", border: "1px solid rgba(124,58,237,0.25)" }}
+                    >Sister</span>
                   </h3>
                 </div>
-                <p className="mt-4 text-sm text-slate-600 leading-relaxed">{company.partner.note}</p>
-                <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)] group-hover:gap-2.5 transition-all">
-                  Visit {company.partner.name} <Icon name="arrow" size={16} />
+                <p className="mt-5 text-sm text-slate-400 leading-relaxed">{company.partner.note}</p>
+                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-2.5 transition-all">
+                  <span style={{ background: "linear-gradient(90deg, #a78bfa, #67e8f9)", backgroundClip: "text", color: "transparent" }}>
+                    Visit {company.partner.name}
+                  </span>
+                  <Icon name="arrow" size={16} />
                 </div>
               </a>
             )}
@@ -178,11 +183,11 @@ export default async function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="container-wide py-16">
-        <div className="rounded-2xl border border-[var(--border)] bg-white p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+      <section className="container-wide py-20">
+        <div className="card p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <div>
-            <h3 className="text-xl md:text-2xl font-semibold text-[var(--primary)] tracking-tight">Plan your project with us.</h3>
-            <p className="text-slate-600 mt-1.5">Tell us about scope, location and timeline — we&rsquo;ll come back with a clear proposal.</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-white tracking-tight">Plan your project with us.</h3>
+            <p className="text-slate-400 mt-2">Tell us about scope, location and timeline — we&rsquo;ll come back with a clear proposal.</p>
           </div>
           <div className="flex gap-3">
             <Link href="/get-quote" className="btn-primary">Request a quote <Icon name="arrow" size={16} /></Link>

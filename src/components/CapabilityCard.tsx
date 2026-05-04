@@ -24,41 +24,38 @@ export function CapabilityCard({
   return (
     <Link
       href={`/capabilities/${capability.slug}`}
-      className="group relative flex flex-col gap-4 rounded-2xl border border-[var(--border)] bg-white p-6 overflow-hidden transition-all hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-[0_18px_40px_-22px_rgba(10,37,64,0.25)]"
+      className="group relative card flex flex-col gap-4 p-7"
     >
       {/* Cyan corner glow on hover */}
       <div
-        className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full opacity-0 group-hover:opacity-100 blur-2xl transition-opacity"
+        className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity"
         aria-hidden
         style={{ background: "radial-gradient(closest-side, rgba(6,182,212,0.35), transparent)" }}
       />
 
       <div className="relative flex items-center justify-between">
-        <span
-          className="inline-flex h-11 w-11 items-center justify-center rounded-lg ring-1 ring-[var(--border)] text-[var(--primary)]"
-          style={{ background: "linear-gradient(135deg, rgba(6,182,212,0.10), rgba(245,158,11,0.10))" }}
-        >
+        <span className="icon-tile">
           <Icon name={iconName} size={22} />
         </span>
-        <span className="font-mono text-[10px] tracking-[0.18em] uppercase text-slate-400">
-          Capability
-        </span>
+        <span className="badge">Capability</span>
       </div>
 
       <div className="relative">
-        <h3 className="text-base md:text-lg font-semibold text-[var(--primary)] tracking-tight">
+        <h3 className="text-base md:text-lg font-semibold text-white tracking-tight">
           {capability.title}
         </h3>
         {variant !== "compact" && (
-          <p className="text-sm text-slate-600 mt-1.5 leading-relaxed">
+          <p className="text-sm text-slate-400 mt-2 leading-relaxed">
             {capability.summary}
           </p>
         )}
       </div>
 
-      <div className="relative mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)] group-hover:gap-2.5 transition-all">
-        View process
-        <Icon name="arrow" size={16} />
+      <div className="relative mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-2.5 transition-all">
+        <span style={{ background: "linear-gradient(90deg, #67e8f9, #a78bfa)", backgroundClip: "text", color: "transparent" }}>
+          View process
+        </span>
+        <Icon name="arrow" size={16} className="text-slate-300 group-hover:text-white" />
       </div>
     </Link>
   );

@@ -1,5 +1,51 @@
 import type { Metadata } from "next";
-import type { Capability, Company, Product, Service } from "./types";
+import type { Capability, Company, Product, Service, Settings } from "./types";
+
+/**
+ * Truncate `text` to `max` characters at a word boundary, appending "…".
+ * Used by detail pages to derive a meta description from a long description
+ * field when no explicit `seoDescription` is supplied.
+ */
+export function truncate(text: string, max = 160): string {
+  if (!text) return "";
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const sliced = clean.slice(0, max - 1);
+  const idx = sliced.lastIndexOf(" ");
+  return (idx > 40 ? sliced.slice(0, idx) : sliced).trimEnd() + "\u2026";
+}
+
+/**
+ * Resolve the meta description for a content item using a fallback chain:
+ *   explicit -> trimmed long body -> short summary -> site default -> static
+ */
+export function resolveDescription(
+  explicit: string | undefined,
+  body: string | undefined,
+  summary: string | undefined,
+  settings?: Settings | null,
+  fallback = "Nexatel Private Limited \u2014 telecom infrastructure and IT systems integrator headquartered in Kerala, India.",
+): string {
+  if (explicit && explicit.trim()) return explicit.trim();
+  if (body && body.trim()) return truncate(body, 160);
+  if (summary && summary.trim()) return truncate(summary, 160);
+  if (settings?.defaultMetaDescription && settings.defaultMetaDescription.trim()) {
+    return settings.defaultMetaDescription.trim();
+  }
+  return fallback;
+}
+
+/** Resolve OG image URL: explicit override -> content image -> site default. */
+export function resolveOgImage(
+  explicit: string | undefined,
+  contentImage: string | undefined,
+  settings?: Settings | null,
+): string | undefined {
+  if (explicit && explicit.trim()) return explicit.trim();
+  if (contentImage && contentImage.trim()) return contentImage.trim();
+  if (settings?.defaultOgImage && settings.defaultOgImage.trim()) return settings.defaultOgImage.trim();
+  return undefined;
+}
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||

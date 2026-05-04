@@ -3,12 +3,21 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <section className="container-wide py-32 text-center">
-      <div className="text-sm uppercase tracking-widest text-[var(--accent-strong)] font-semibold">404</div>
-      <h1 className="mt-3 text-4xl font-bold text-[var(--primary)]">Page not found</h1>
-      <p className="mt-3 text-slate-600 max-w-md mx-auto">
+      <div className="eyebrow">404</div>
+      <h1
+        className="mt-4 text-5xl md:text-6xl font-semibold tracking-tight"
+        style={{
+          background: "linear-gradient(135deg, #ffffff 0%, #c7d2fe 50%, #a5f3fc 100%)",
+          backgroundClip: "text",
+          color: "transparent",
+        }}
+      >
+        Page not found
+      </h1>
+      <p className="mt-4 text-slate-400 max-w-md mx-auto leading-relaxed">
         The page you&rsquo;re looking for has been moved or never existed.
       </p>
-      <Link href="/" className="btn-primary mt-8">Go home</Link>
+      <Link href="/" className="btn-primary mt-10">Go home</Link>
     </section>
   );
 }

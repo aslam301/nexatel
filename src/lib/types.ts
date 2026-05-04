@@ -79,6 +79,11 @@ export interface Product {
   image: string;
   datasheetUrl?: string;
   createdAt: string;
+  // SEO overrides (optional). When unset, the public detail page falls back to
+  // name / shortDescription / image, then to site-wide settings defaults.
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: string;
 }
 
 export interface Project {
@@ -97,6 +102,10 @@ export interface Settings {
   emailSubjectPrefix: string;
   autoReplyEnabled: boolean;
   updatedAt: string;
+  // Site-wide SEO defaults (optional). Used by buildMetadata when a page
+  // doesn't supply its own image / description.
+  defaultOgImage?: string;
+  defaultMetaDescription?: string;
 }
 
 export type SubmissionKind = "contact" | "quote";

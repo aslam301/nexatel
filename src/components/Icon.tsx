@@ -20,7 +20,8 @@ type IconName =
   | "cctv"
   | "cabling"
   | "sparkle"
-  | "partner";
+  | "partner"
+  | "search";
 
 export function Icon({ name, size = 20, className }: { name: IconName; size?: number; className?: string }) {
   const props = {
@@ -122,6 +123,10 @@ export function Icon({ name, size = 20, className }: { name: IconName; size?: nu
     case "partner":
       return (
         <svg {...props}><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M10 20c0-3 2.5-5 6-5s6 2 6 5"/></svg>
+      );
+    case "search":
+      return (
+        <svg {...props}><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       );
     default:
       return null;
