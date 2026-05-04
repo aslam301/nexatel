@@ -56,6 +56,12 @@ html {
   -webkit-text-size-adjust: 100%;
   background: var(--background);
   color-scheme: dark;
+  /* Decorative blurs/glows are positioned with negative offsets ( -right-24,
+     right-[-15%], left-[-10%], etc. ) and would otherwise spill past the
+     viewport on tablet / mobile, causing horizontal scroll. `overflow-x: clip`
+     prevents the spill without establishing a new scroll container, so
+     `position: sticky` (Header / AdminShell topbar) keeps working. */
+  overflow-x: clip;
 }
 
 body {
@@ -64,6 +70,7 @@ body {
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   font-feature-settings: "cv11", "ss01";
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 ::selection {
