@@ -117,12 +117,18 @@ export function GetQuoteForm({ defaultServiceArea }: { defaultServiceArea?: stri
       </div>
 
       {status === "ok" && (
-        <div className="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <div
+          className="rounded-lg px-4 py-3 text-sm text-emerald-200"
+          style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.30)" }}
+        >
           Thanks — your request has been received. We&rsquo;ll be in touch shortly.
         </div>
       )}
       {status === "error" && (
-        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">{error}</div>
+        <div
+          className="rounded-lg px-4 py-3 text-sm text-red-200"
+          style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.30)" }}
+        >{error}</div>
       )}
     </form>
   );

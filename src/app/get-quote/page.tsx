@@ -31,13 +31,13 @@ export default async function GetQuotePage({ searchParams }: { searchParams: Pro
         showStatus={false}
         backgroundImage="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2000&q=70&auto=format&fit=crop"
       />
-      <section className="container-wide py-16 md:py-20 grid lg:grid-cols-5 gap-12">
-        <div className="lg:col-span-2 space-y-5">
+      <section className="container-wide py-20 md:py-24 grid lg:grid-cols-5 gap-12">
+        <div className="lg:col-span-2 space-y-6">
           <div>
             <span className="eyebrow">Why request through this form</span>
-            <h2 className="mt-2 text-2xl font-semibold text-[var(--primary)] tracking-tight">Faster, scoped responses.</h2>
+            <h2 className="mt-3 text-2xl font-semibold text-white tracking-tight">Faster, scoped responses.</h2>
           </div>
-          <ul className="space-y-3 text-sm text-slate-700">
+          <ul className="space-y-3.5 text-sm text-slate-300">
             {[
               "Routed directly to the right team lead",
               "Indicative ballpark within one business day",
@@ -45,33 +45,39 @@ export default async function GetQuotePage({ searchParams }: { searchParams: Pro
               "No obligation — quotes are free and detailed",
             ].map((p) => (
               <li key={p} className="flex items-start gap-2.5">
-                <span className="text-[var(--accent-strong)] mt-0.5"><Icon name="check" size={18} /></span>
+                <span className="mt-0.5" style={{ color: "var(--tech)" }}><Icon name="check" size={18} /></span>
                 {p}
               </li>
             ))}
           </ul>
 
           {sp?.capability && (
-            <div className="rounded-lg border border-cyan-100 bg-cyan-50 p-4">
-              <div className="text-xs font-mono uppercase tracking-[0.16em] text-cyan-700">Pre-filled</div>
-              <div className="text-sm text-slate-800 mt-1">
+            <div
+              className="rounded-lg p-4"
+              style={{
+                background: "rgba(6,182,212,0.06)",
+                border: "1px solid rgba(6,182,212,0.25)",
+              }}
+            >
+              <div className="text-xs font-mono uppercase tracking-[0.18em]" style={{ color: "var(--tech)" }}>Pre-filled</div>
+              <div className="text-sm text-slate-200 mt-1.5">
                 Capability of interest: <span className="font-semibold">{sp.capability.replace(/-/g, " ")}</span>
               </div>
             </div>
           )}
 
-          <div className="mt-6 card p-5">
-            <div className="text-xs font-semibold tracking-wider uppercase text-slate-500">Prefer a call?</div>
-            <a href={`tel:${company.supportPhone}`} className="mt-2 inline-flex items-center gap-2 text-[var(--primary)] font-semibold">
+          <div className="card p-6">
+            <div className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-400">Prefer a call?</div>
+            <a href={`tel:${company.supportPhone}`} className="mt-3 flex items-center gap-2 text-white font-semibold hover:text-cyan-300 transition-colors">
               <Icon name="phone" size={16} /> {company.supportPhone}
             </a>
-            <a href={`mailto:${company.supportEmail}`} className="mt-2 inline-flex items-center gap-2 text-[var(--primary)] font-semibold">
+            <a href={`mailto:${company.supportEmail}`} className="mt-2 flex items-center gap-2 text-white font-semibold hover:text-cyan-300 transition-colors">
               <Icon name="mail" size={16} /> {company.supportEmail}
             </a>
           </div>
         </div>
 
-        <div className="lg:col-span-3 card p-6 md:p-8">
+        <div className="lg:col-span-3 card p-6 md:p-10">
           <GetQuoteForm defaultServiceArea={sp?.service} />
         </div>
       </section>

@@ -17,30 +17,26 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group relative card p-6 flex flex-col gap-5 overflow-hidden"
+      className="group relative card p-7 flex flex-col gap-5"
     >
-      {/* Subtle hover glow */}
+      {/* Hover violet glow */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+        className="pointer-events-none absolute -top-20 -right-20 h-56 w-56 rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity"
         aria-hidden
-        style={{
-          background:
-            "radial-gradient(400px 200px at 100% 0%, rgba(6,182,212,0.08), transparent 60%)",
-        }}
+        style={{ background: "radial-gradient(closest-side, rgba(124,58,237,0.35), transparent)" }}
       />
-      <div
-        className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl ring-1 ring-[var(--border)]"
-        style={{ background: "linear-gradient(135deg, rgba(245,158,11,0.12), rgba(6,182,212,0.10))", color: "var(--primary)" }}
-      >
+      <div className="icon-tile relative">
         <Icon name={iconName} size={22} />
       </div>
       <div className="relative">
-        <h3 className="text-lg font-semibold text-[var(--primary)] tracking-tight">{service.title}</h3>
-        <p className="text-sm text-slate-600 mt-2 leading-relaxed">{service.summary}</p>
+        <h3 className="text-lg font-semibold text-white tracking-tight">{service.title}</h3>
+        <p className="text-sm text-slate-400 mt-2 leading-relaxed">{service.summary}</p>
       </div>
-      <div className="relative mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)] group-hover:gap-2.5 transition-all">
-        Learn more
-        <Icon name="arrow" size={16} />
+      <div className="relative mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-2.5 transition-all">
+        <span style={{ background: "linear-gradient(90deg, #a78bfa, #67e8f9)", backgroundClip: "text", color: "transparent" }}>
+          Learn more
+        </span>
+        <Icon name="arrow" size={16} className="text-slate-300 group-hover:text-white" />
       </div>
     </Link>
   );

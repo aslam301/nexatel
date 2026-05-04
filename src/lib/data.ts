@@ -52,7 +52,7 @@ export async function saveProducts(products: Product[]): Promise<void> {
 }
 
 const DEFAULT_SETTINGS: Settings = {
-  notificationEmail: "rafiq@nexatel.org",
+  notificationEmail: "sales@nexatel.org",
   ccEmails: [],
   emailSubjectPrefix: "[Nexatel]",
   autoReplyEnabled: false,

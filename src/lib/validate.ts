@@ -38,6 +38,9 @@ export interface ProductInput {
   features: string[];
   image: string;
   datasheetUrl?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: string;
 }
 
 export function validateProductInput(raw: unknown): {
@@ -62,12 +65,18 @@ export function validateProductInput(raw: unknown): {
   const features = strArr(data.features);
   const image = str(data.image, 600);
   const datasheetUrl = str(data.datasheetUrl, 600);
+  const seoTitle = str(data.seoTitle, 120);
+  const seoDescription = str(data.seoDescription, 320);
+  const seoImage = str(data.seoImage, 600);
 
   if (image && !/^https?:\/\//i.test(image) && !image.startsWith("/")) {
     issues.push({ field: "image", message: "Image must be an http(s) URL or a /public path" });
   }
   if (datasheetUrl && !/^https?:\/\//i.test(datasheetUrl) && !datasheetUrl.startsWith("/")) {
     issues.push({ field: "datasheetUrl", message: "Datasheet URL must be an http(s) URL or /public path" });
+  }
+  if (seoImage && !/^https?:\/\//i.test(seoImage) && !seoImage.startsWith("/")) {
+    issues.push({ field: "seoImage", message: "SEO image must be an http(s) URL or a /public path" });
   }
 
   let slug = str(data.slug, 120);
@@ -92,6 +101,9 @@ export function validateProductInput(raw: unknown): {
       features,
       image,
       datasheetUrl: datasheetUrl || undefined,
+      seoTitle: seoTitle || undefined,
+      seoDescription: seoDescription || undefined,
+      seoImage: seoImage || undefined,
     },
   };
 }
@@ -107,6 +119,9 @@ export function toProduct(input: ProductInput, existing?: Product): Product {
     features: input.features,
     image: input.image,
     datasheetUrl: input.datasheetUrl,
+    seoTitle: input.seoTitle,
+    seoDescription: input.seoDescription,
+    seoImage: input.seoImage,
     createdAt: existing?.createdAt ?? new Date().toISOString(),
   };
 }
