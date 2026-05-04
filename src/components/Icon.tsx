@@ -1,4 +1,26 @@
-type IconName = "cpu" | "fiber" | "tower" | "bolt" | "box" | "check" | "arrow" | "phone" | "mail" | "pin" | "shield" | "globe";
+type IconName =
+  | "cpu"
+  | "fiber"
+  | "tower"
+  | "bolt"
+  | "box"
+  | "check"
+  | "arrow"
+  | "phone"
+  | "mail"
+  | "pin"
+  | "shield"
+  | "globe"
+  | "drill"
+  | "trench"
+  | "manhole"
+  | "gauge"
+  | "wind"
+  | "splice"
+  | "cctv"
+  | "cabling"
+  | "sparkle"
+  | "partner";
 
 export function Icon({ name, size = 20, className }: { name: IconName; size?: number; className?: string }) {
   const props = {
@@ -60,6 +82,46 @@ export function Icon({ name, size = 20, className }: { name: IconName; size?: nu
     case "globe":
       return (
         <svg {...props}><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 3 4.5 6.5 4.5 10S15 19 12 22M12 2c-3 3-4.5 6.5-4.5 10S9 19 12 22"/></svg>
+      );
+    case "drill":
+      return (
+        <svg {...props}><path d="M3 10h8v4H3z"/><path d="M11 11l4-2v6l-4-2"/><path d="M15 9l4-1v8l-4-1"/><path d="M19 8l2 4-2 4"/><path d="M5 14v4M9 14v3"/></svg>
+      );
+    case "trench":
+      return (
+        <svg {...props}><path d="M3 7v10M21 7v10"/><path d="M3 17h18"/><path d="M3 7h6M15 7h6"/><path d="M9 7v3M15 7v3"/><path d="M9 13h6"/></svg>
+      );
+    case "manhole":
+      return (
+        <svg {...props}><circle cx="12" cy="9" r="6"/><circle cx="12" cy="9" r="3"/><path d="M6 21l4-7M18 21l-4-7"/></svg>
+      );
+    case "gauge":
+      return (
+        <svg {...props}><path d="M12 14a8 8 0 1 1 8-8"/><path d="M12 14l4-5"/><circle cx="12" cy="14" r="1.2" fill="currentColor"/><path d="M4 17h16"/></svg>
+      );
+    case "wind":
+      return (
+        <svg {...props}><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h17a3 3 0 1 1-3 3"/><path d="M3 16h9"/></svg>
+      );
+    case "splice":
+      return (
+        <svg {...props}><path d="M2 12h6"/><path d="M16 12h6"/><rect x="8" y="9" width="8" height="6" rx="1"/><path d="M10 9v-2M14 9v-2M10 17v-2M14 17v-2"/></svg>
+      );
+    case "cctv":
+      return (
+        <svg {...props}><rect x="3" y="6" width="14" height="6" rx="1"/><path d="M17 8l4-2v6l-4-2"/><path d="M7 12v3a3 3 0 0 0 3 3h2"/><circle cx="14" cy="18" r="2"/></svg>
+      );
+    case "cabling":
+      return (
+        <svg {...props}><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="6" cy="6" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="18" cy="18" r="1.2" fill="currentColor"/></svg>
+      );
+    case "sparkle":
+      return (
+        <svg {...props}><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/></svg>
+      );
+    case "partner":
+      return (
+        <svg {...props}><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M10 20c0-3 2.5-5 6-5s6 2 6 5"/></svg>
       );
     default:
       return null;

@@ -9,6 +9,7 @@ const NAV = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/capabilities", label: "Capabilities" },
   { href: "/products", label: "Products" },
   { href: "/projects", label: "Projects" },
   { href: "/contact", label: "Contact" },
@@ -42,7 +43,7 @@ export function Header() {
         <Link href="/" className="shrink-0" aria-label="Nexatel home">
           <Logo />
         </Link>
-        <nav className="hidden md:flex items-center gap-7" aria-label="Primary">
+        <nav className="hidden lg:flex items-center gap-6" aria-label="Primary">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -53,11 +54,11 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <Link href="/get-quote" className="btn-primary">Get a quote</Link>
         </div>
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-200"
+          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-200"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -72,7 +73,7 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-slate-200 bg-white">
+        <div className="lg:hidden border-t border-slate-200 bg-white">
           <div className="container-wide py-4 flex flex-col gap-2">
             {NAV.map((item) => (
               <Link

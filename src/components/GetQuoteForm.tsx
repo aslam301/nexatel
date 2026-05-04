@@ -3,15 +3,15 @@
 import { useState } from "react";
 
 const SERVICE_AREAS = [
-  { value: "it-services", label: "IT Services & Solutions" },
-  { value: "fiber-optics", label: "Fiber Optics & Structured Cabling" },
+  { value: "fiber-optic", label: "Fiber Optic Projects" },
   { value: "telecom", label: "Telecom Infrastructure" },
-  { value: "electrical-solar", label: "Electrical, Solar & Energy" },
+  { value: "network-cabling", label: "Network Cabling" },
+  { value: "cctv", label: "CCTV Systems" },
   { value: "it-hardware", label: "IT Hardware Supply" },
   { value: "other", label: "Something else" },
 ];
 
-const BUDGETS = ["< $5k", "$5k – $25k", "$25k – $100k", "$100k – $500k", "> $500k", "Not sure yet"];
+const BUDGETS = ["< ₹5L", "₹5L – ₹25L", "₹25L – ₹1Cr", "₹1Cr – ₹5Cr", "> ₹5Cr", "Not sure yet"];
 const TIMELINES = ["ASAP", "Within 1 month", "1 – 3 months", "3 – 6 months", "Flexible"];
 
 export function GetQuoteForm({ defaultServiceArea }: { defaultServiceArea?: string }) {
