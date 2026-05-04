@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Company, Product, Service } from "./types";
+import type { Capability, Company, Product, Service } from "./types";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
@@ -215,6 +215,29 @@ export function serviceJsonLd(service: Service, company: Company) {
     areaServed: company.offices.map((o) => ({ "@type": "Country", name: o.country })),
     url: `${SITE_URL}/services/${service.slug}`,
     image: service.image,
+  };
+}
+
+export function capabilityJsonLd(capability: Capability, company: Company) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: capability.title,
+    description: capability.summary,
+    serviceType: capability.title,
+    provider: {
+      "@type": "Organization",
+      name: company.name,
+      url: SITE_URL,
+    },
+    areaServed: company.offices.map((o) => ({ "@type": "Country", name: o.country })),
+    url: `${SITE_URL}/capabilities/${capability.slug}`,
+    image: capability.image,
+    isPartOf: {
+      "@type": "Service",
+      name: capability.parentService,
+      url: `${SITE_URL}/services/${capability.parentService}`,
+    },
   };
 }
 

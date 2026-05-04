@@ -10,10 +10,10 @@ export const runtime = "nodejs";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const VALID_SERVICE_AREAS = new Set([
-  "it-services",
-  "fiber-optics",
+  "fiber-optic",
   "telecom",
-  "electrical-solar",
+  "network-cabling",
+  "cctv",
   "it-hardware",
   "other",
 ]);

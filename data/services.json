@@ -1,77 +1,77 @@
 [
   {
-    "slug": "it-services",
-    "title": "IT Services & Solutions",
-    "summary": "Managed IT, networking, cybersecurity and cloud transformation for enterprises across Kuwait and India.",
-    "icon": "cpu",
-    "highlights": [
-      "Managed IT support & helpdesk",
-      "Network design & administration",
-      "Cybersecurity & endpoint protection",
-      "Cloud migration & Microsoft 365",
-      "Server, storage and virtualization"
-    ],
-    "details": "Our IT services practice helps growing enterprises modernise their infrastructure without disrupting operations. From day-to-day managed services to multi-year transformation roadmaps, we provide certified engineers and 24x7 support contracts tailored to the GCC and Indian markets.",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=70&auto=format&fit=crop"
-  },
-  {
-    "slug": "fiber-optics-cabling",
-    "title": "Fiber Optics & Structured Cabling",
-    "summary": "OFC backbones, FTTx rollouts and Cat6/6A/7 structured cabling for data centres and commercial facilities.",
+    "slug": "fiber-optic",
+    "title": "Fiber Optic Projects",
+    "summary": "End-to-end fiber optic deployment \u2014 NLD backbones, FTTH/GPON, splicing, OTDR testing and commissioning across India.",
     "icon": "fiber",
     "highlights": [
-      "Single-mode & multi-mode OFC",
-      "FTTH / FTTB / FTTx deployments",
-      "Cat6, Cat6A and Cat7 cabling",
-      "Splicing, OTDR testing & certification",
-      "Data centre passive infrastructure"
+      "500+ km Optical Fiber Cable laid across India",
+      "NLD spans & last-mile FTTx connectivity",
+      "FTTH / GPON deployment in Kerala",
+      "Fusion splicing, OTDR & OPM testing",
+      "FDP, FAT, ODF and joint-closure installation"
     ],
-    "details": "Nexatel is one of the region's preferred partners for high-density structured cabling and fiber optic backbones. Our certified technicians deliver fully tested installations with full BICSI-aligned documentation, OTDR reports and warranty support.",
+    "details": "Nexatel specialises in laying, splicing and certifying optical fiber networks for service providers, enterprises and public projects. From National Long Distance backbones to Fiber-to-the-Home networks across Kerala, our crews deliver low-loss, fully-tested infrastructure under engineering leadership with 25+ years of fiber expertise.",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=70&auto=format&fit=crop"
   },
   {
-    "slug": "telecom-infrastructure",
+    "slug": "telecom",
     "title": "Telecom Infrastructure",
-    "summary": "End-to-end telecom installation including towers, in-building solutions, IP-PBX and unified communications.",
+    "summary": "Civil-to-active telecom build-out \u2014 HDD, manual trenching, manhole construction, pole erection, ROW liaison and road restoration.",
     "icon": "tower",
     "highlights": [
-      "Tower & rooftop installations",
-      "IBS / DAS in-building solutions",
-      "IP-PBX & VoIP systems",
-      "Unified communication platforms",
-      "Carrier interconnect & last-mile"
+      "Horizontal Directional Drilling (HDD) for trenchless crossings",
+      "Manual trenching for congested & urban routes",
+      "Manhole (MH) installation & pole erection",
+      "Right-of-Way liaison with NHAI, PWD & local bodies",
+      "BMBC and interlocking road restoration"
     ],
-    "details": "We partner with national carriers, system integrators and enterprises to deliver telecom infrastructure that just works. From core IP-PBX rollouts to multi-site DAS coverage in malls, hospitals and high-rises, we own the project end to end.",
+    "details": "We deliver the civil and infrastructure backbone behind every telecom rollout. Our turnkey teams handle ROW applications, route surveys, HDD and manual trenching, manhole construction, pole erection and authority-compliant road restoration \u2014 keeping projects on schedule and on standard.",
+    "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=70&auto=format&fit=crop"
+  },
+  {
+    "slug": "network-cabling",
+    "title": "Network Cabling",
+    "summary": "Structured cabling for enterprises, campuses and data centres \u2014 Cat6 / Cat6A / Cat7 copper, OM3/OM4 fiber, racks and patching.",
+    "icon": "cabling",
+    "highlights": [
+      "Cat6, Cat6A and Cat7 horizontal cabling",
+      "OM3 / OM4 multi-mode backbone",
+      "Patch panels, ODFs and rack build-outs",
+      "Fluke channel & permanent-link certification",
+      "Aerial and structured cabling for campuses"
+    ],
+    "details": "Forge a sturdy network foundation with our high-quality cabling solutions. From single-floor offices to multi-building campuses and Tier-III data centres, we design, supply and install structured cabling that's certified, labelled and documented for the full lifetime of the network.",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=70&auto=format&fit=crop"
   },
   {
-    "slug": "electrical-solar",
-    "title": "Electrical, Solar & Energy",
-    "summary": "Licensed electrical installation, rooftop solar PV systems and energy-efficiency retrofits.",
-    "icon": "bolt",
+    "slug": "cctv",
+    "title": "CCTV Systems",
+    "summary": "IP camera, NVR and surveillance system supply, installation and maintenance for commercial, industrial and public sites.",
+    "icon": "cctv",
     "highlights": [
-      "LV & MV electrical installation",
-      "Rooftop & ground-mount solar PV",
-      "Battery storage & hybrid systems",
-      "Lighting & energy retrofits",
-      "Annual maintenance contracts"
+      "IP and analogue camera systems",
+      "NVR / VMS deployment and integration",
+      "Perimeter, indoor and PTZ coverage design",
+      "PoE switching and structured backbone",
+      "Annual maintenance & remote monitoring"
     ],
-    "details": "Our electrical and energy division is licensed for low- and medium-voltage installations and certified by leading PV inverter and panel manufacturers. We deliver turn-key solar projects from feasibility and financing to commissioning and O&M.",
-    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=70&auto=format&fit=crop"
+    "details": "Protect your assets with cutting-edge CCTV systems. We supply, install and maintain end-to-end surveillance infrastructure \u2014 from initial site survey and camera placement to NVR commissioning and 24x7 maintenance contracts that keep your security posture continuously online.",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=70&auto=format&fit=crop"
   },
   {
-    "slug": "it-hardware-supply",
+    "slug": "it-hardware",
     "title": "IT Hardware Supply",
-    "summary": "Sourcing and supply of laptops, servers, networking gear and audio-visual equipment from tier-1 OEMs.",
+    "summary": "Sourcing and supply of laptops, servers, networking gear, fiber optic products and audio-visual equipment from tier-1 OEMs.",
     "icon": "box",
     "highlights": [
-      "Laptops, desktops & workstations",
-      "Servers, storage & SAN",
-      "Networking & WiFi equipment",
-      "AV, displays & conferencing",
-      "Annual rate contracts"
+      "Laptops, desktops and workstations",
+      "Servers, storage and SAN",
+      "Switches, routers and Wi-Fi",
+      "Fiber optic cables, transceivers and patch panels",
+      "Annual rate contracts for enterprises & projects"
     ],
-    "details": "Through long-standing OEM relationships in the GCC and India, we offer competitive pricing on tier-1 hardware backed by warranty registration, asset tagging and on-site delivery. Bulk and rate-contract pricing available for government and enterprise tenders.",
+    "details": "Through long-standing OEM relationships, we offer competitive pricing on tier-1 IT hardware and fiber-optic products \u2014 backed by warranty registration, asset tagging and on-site delivery across India. Bulk and rate-contract pricing available for government and enterprise tenders.",
     "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=70&auto=format&fit=crop"
   }
 ]

@@ -14,6 +14,8 @@ export interface HeroProps {
   showStatus?: boolean;
   /** Vertical padding scale: full hero on landing pages, compact on inner pages. */
   size?: "default" | "compact";
+  /** Status pill text (override default). */
+  statusText?: string;
 }
 
 export function Hero({
@@ -25,8 +27,9 @@ export function Hero({
   backgroundImage,
   showStatus = true,
   size = "default",
+  statusText = "Live · Kerala, IN",
 }: HeroProps) {
-  const padding = size === "compact" ? "py-16 md:py-20" : "py-24 md:py-32";
+  const padding = size === "compact" ? "py-20 md:py-24" : "py-28 md:py-36";
   return (
     <section className="relative overflow-hidden text-white isolate">
       {/* Layer 0 — solid base + gradient placeholder, shown instantly */}
@@ -46,30 +49,36 @@ export function Hero({
         />
       )}
 
-      {/* Layer 2 — directional gradient overlay: darker on the left/bottom (where copy lives),
-         lighter on the right (so the image clearly shows through). */}
+      {/* Layer 2 — directional gradient overlay */}
       <div
         className="absolute inset-0"
         aria-hidden
         style={{
           background:
-            "linear-gradient(105deg, rgba(6,26,46,0.92) 0%, rgba(6,26,46,0.75) 35%, rgba(6,26,46,0.45) 65%, rgba(6,26,46,0.30) 100%)",
+            "linear-gradient(105deg, rgba(6,26,46,0.94) 0%, rgba(6,26,46,0.78) 35%, rgba(6,26,46,0.45) 65%, rgba(6,26,46,0.30) 100%)",
         }}
       />
-      {/* Subtle bottom fade so the next section doesn't fight the image */}
+      {/* Bottom fade so the next section doesn't fight the image */}
       <div
-        className="absolute inset-x-0 bottom-0 h-24"
+        className="absolute inset-x-0 bottom-0 h-28"
         aria-hidden
-        style={{ background: "linear-gradient(180deg, transparent, rgba(6,26,46,0.65))" }}
+        style={{ background: "linear-gradient(180deg, transparent, rgba(6,26,46,0.7))" }}
       />
 
-      {/* Layer 3 — grid pattern, very subtle */}
+      {/* Layer 3 — grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-40" aria-hidden />
+
+      {/* Layer 3b — soft cyan glow at top-right for tech accent */}
+      <div
+        className="pointer-events-none absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full opacity-50 blur-3xl"
+        aria-hidden
+        style={{ background: "radial-gradient(closest-side, rgba(6,182,212,0.40), transparent)" }}
+      />
 
       {/* Layer 4 — animated scan line */}
       <div className="hero-scan" aria-hidden />
 
-      {/* Layer 5 — corner brackets for tech feel */}
+      {/* Layer 5 — corner brackets */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <span className="hero-bracket hero-bracket--tl" />
         <span className="hero-bracket hero-bracket--tr" />
@@ -78,15 +87,15 @@ export function Hero({
       </div>
 
       <div className={`container-wide relative ${padding}`}>
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           {showStatus && (
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 backdrop-blur-sm">
               <span className="relative inline-flex h-2 w-2">
-                <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
-                <span className="relative inline-block h-2 w-2 rounded-full bg-emerald-400" />
+                <span className="absolute inset-0 rounded-full bg-cyan-400 animate-ping opacity-75" />
+                <span className="relative inline-block h-2 w-2 rounded-full bg-cyan-400" />
               </span>
-              <span className="font-mono text-[11px] tracking-widest uppercase text-slate-200/80">
-                Online · KW · IN
+              <span className="font-mono text-[11px] tracking-widest uppercase text-slate-200/85">
+                {statusText}
               </span>
             </div>
           )}
@@ -99,13 +108,15 @@ export function Hero({
             </div>
           )}
 
-          <h1 className={`text-[2.5rem] sm:text-5xl md:text-[4.25rem] font-semibold leading-[1.05] tracking-[-0.03em] ${
-            eyebrow ? "mt-3" : showStatus ? "mt-8" : "mt-0"
-          }`}>
+          <h1
+            className={`font-semibold leading-[1.04] tracking-[-0.035em] text-[2.6rem] sm:text-5xl md:text-[5rem] xl:text-[5.5rem] ${
+              eyebrow ? "mt-3" : showStatus ? "mt-7" : "mt-0"
+            }`}
+          >
             {title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base md:text-lg text-slate-300/90 leading-relaxed">
+          <p className="mt-7 max-w-2xl text-base md:text-lg text-slate-300/90 leading-relaxed">
             {subtitle}
           </p>
 
