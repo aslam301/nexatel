@@ -36,11 +36,21 @@ export async function PUT(req: Request) {
     .filter(Boolean)
     .filter((e) => EMAIL_RE.test(e))
     .slice(0, 10);
+  const defaultOgImageRaw = ((data.defaultOgImage ?? "") + "").trim().slice(0, 600);
+  const defaultMetaDescription = ((data.defaultMetaDescription ?? "") + "").trim().slice(0, 320);
+  if (defaultOgImageRaw && !/^https?:\/\//i.test(defaultOgImageRaw) && !defaultOgImageRaw.startsWith("/")) {
+    return NextResponse.json(
+      { ok: false, error: "defaultOgImage must be an http(s) URL or a /public path" },
+      { status: 400 },
+    );
+  }
   const settings: Settings = {
     notificationEmail,
     ccEmails,
     emailSubjectPrefix: ((data.emailSubjectPrefix ?? "[Nexatel]") + "").trim().slice(0, 40) || "[Nexatel]",
     autoReplyEnabled: !!data.autoReplyEnabled,
+    defaultOgImage: defaultOgImageRaw || undefined,
+    defaultMetaDescription: defaultMetaDescription || undefined,
     updatedAt: new Date().toISOString(),
   };
   await saveSettings(settings);

@@ -18,19 +18,22 @@ export default async function DashboardPage() {
   const failed = submissions.filter((s) => !s.emailDelivered).length;
 
   const stats = [
-    { label: "Products", value: products.length, href: "/admin/products", tint: "var(--primary)" },
-    { label: "Contact enquiries", value: contactCount, href: "/admin/submissions?kind=contact", tint: "#0284c7" },
-    { label: "Quote requests", value: quoteCount, href: "/admin/submissions?kind=quote", tint: "#059669" },
-    { label: "Last 7 days", value: last7, href: "/admin/submissions", tint: "#d97706" },
+    { label: "Products", value: products.length, href: "/admin/products", tint: "#a78bfa" },
+    { label: "Contact enquiries", value: contactCount, href: "/admin/submissions?kind=contact", tint: "#67e8f9" },
+    { label: "Quote requests", value: quoteCount, href: "/admin/submissions?kind=quote", tint: "#6ee7b7" },
+    { label: "Last 7 days", value: last7, href: "/admin/submissions", tint: "#fbbf24" },
   ];
 
   return (
     <AdminShell title="Dashboard" subtitle={`Welcome back · Notifications go to ${settings.notificationEmail}`}>
       {!writable && (
-        <div className="mb-5 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
-          <strong>Read-only environment.</strong> Submissions and product edits made on the deployed
+        <div
+          className="mb-6 rounded-lg p-4 text-sm text-amber-200"
+          style={{ background: "rgba(245,158,11,0.08)", border: "1px solid rgba(245,158,11,0.30)" }}
+        >
+          <strong className="text-amber-100">Read-only environment.</strong> Submissions and product edits made on the deployed
           site won&rsquo;t persist. Run the admin locally for data changes, or wire a Marketplace
-          database. Email delivery still works in production if <code>RESEND_API_KEY</code> is set.
+          database. Email delivery still works in production if <code className="font-mono text-amber-100">RESEND_API_KEY</code> is set.
         </div>
       )}
 
@@ -39,10 +42,10 @@ export default async function DashboardPage() {
           <Link
             key={s.label}
             href={s.href}
-            className="card p-5 hover:border-slate-300 transition-colors"
+            className="card p-5"
           >
-            <div className="text-xs uppercase tracking-wider font-semibold text-slate-500">{s.label}</div>
-            <div className="mt-2 text-3xl font-bold tabular-nums" style={{ color: s.tint }}>
+            <div className="text-xs uppercase tracking-[0.16em] font-semibold text-slate-400">{s.label}</div>
+            <div className="mt-3 text-3xl font-semibold tabular-nums" style={{ color: s.tint }}>
               {s.value}
             </div>
           </Link>
@@ -50,10 +53,10 @@ export default async function DashboardPage() {
       </div>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-3">
-        <div className="lg:col-span-2 card p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-semibold text-[var(--primary)]">Recent submissions</h2>
-            <Link href="/admin/submissions" className="text-sm font-semibold text-[var(--primary)] hover:underline">
+        <div className="lg:col-span-2 card p-6">
+          <div className="flex items-center justify-between mb-5">
+            <h2 className="font-semibold text-white">Recent submissions</h2>
+            <Link href="/admin/submissions" className="text-sm font-semibold hover:opacity-80" style={{ color: "var(--violet)" }}>
               View all →
             </Link>
           </div>
@@ -65,15 +68,20 @@ export default async function DashboardPage() {
                 <li key={s.id} className="py-3 flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
-                        s.kind === "quote" ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : "bg-sky-50 text-sky-700 border border-sky-200"
-                      }`}>
+                      <span
+                        className="text-[10px] font-mono font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded"
+                        style={{
+                          background: s.kind === "quote" ? "rgba(16,185,129,0.10)" : "rgba(56,189,248,0.10)",
+                          color: s.kind === "quote" ? "#6ee7b7" : "#7dd3fc",
+                          border: `1px solid ${s.kind === "quote" ? "rgba(16,185,129,0.30)" : "rgba(56,189,248,0.30)"}`,
+                        }}
+                      >
                         {s.kind}
                       </span>
-                      <span className="font-medium text-[var(--primary)] truncate">{s.name}</span>
+                      <span className="font-medium text-white truncate">{s.name}</span>
                     </div>
-                    <div className="text-xs text-slate-500 truncate mt-0.5">{s.email}</div>
-                    <div className="text-sm text-slate-600 mt-1 line-clamp-1">{s.message}</div>
+                    <div className="text-xs text-slate-500 truncate mt-1">{s.email}</div>
+                    <div className="text-sm text-slate-400 mt-1 line-clamp-1">{s.message}</div>
                   </div>
                   <div className="text-xs text-slate-500 whitespace-nowrap shrink-0">
                     {new Date(s.createdAt).toLocaleDateString()}
@@ -85,32 +93,37 @@ export default async function DashboardPage() {
         </div>
 
         <div className="space-y-5">
-          <div className="card p-5">
-            <h2 className="font-semibold text-[var(--primary)]">Email delivery</h2>
-            <div className="mt-3 space-y-2 text-sm">
-              <div className="flex items-center justify-between">
-                <span className="text-slate-600">Notifications to</span>
-                <span className="font-mono text-xs">{settings.notificationEmail}</span>
+          <div className="card p-6">
+            <h2 className="font-semibold text-white">Email delivery</h2>
+            <div className="mt-4 space-y-2.5 text-sm">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-slate-400">Notifications to</span>
+                <span className="font-mono text-xs text-slate-200 truncate">{settings.notificationEmail}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-600">Provider</span>
-                <span className="font-mono text-xs">
+                <span className="text-slate-400">Provider</span>
+                <span className="font-mono text-xs text-slate-200">
                   {process.env.RESEND_API_KEY ? "Resend" : "Console (no key)"}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-600">Failed deliveries</span>
-                <span className={`font-mono text-xs ${failed > 0 ? "text-red-700" : "text-slate-700"}`}>{failed}</span>
+                <span className="text-slate-400">Failed deliveries</span>
+                <span
+                  className="font-mono text-xs"
+                  style={{ color: failed > 0 ? "#fca5a5" : "#cbd5e1" }}
+                >
+                  {failed}
+                </span>
               </div>
             </div>
-            <Link href="/admin/settings" className="mt-4 block text-sm font-semibold text-[var(--primary)] hover:underline">
+            <Link href="/admin/settings" className="mt-5 block text-sm font-semibold hover:opacity-80" style={{ color: "var(--violet)" }}>
               Edit email settings →
             </Link>
           </div>
 
-          <div className="card p-5">
-            <h2 className="font-semibold text-[var(--primary)]">Quick actions</h2>
-            <div className="mt-3 flex flex-col gap-2">
+          <div className="card p-6">
+            <h2 className="font-semibold text-white">Quick actions</h2>
+            <div className="mt-4 flex flex-col gap-2">
               <Link href="/admin/products/new" className="btn-primary w-full justify-center">Add product</Link>
               <Link href="/admin/submissions" className="btn-outline w-full justify-center">View submissions</Link>
             </div>

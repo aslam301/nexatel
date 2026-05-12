@@ -9,6 +9,9 @@ export function ProductForm({ product, mode }: { product?: Product; mode: "creat
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [issues, setIssues] = useState<Record<string, string>>({});
+  const [seoOpen, setSeoOpen] = useState<boolean>(
+    Boolean(product?.seoTitle || product?.seoDescription || product?.seoImage)
+  );
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,6 +31,9 @@ export function ProductForm({ product, mode }: { product?: Product; mode: "creat
       description: fd.get("description"),
       image: fd.get("image"),
       datasheetUrl: fd.get("datasheetUrl"),
+      seoTitle: fd.get("seoTitle"),
+      seoDescription: fd.get("seoDescription"),
+      seoImage: fd.get("seoImage"),
       features,
     };
     try {
@@ -131,12 +137,82 @@ export function ProductForm({ product, mode }: { product?: Product; mode: "creat
         </div>
       </div>
 
-      {error && <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800">{error}</div>}
+      {/* SEO / Open Graph overrides — collapsible. All fields are optional and
+          fall back to name / description / image when left blank. */}
+      <div
+        className="rounded-xl"
+        style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)" }}
+      >
+        <button
+          type="button"
+          onClick={() => setSeoOpen((v) => !v)}
+          className="w-full flex items-center justify-between px-5 py-4 text-left"
+          aria-expanded={seoOpen}
+        >
+          <div>
+            <div className="text-sm font-semibold text-white">SEO &amp; sharing</div>
+            <div className="text-xs text-slate-400 mt-0.5">
+              Optional overrides. Defaults to product name, description and image.
+            </div>
+          </div>
+          <span className="text-slate-400 text-lg leading-none">{seoOpen ? "−" : "+"}</span>
+        </button>
+        {seoOpen && (
+          <div className="px-5 pb-5 pt-1 space-y-4">
+            <div>
+              <label className="label" htmlFor="seoTitle">Meta title</label>
+              <input
+                id="seoTitle"
+                name="seoTitle"
+                className="input"
+                defaultValue={product?.seoTitle ?? ""}
+                maxLength={120}
+                placeholder={product?.name || "Defaults to product name"}
+              />
+              <p className="text-xs text-slate-500 mt-1.5">Shown in browser tabs and search results. Leave blank to use the product name.</p>
+            </div>
+            <div>
+              <label className="label" htmlFor="seoDescription">Meta description</label>
+              <textarea
+                id="seoDescription"
+                name="seoDescription"
+                className="textarea"
+                rows={3}
+                defaultValue={product?.seoDescription ?? ""}
+                maxLength={320}
+                placeholder="Defaults to a trimmed description (≤160 chars)"
+              />
+              <p className="text-xs text-slate-500 mt-1.5">~120-160 characters works best for social previews and search snippets.</p>
+            </div>
+            <div>
+              <label className="label" htmlFor="seoImage">Open Graph image URL</label>
+              <input
+                id="seoImage"
+                name="seoImage"
+                className="input"
+                defaultValue={product?.seoImage ?? ""}
+                placeholder="Defaults to the product image; site default if neither is set"
+              />
+              {issues.seoImage && <p className="field-error">{issues.seoImage}</p>}
+              <p className="text-xs text-slate-500 mt-1.5">1200×630 recommended. Leave blank to inherit the product image.</p>
+            </div>
+          </div>
+        )}
+      </div>
 
-      <div className="flex items-center justify-between pt-3 border-t border-[var(--border)]">
+      {error && (
+        <div
+          className="rounded-lg p-3 text-sm text-red-200"
+          style={{ background: "rgba(239,68,68,0.10)", border: "1px solid rgba(239,68,68,0.35)" }}
+        >
+          {error}
+        </div>
+      )}
+
+      <div className="flex items-center justify-between pt-4 border-t border-[var(--border)]">
         <div>
           {mode === "edit" && (
-            <button type="button" onClick={onDelete} className="text-sm font-semibold text-red-700 hover:underline" disabled={busy}>
+            <button type="button" onClick={onDelete} className="text-sm font-semibold text-red-300 hover:text-red-200" disabled={busy}>
               Delete product
             </button>
           )}

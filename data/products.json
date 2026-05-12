@@ -1,107 +1,215 @@
 [
   {
-    "id": "nx-fo-sm-24",
-    "slug": "single-mode-fiber-cable-24f",
-    "name": "Single-Mode Fiber Optic Cable (24F)",
-    "category": "Fiber Optics",
-    "shortDescription": "Outdoor armoured single-mode 24-fiber cable for long-haul backbone deployments.",
-    "description": "G.652D compliant single-mode loose-tube armoured cable rated for direct burial and aerial installation. Compatible with all major splicing and termination platforms.",
+    "id": "nx-patch-cord-sc",
+    "slug": "fiber-optic-patch-cord-sc-apc",
+    "name": "Fiber Optic Patch Cord — SC/APC",
+    "category": "Patch Cords & Pigtails",
+    "shortDescription": "Single-mode SC/APC patch cord with low insertion loss and high return loss for FTTH deployments.",
+    "description": "Pre-terminated SC/APC duplex single-mode patch cord ideal for FTTH, GPON and FTTx applications. Polished with high-precision ferrules for minimum insertion loss and excellent return loss performance.",
     "features": [
-      "ITU-T G.652D compliant",
-      "Steel-tape armouring",
-      "Direct burial / aerial / duct rated",
-      "PE outer sheath, UV stabilised",
-      "Operating temp: -40°C to +70°C"
+      "SC/APC connectors, single-mode (G.657A1)",
+      "Insertion loss \u2264 0.30 dB",
+      "Return loss \u2265 60 dB",
+      "LSZH yellow jacket",
+      "Available in 1m / 3m / 5m / 10m"
+    ],
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-08-15T00:00:00.000Z"
+  },
+  {
+    "id": "nx-pigtail-sc",
+    "slug": "fiber-optic-pigtail-sc-apc-12c",
+    "name": "Fiber Optic Pigtail — SC/APC (12-Color)",
+    "category": "Patch Cords & Pigtails",
+    "shortDescription": "12-color SC/APC pigtail set for FDP and ODF termination in single-mode networks.",
+    "description": "Pre-polished SC/APC pigtail bundle with 12 standard fiber colours, used for splicing into ODFs, fiber distribution panels and joint closures during last-mile and backbone fiber deployments.",
+    "features": [
+      "12-color set (TIA-598 standard)",
+      "Single-mode G.657A1, 0.9 mm tight buffer",
+      "Insertion loss \u2264 0.30 dB",
+      "Return loss \u2265 60 dB",
+      "1.5 m standard length"
     ],
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
     "createdAt": "2025-09-01T00:00:00.000Z"
   },
   {
+    "id": "nx-fo-sm-24",
+    "slug": "single-mode-fiber-cable-24f",
+    "name": "Single-Mode Fiber Optic Cable (24F)",
+    "category": "Fiber Optic Cables",
+    "shortDescription": "Outdoor armoured single-mode 24-fiber cable for long-haul backbone and NLD deployments.",
+    "description": "G.652D-compliant single-mode loose-tube armoured cable rated for direct burial, duct and aerial installation. Compatible with all major splicing and termination platforms used across Indian telecom rollouts.",
+    "features": [
+      "ITU-T G.652D compliant",
+      "Steel-tape armouring",
+      "Direct burial / aerial / duct rated",
+      "PE outer sheath, UV stabilised",
+      "Operating temp: -40\u00b0C to +70\u00b0C"
+    ],
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-09-01T00:00:00.000Z"
+  },
+  {
+    "id": "nx-fo-mm-12",
+    "slug": "multi-mode-om4-fiber-cable-12f",
+    "name": "Multi-Mode OM4 Fiber Cable (12F)",
+    "category": "Fiber Optic Cables",
+    "shortDescription": "OM4 multi-mode 12-fiber riser cable for high-speed campus and data-centre backbones.",
+    "description": "Indoor / indoor-outdoor OM4 cable suitable for 10G / 40G / 100G short-reach backbone runs in campus and data-centre environments. LSZH jacket and tight-buffer construction for safe in-building deployment.",
+    "features": [
+      "OM4 multi-mode (50/125 \u00b5m)",
+      "10G to 550m, 40G/100G to 150m",
+      "LSZH tight-buffer construction",
+      "Riser-rated for vertical runs",
+      "Compatible with MTP/MPO trunks"
+    ],
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-09-15T00:00:00.000Z"
+  },
+  {
     "id": "nx-cat6a-utp",
     "slug": "cat6a-utp-cable-305m",
     "name": "Cat6A U/UTP Cable (305m)",
-    "category": "Structured Cabling",
-    "shortDescription": "10G-ready Cat6A U/UTP LSZH cable in 305m pull box.",
-    "description": "Tier-1 Cat6A U/UTP cable certified to TIA-568.2-D, supporting 10GBASE-T to 100m. LSZH jacket for indoor backbone and horizontal runs in commercial buildings.",
+    "category": "Network Cabling",
+    "shortDescription": "10G-ready Cat6A U/UTP LSZH cable in 305m pull box for structured cabling deployments.",
+    "description": "Tier-1 Cat6A U/UTP cable certified to TIA-568.2-D, supporting 10GBASE-T to 100m. LSZH jacket for indoor backbone and horizontal runs in commercial buildings, hospitals and data centres.",
     "features": [
       "TIA-568.2-D Cat6A certified",
       "10GBASE-T to 100m",
       "LSZH low-smoke zero-halogen jacket",
       "23 AWG solid copper",
-      "Fluke channel & permanent link tested"
+      "Fluke channel & permanent-link tested"
     ],
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
-    "createdAt": "2025-09-15T00:00:00.000Z"
+    "createdAt": "2025-09-25T00:00:00.000Z"
   },
   {
-    "id": "nx-otdr-pro",
-    "slug": "otdr-test-set-pro",
-    "name": "OTDR Test Set Pro",
-    "category": "Test Equipment",
-    "shortDescription": "Field-grade OTDR with 1310/1550nm dual wavelength and 40dB dynamic range.",
-    "description": "Hand-held OTDR ideal for splicing teams and acceptance testing. Generates Bellcore SR-4731 reports compatible with all major OEM analysis tools.",
+    "id": "nx-sfp-10g",
+    "slug": "fiber-optic-transceiver-sfp-10g",
+    "name": "Fiber Optic Transceiver \u2014 SFP+ 10G LR",
+    "category": "Transceivers",
+    "shortDescription": "10GBASE-LR SFP+ transceiver for single-mode fiber up to 10 km.",
+    "description": "Hot-pluggable SFP+ transceiver supporting 10GBASE-LR over single-mode fiber. Coded for compatibility with Cisco, Juniper, HPE, Aruba and other major switch platforms used across Indian enterprise and service-provider networks.",
     "features": [
-      "Dual wavelength 1310 / 1550 nm",
-      "40 dB dynamic range",
-      "Event dead zone < 1 m",
-      "Bellcore SR-4731 reports",
-      "8-hour Li-ion runtime"
+      "10GBASE-LR, 1310 nm",
+      "Up to 10 km on G.652D fiber",
+      "LC duplex connector",
+      "DDM / DOM digital diagnostics",
+      "Cisco / Juniper / HPE compatible"
     ],
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
     "createdAt": "2025-10-04T00:00:00.000Z"
   },
   {
-    "id": "nx-solar-550w",
-    "slug": "monocrystalline-solar-panel-550w",
-    "name": "Monocrystalline Solar Panel 550W",
-    "category": "Solar & Energy",
-    "shortDescription": "High-efficiency 550W mono PERC half-cut solar panel for commercial rooftop arrays.",
-    "description": "Tier-1 manufacturer 550W half-cut mono PERC module with 21.3% efficiency and 25-year linear power warranty. IEC 61215, IEC 61730 and salt-mist certified for GCC environments.",
+    "id": "nx-mpo-cassette",
+    "slug": "mpo-cassette-12f",
+    "name": "MPO Cassette (12F)",
+    "category": "Patch Panels & ODF",
+    "shortDescription": "12-fiber MPO-to-LC cassette for high-density data-centre fiber distribution.",
+    "description": "Pre-terminated MPO/MTP-to-LC cassette delivering plug-and-play fiber distribution in data-centre racks. Designed for 10G / 40G / 100G migration paths and high-density LC patching.",
     "features": [
-      "550W nominal output",
-      "21.3% module efficiency",
-      "Half-cut PERC technology",
-      "25-year linear warranty",
-      "IEC + salt-mist certified"
+      "12 fibers, MPO to LC duplex",
+      "Single-mode or multi-mode (OM3/OM4) options",
+      "Plug-and-play factory terminated",
+      "Snap-fit into 1U fiber enclosures",
+      "Supports 10G/40G/100G migration"
     ],
-    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=70&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-10-18T00:00:00.000Z"
+  },
+  {
+    "id": "nx-pp-24-lc",
+    "slug": "fiber-patch-panel-24-port-lc",
+    "name": "Fiber Optic Patch Panel \u2014 24-Port LC",
+    "category": "Patch Panels & ODF",
+    "shortDescription": "1U 24-port LC duplex fiber patch panel with sliding tray and splice cassette.",
+    "description": "Rack-mount 1U fiber patch panel for organised termination of single-mode or multi-mode cables in racks and ODF enclosures. Includes sliding tray, splice cassette and cable management for easy patching and maintenance.",
+    "features": [
+      "1U rack-mount, 24 LC duplex ports",
+      "Sliding tray with splice cassette",
+      "Front and rear cable management",
+      "Single-mode or multi-mode adapter options",
+      "Tool-less adapter plates"
+    ],
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
     "createdAt": "2025-11-20T00:00:00.000Z"
   },
   {
-    "id": "nx-rack-42u",
-    "slug": "data-centre-rack-42u",
-    "name": "42U Data Centre Server Rack",
-    "category": "Data Centre",
-    "shortDescription": "42U 800x1000 mesh-door server rack with cable management and PDU mounts.",
-    "description": "Heavy-gauge welded server rack designed for high-density data centre deployments. Includes adjustable mounting rails, vertical cable managers, mesh front and rear doors and tool-less side panels.",
+    "id": "nx-fdb-24",
+    "slug": "fiber-distribution-box-fdb-24",
+    "name": "Fiber Distribution Box (FDB) \u2014 24-port",
+    "category": "Enclosures & Boxes",
+    "shortDescription": "Wall-mount IP65 24-port FDB for FTTH last-mile splicing and distribution.",
+    "description": "Wall- or pole-mountable IP65-rated Fiber Distribution Box for FTTH neighbourhood drop distribution. Houses splice tray, splitter and 24 SC/APC adapters in a compact, weatherproof enclosure.",
     "features": [
-      "42U usable height",
-      "800 x 1000 mm footprint",
-      "Mesh front & split rear doors",
-      "Vertical cable management",
-      "1500 kg static load"
+      "IP65 outdoor-rated enclosure",
+      "24 SC/APC drop ports",
+      "Integrated 1:8 / 1:16 splitter capacity",
+      "Splice tray + cable management",
+      "Wall and pole mountable"
     ],
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-12-08T00:00:00.000Z"
+  },
+  {
+    "id": "nx-fat-16",
+    "slug": "ftth-fiber-access-terminal-16",
+    "name": "FTTH Fiber Access Terminal (16-port)",
+    "category": "Enclosures & Boxes",
+    "shortDescription": "Outdoor IP65 16-port fiber access terminal for last-mile FTTH drop connectivity.",
+    "description": "Wall- or pole-mounted IP65 FTTH FAT for last-mile drop connections in residential and commercial neighbourhoods. Houses pre-terminated SC/APC adapters, splice tray and integrated splitter capacity.",
+    "features": [
+      "IP65 outdoor enclosure",
+      "16 SC/APC drop ports",
+      "Integrated 1:8 / 1:16 splitter capacity",
+      "Wall and pole mountable",
+      "Splice tray and cable management included"
+    ],
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
     "createdAt": "2026-01-10T00:00:00.000Z"
   },
   {
-    "id": "nx-ipphone-x7",
-    "slug": "enterprise-ip-phone-x7",
-    "name": "Enterprise IP Phone X7",
-    "category": "Telecom",
-    "shortDescription": "Gigabit IP phone with HD audio, 6 SIP accounts and PoE support.",
-    "description": "Productivity-grade IP phone for enterprise UC platforms. HD voice, dual gigabit ports, 6 SIP accounts and integrated Bluetooth/EHS headset support. Compatible with all major SIP platforms.",
+    "id": "nx-joint-closure",
+    "slug": "fiber-optic-joint-closure",
+    "name": "Fiber Optic Joint Closure",
+    "category": "Enclosures & Boxes",
+    "shortDescription": "Heavy-duty IP68 inline / dome joint closure for underground and aerial OFC splicing.",
+    "description": "Dome-style fiber-optic joint closure with high-tensile clamping and IP68 sealing for underground manhole, duct and aerial fiber splice points. Supports up to 96 fibers across multiple splice trays.",
     "features": [
-      "HD wideband audio",
-      "6 SIP account support",
-      "Dual gigabit ports + PoE",
-      "Bluetooth & EHS ready",
-      "4.3-inch colour display"
+      "IP68 sealed, dome construction",
+      "Up to 96 fibers across 4 trays",
+      "Multi-cable inlet / outlet ports",
+      "Reusable mechanical sealing",
+      "Suitable for underground and aerial use"
+    ],
+    "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "nx-onu",
+    "slug": "onu-optical-network-unit-gpon",
+    "name": "ONU \u2014 Optical Network Unit (GPON)",
+    "category": "Active Equipment",
+    "shortDescription": "GPON ONU with 4 LAN ports, Wi-Fi and VoIP for FTTH subscriber-side termination.",
+    "description": "GPON ONU/ONT designed for FTTH residential and small-business deployments. Supports 4-port GE LAN, dual-band Wi-Fi and a TEL/VoIP port. Compatible with major OLT platforms used by Indian operators.",
+    "features": [
+      "GPON \u2014 1.244 Gbps up / 2.488 Gbps down",
+      "4 \u00d7 Gigabit Ethernet LAN ports",
+      "Dual-band 2.4 / 5 GHz Wi-Fi",
+      "1 \u00d7 TEL / VoIP port",
+      "TR-069 remote management"
     ],
     "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",

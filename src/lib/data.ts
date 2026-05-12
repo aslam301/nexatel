@@ -1,6 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
-import type { Company, Service, Product, Project, Settings, Submission } from "./types";
+import type { Company, Service, Capability, Product, Project, Settings, Submission } from "./types";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -18,12 +18,23 @@ async function writeJson<T>(file: string, value: T): Promise<void> {
 
 export const getCompany = (): Promise<Company> => readJson<Company>("company.json");
 export const getServices = (): Promise<Service[]> => readJson<Service[]>("services.json");
+export const getCapabilities = (): Promise<Capability[]> => readJson<Capability[]>("capabilities.json");
 export const getProducts = (): Promise<Product[]> => readJson<Product[]>("products.json");
 export const getProjects = (): Promise<Project[]> => readJson<Project[]>("projects.json");
 
 export async function getServiceBySlug(slug: string): Promise<Service | undefined> {
   const list = await getServices();
   return list.find((s) => s.slug === slug);
+}
+
+export async function getCapabilityBySlug(slug: string): Promise<Capability | undefined> {
+  const list = await getCapabilities();
+  return list.find((c) => c.slug === slug);
+}
+
+export async function getCapabilitiesByService(serviceSlug: string): Promise<Capability[]> {
+  const list = await getCapabilities();
+  return list.filter((c) => c.parentService === serviceSlug);
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
@@ -41,7 +52,7 @@ export async function saveProducts(products: Product[]): Promise<void> {
 }
 
 const DEFAULT_SETTINGS: Settings = {
-  notificationEmail: "rafiq@nexatel.org",
+  notificationEmail: "sales@nexatel.org",
   ccEmails: [],
   emailSubjectPrefix: "[Nexatel]",
   autoReplyEnabled: false,

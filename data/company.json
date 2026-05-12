@@ -1,40 +1,32 @@
 {
   "name": "Nexatel",
-  "legalName": "Nexatel Group",
-  "tagline": "Engineering Connections. Building Tomorrow.",
-  "description": "Nexatel is a multi-vertical engineering and technology group with deep roots in Kerala and operations across Kuwait. We design, deploy and maintain mission-critical infrastructure for telecom, IT, structured cabling and clean-energy installations.",
-  "shortDescription": "Multi-vertical engineering & technology group serving Kerala and Kuwait.",
-  "founded": "2009",
-  "yearsOfExperience": 16,
+  "legalName": "Nexatel Private Limited",
+  "tagline": "Engineering India's connected future.",
+  "description": "Nexatel Private Limited is a specialised telecom infrastructure company headquartered in Kerala, India. We design, deploy and maintain fiber optic, telecom, network cabling, CCTV and IT hardware systems for service providers, enterprises and public projects \u2014 led by engineering leadership with 25+ years in fiber optics.",
+  "shortDescription": "Telecom infrastructure & IT systems integrator headquartered in Kerala, India.",
+  "founded": "2020",
+  "yearsOfExperience": 25,
   "stats": [
-    { "label": "Years of Experience", "value": "16+" },
-    { "label": "Projects Delivered", "value": "1,200+" },
-    { "label": "Active Clients", "value": "180+" },
-    { "label": "Countries Served", "value": "2" }
+    { "label": "km of OFC deployed", "value": "500+" },
+    { "label": "km of ROW managed", "value": "500+" },
+    { "label": "yrs engineering leadership", "value": "25+" },
+    { "label": "service pillars", "value": "5" }
   ],
   "verticals": [
-    "IT Services & Solutions",
-    "Fiber Optics & Structured Cabling",
+    "Fiber Optic Projects",
     "Telecom Infrastructure",
-    "Electrical, Solar & Energy",
+    "Network Cabling",
+    "CCTV Systems",
     "IT Hardware Supply"
   ],
   "offices": [
-    {
-      "city": "Kuwait City",
-      "country": "Kuwait",
-      "address": "Block 2, Salhiya Commercial Complex, Kuwait City, State of Kuwait",
-      "phone": "+965 0000 0000",
-      "email": "kuwait@nexatel.example",
-      "isHeadquarters": true
-    },
     {
       "city": "Kochi",
       "country": "India",
       "address": "InfoPark Phase II, Kakkanad, Kochi, Kerala 682030, India",
       "phone": "+91 484 000 0000",
-      "email": "india@nexatel.example",
-      "isHeadquarters": false
+      "email": "sales@nexatel.org",
+      "isHeadquarters": true
     }
   ],
   "social": {
@@ -43,6 +35,23 @@
     "facebook": "",
     "instagram": ""
   },
-  "supportEmail": "hello@nexatel.example",
-  "supportPhone": "+965 0000 0000"
+  "supportEmail": "sales@nexatel.org",
+  "supportPhone": "+91 484 000 0000",
+  "mission": "To become a leading and trusted telecom infrastructure company, delivering world-class solutions in telecom, electrical and IT networking infrastructure with superior quality, innovation and reliability \u2014 connecting communities and enabling digital growth across India.",
+  "vision": "Lead global tech trends with seamless telecom and IT services.",
+  "values": [
+    "Integrity",
+    "Expertise",
+    "Teamwork",
+    "Client focus",
+    "Quality",
+    "Innovation"
+  ],
+  "partner": {
+    "name": "Fanr",
+    "legalName": "Al Fanr Establishment",
+    "url": "https://www.fanrkwt.com",
+    "country": "Kuwait",
+    "note": "Our sister company in Kuwait, delivering aligned telecom, networking and IT solutions across the GCC."
+  }
 }

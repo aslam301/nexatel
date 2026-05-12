@@ -14,6 +14,8 @@ export interface HeroProps {
   showStatus?: boolean;
   /** Vertical padding scale: full hero on landing pages, compact on inner pages. */
   size?: "default" | "compact";
+  /** Status pill text (override default). */
+  statusText?: string;
 }
 
 export function Hero({
@@ -25,14 +27,15 @@ export function Hero({
   backgroundImage,
   showStatus = true,
   size = "default",
+  statusText = "Live · Kerala, IN",
 }: HeroProps) {
-  const padding = size === "compact" ? "py-16 md:py-20" : "py-24 md:py-32";
+  const padding = size === "compact" ? "py-20 md:py-24" : "py-28 md:py-36";
   return (
     <section className="relative overflow-hidden text-white isolate">
       {/* Layer 0 — solid base + gradient placeholder, shown instantly */}
       <div className="absolute inset-0 hero-gradient" aria-hidden />
 
-      {/* Layer 1 — background image fades in over the gradient */}
+      {/* Layer 1 — background image fades in over the gradient (heavily darkened) */}
       {backgroundImage && (
         <Image
           src={backgroundImage}
@@ -42,34 +45,40 @@ export function Hero({
           sizes="100vw"
           priority
           quality={75}
-          className="absolute inset-0 object-cover"
+          className="absolute inset-0 object-cover opacity-30 mix-blend-luminosity"
         />
       )}
 
-      {/* Layer 2 — directional gradient overlay: darker on the left/bottom (where copy lives),
-         lighter on the right (so the image clearly shows through). */}
+      {/* Layer 2 — directional gradient overlay */}
       <div
         className="absolute inset-0"
         aria-hidden
         style={{
           background:
-            "linear-gradient(105deg, rgba(6,26,46,0.92) 0%, rgba(6,26,46,0.75) 35%, rgba(6,26,46,0.45) 65%, rgba(6,26,46,0.30) 100%)",
+            "linear-gradient(105deg, rgba(5,8,22,0.95) 0%, rgba(5,8,22,0.78) 35%, rgba(5,8,22,0.55) 65%, rgba(5,8,22,0.40) 100%)",
         }}
       />
-      {/* Subtle bottom fade so the next section doesn't fight the image */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-24"
-        aria-hidden
-        style={{ background: "linear-gradient(180deg, transparent, rgba(6,26,46,0.65))" }}
-      />
 
-      {/* Layer 3 — grid pattern, very subtle */}
-      <div className="absolute inset-0 grid-pattern opacity-40" aria-hidden />
+      {/* Layer 3 — grid pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
+
+      {/* Layer 3b — violet glow top-right */}
+      <div
+        className="pointer-events-none absolute -top-32 right-[-15%] h-[520px] w-[520px] rounded-full opacity-60 blur-3xl"
+        aria-hidden
+        style={{ background: "radial-gradient(closest-side, rgba(124,58,237,0.55), transparent)" }}
+      />
+      {/* Layer 3c — cyan glow bottom-left */}
+      <div
+        className="pointer-events-none absolute -bottom-40 left-[-10%] h-[460px] w-[460px] rounded-full opacity-40 blur-3xl"
+        aria-hidden
+        style={{ background: "radial-gradient(closest-side, rgba(6,182,212,0.40), transparent)" }}
+      />
 
       {/* Layer 4 — animated scan line */}
       <div className="hero-scan" aria-hidden />
 
-      {/* Layer 5 — corner brackets for tech feel */}
+      {/* Layer 5 — corner brackets */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden>
         <span className="hero-bracket hero-bracket--tl" />
         <span className="hero-bracket hero-bracket--tr" />
@@ -78,50 +87,45 @@ export function Hero({
       </div>
 
       <div className={`container-wide relative ${padding}`}>
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           {showStatus && (
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 backdrop-blur-sm">
+            <div className="badge">
               <span className="relative inline-flex h-2 w-2">
-                <span className="absolute inset-0 rounded-full bg-emerald-400 animate-ping opacity-75" />
-                <span className="relative inline-block h-2 w-2 rounded-full bg-emerald-400" />
+                <span className="absolute inset-0 rounded-full bg-cyan-400 animate-ping opacity-75" />
+                <span className="relative inline-block h-2 w-2 rounded-full bg-cyan-400" />
               </span>
-              <span className="font-mono text-[11px] tracking-widest uppercase text-slate-200/80">
-                Online · KW · IN
-              </span>
+              <span className="text-slate-200/85">{statusText}</span>
             </div>
           )}
 
           {eyebrow && (
             <div className={showStatus ? "mt-8" : ""}>
-              <span className="font-mono text-[11px] tracking-[0.22em] uppercase text-[var(--accent)]">
-                {eyebrow}
-              </span>
+              <span className="eyebrow">{eyebrow}</span>
             </div>
           )}
 
-          <h1 className={`text-[2.5rem] sm:text-5xl md:text-[4.25rem] font-semibold leading-[1.05] tracking-[-0.03em] ${
-            eyebrow ? "mt-3" : showStatus ? "mt-8" : "mt-0"
-          }`}>
+          <h1
+            className={`font-semibold leading-[1.04] tracking-[-0.035em] text-[2.6rem] sm:text-5xl md:text-[5rem] xl:text-[5.5rem] ${
+              eyebrow ? "mt-3" : showStatus ? "mt-7" : "mt-0"
+            }`}
+          >
             {title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base md:text-lg text-slate-300/90 leading-relaxed">
+          <p className="mt-7 max-w-2xl text-base md:text-lg text-slate-300/90 leading-relaxed">
             {subtitle}
           </p>
 
           {(primaryCta || secondaryCta) && (
             <div className="mt-9 flex flex-wrap gap-3">
               {primaryCta && (
-                <Link href={primaryCta.href} className="btn-accent">
+                <Link href={primaryCta.href} className="btn-primary">
                   {primaryCta.label}
                   <Icon name="arrow" size={16} />
                 </Link>
               )}
               {secondaryCta && (
-                <Link
-                  href={secondaryCta.href}
-                  className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
-                >
+                <Link href={secondaryCta.href} className="btn-outline">
                   {secondaryCta.label}
                 </Link>
               )}
@@ -131,7 +135,14 @@ export function Hero({
       </div>
 
       {/* Layer 6 — bottom hairline */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" aria-hidden />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        aria-hidden
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(124,58,237,0.4), rgba(6,182,212,0.4), transparent)",
+        }}
+      />
     </section>
   );
 }

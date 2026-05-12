@@ -29,12 +29,18 @@ export function Header() {
   // Admin pages have their own AdminShell chrome — don't double-stack site nav.
   if (pathname?.startsWith("/admin")) return null;
 
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname?.startsWith(href);
+  };
+
   return (
     <header
       className="sticky top-0 z-40 transition-all"
       style={{
-        background: scrolled ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.75)",
-        backdropFilter: "saturate(180%) blur(10px)",
+        background: scrolled ? "rgba(5, 8, 22, 0.78)" : "rgba(5, 8, 22, 0.40)",
+        backdropFilter: "saturate(180%) blur(14px)",
+        WebkitBackdropFilter: "saturate(180%) blur(14px)",
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
       }}
     >
@@ -42,22 +48,37 @@ export function Header() {
         <Link href="/" className="shrink-0" aria-label="Nexatel home">
           <Logo />
         </Link>
-        <nav className="hidden md:flex items-center gap-7" aria-label="Primary">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-slate-700 hover:text-[var(--primary)] transition-colors"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
+          {NAV.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                  active ? "text-white" : "text-slate-300 hover:text-white"
+                }`}
+              >
+                {item.label}
+                {active && (
+                  <span
+                    className="pointer-events-none absolute left-3 right-3 -bottom-px h-px"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, transparent, rgba(124,58,237,0.85), rgba(6,182,212,0.85), transparent)",
+                    }}
+                    aria-hidden
+                  />
+                )}
+              </Link>
+            );
+          })}
         </nav>
-        <div className="hidden md:flex items-center gap-3">
-          <Link href="/contact" className="btn-primary">Contact Us</Link>
+        <div className="hidden lg:flex items-center gap-3">
+          <Link href="/contact" className="btn-primary text-sm">Contact Us</Link>
         </div>
         <button
-          className="md:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-200"
+          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 border border-[var(--border-strong)] text-slate-200 hover:bg-white/5"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -72,19 +93,27 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-slate-200 bg-white">
-          <div className="container-wide py-4 flex flex-col gap-2">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="py-2 text-slate-800 font-medium"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/contact" className="btn-primary mt-2 w-fit" onClick={() => setOpen(false)}>
+        <div
+          className="lg:hidden border-t border-[var(--border)]"
+          style={{ background: "rgba(5, 8, 22, 0.94)", backdropFilter: "blur(14px)" }}
+        >
+          <div className="container-wide py-4 flex flex-col gap-1">
+            {NAV.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`px-3 py-2.5 rounded-md font-medium ${
+                    active ? "text-white bg-white/5" : "text-slate-300"
+                  }`}
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link href="/contact" className="btn-primary mt-3 w-fit" onClick={() => setOpen(false)}>
               Contact Us
             </Link>
           </div>

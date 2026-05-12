@@ -29,37 +29,56 @@ export function AdminShell({ children, title, subtitle, actions }: { children: R
   }
 
   return (
-    <div className="min-h-screen bg-[var(--surface)]">
+    <div className="min-h-screen" style={{ background: "var(--background)" }}>
       <div className="flex">
         {/* Sidebar — desktop */}
-        <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-[var(--border)] bg-white min-h-screen sticky top-0">
+        <aside
+          className="hidden lg:flex flex-col w-64 shrink-0 border-r border-[var(--border)] min-h-screen sticky top-0"
+          style={{ background: "var(--background-2)" }}
+        >
           <div className="px-5 py-5 border-b border-[var(--border)] flex items-center justify-between">
-            <Logo size={24} />
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-[var(--accent-strong)] bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded">
+            <Logo size={26} />
+            <span
+              className="text-[10px] tracking-widest uppercase font-semibold px-2 py-0.5 rounded"
+              style={{
+                color: "var(--violet)",
+                background: "rgba(124,58,237,0.10)",
+                border: "1px solid rgba(124,58,237,0.30)",
+              }}
+            >
               Admin
             </span>
           </div>
           <nav className="flex-1 px-3 py-4 space-y-1">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  isActive(item)
-                    ? "bg-[var(--primary)] text-white"
-                    : "text-slate-700 hover:bg-slate-100"
-                }`}
-              >
-                <span className={isActive(item) ? "text-[var(--accent)]" : "text-slate-500"}>{item.icon}</span>
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) => {
+              const active = isActive(item);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    active ? "text-white" : "text-slate-300 hover:text-white hover:bg-white/5"
+                  }`}
+                  style={
+                    active
+                      ? {
+                          background: "linear-gradient(135deg, rgba(124,58,237,0.95), rgba(79,70,229,0.95))",
+                          boxShadow: "0 8px 24px -10px rgba(124,58,237,0.55)",
+                        }
+                      : undefined
+                  }
+                >
+                  <span className={active ? "text-white" : "text-slate-400"}>{item.icon}</span>
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
-          <div className="p-3 border-t border-[var(--border)] space-y-2">
-            <Link href="/" className="flex items-center gap-2 text-sm text-slate-600 hover:text-[var(--primary)] px-3 py-1.5">
+          <div className="p-3 border-t border-[var(--border)] space-y-1">
+            <Link href="/" className="flex items-center gap-2 text-sm text-slate-400 hover:text-white px-3 py-1.5 transition-colors">
               <ExternalIcon /> View site
             </Link>
-            <button onClick={logout} className="w-full flex items-center gap-2 text-sm text-slate-600 hover:text-red-700 px-3 py-1.5">
+            <button onClick={logout} className="w-full flex items-center gap-2 text-sm text-slate-400 hover:text-red-300 px-3 py-1.5 transition-colors">
               <LogoutIcon /> Sign out
             </button>
           </div>
@@ -67,29 +86,43 @@ export function AdminShell({ children, title, subtitle, actions }: { children: R
 
         {/* Mobile drawer */}
         {mobileOpen && (
-          <div className="lg:hidden fixed inset-0 z-40 bg-black/40" onClick={() => setMobileOpen(false)}>
-            <aside className="bg-white w-64 h-full p-4" onClick={(e) => e.stopPropagation()}>
+          <div className="lg:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)}>
+            <aside
+              className="w-64 h-full p-4 border-r border-[var(--border)]"
+              style={{ background: "var(--background-2)" }}
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="flex items-center justify-between mb-5">
                 <Logo size={24} />
-                <button onClick={() => setMobileOpen(false)} className="p-2"><CloseIcon /></button>
+                <button onClick={() => setMobileOpen(false)} className="p-2 text-slate-400"><CloseIcon /></button>
               </div>
               <nav className="space-y-1">
-                {NAV.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium ${
-                      isActive(item) ? "bg-[var(--primary)] text-white" : "text-slate-700"
-                    }`}
-                  >
-                    {item.icon}
-                    {item.label}
-                  </Link>
-                ))}
+                {NAV.map((item) => {
+                  const active = isActive(item);
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium ${
+                        active ? "text-white" : "text-slate-300"
+                      }`}
+                      style={
+                        active
+                          ? {
+                              background: "linear-gradient(135deg, rgba(124,58,237,0.95), rgba(79,70,229,0.95))",
+                            }
+                          : undefined
+                      }
+                    >
+                      {item.icon}
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
               <div className="mt-6 pt-4 border-t border-[var(--border)]">
-                <button onClick={logout} className="text-sm text-slate-600 hover:text-red-700 px-3 py-1.5">Sign out</button>
+                <button onClick={logout} className="text-sm text-slate-400 hover:text-red-300 px-3 py-1.5 transition-colors">Sign out</button>
               </div>
             </aside>
           </div>
@@ -97,19 +130,22 @@ export function AdminShell({ children, title, subtitle, actions }: { children: R
 
         {/* Main */}
         <div className="flex-1 min-w-0">
-          <div className="border-b border-[var(--border)] bg-white">
+          <div
+            className="border-b border-[var(--border)] sticky top-0 z-20 backdrop-blur-md"
+            style={{ background: "rgba(10,15,31,0.78)" }}
+          >
             <div className="px-5 md:px-8 py-5 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 min-w-0">
                 <button
-                  className="lg:hidden p-2 rounded-md border border-[var(--border)]"
+                  className="lg:hidden p-2 rounded-md border border-[var(--border-strong)] text-slate-200"
                   onClick={() => setMobileOpen(true)}
                   aria-label="Open menu"
                 >
                   <MenuIcon />
                 </button>
                 <div className="min-w-0">
-                  <h1 className="text-xl md:text-2xl font-bold text-[var(--primary)] truncate">{title}</h1>
-                  {subtitle && <p className="text-sm text-slate-500 mt-0.5 truncate">{subtitle}</p>}
+                  <h1 className="text-xl md:text-2xl font-semibold text-white tracking-tight truncate">{title}</h1>
+                  {subtitle && <p className="text-sm text-slate-400 mt-0.5 truncate">{subtitle}</p>}
                 </div>
               </div>
               <div className="flex items-center gap-2 shrink-0">{actions}</div>

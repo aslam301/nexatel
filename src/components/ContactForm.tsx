@@ -52,11 +52,11 @@ export function ContactForm() {
           <label className="label" htmlFor="topic">Topic</label>
           <select className="select" id="topic" name="topic" defaultValue="general">
             <option value="general">General enquiry</option>
-            <option value="it">IT services</option>
-            <option value="fiber">Fiber optics / cabling</option>
+            <option value="fiber-optic">Fiber optic projects</option>
             <option value="telecom">Telecom infrastructure</option>
-            <option value="solar">Electrical / solar</option>
-            <option value="hardware">IT hardware supply</option>
+            <option value="network-cabling">Network cabling</option>
+            <option value="cctv">CCTV systems</option>
+            <option value="it-hardware">IT hardware supply</option>
           </select>
         </div>
       </div>
@@ -70,9 +70,9 @@ export function ContactForm() {
           {status === "sending" ? "Sending…" : "Send enquiry"}
         </button>
         {status === "ok" && (
-          <span className="text-sm text-emerald-700">Thanks — we&rsquo;ll be in touch within 1 business day.</span>
+          <span className="text-sm text-emerald-300">Thanks — we&rsquo;ll be in touch within 1 business day.</span>
         )}
-        {status === "error" && <span className="text-sm text-red-700">{error}</span>}
+        {status === "error" && <span className="text-sm text-red-300">{error}</span>}
       </div>
     </form>
   );

@@ -26,15 +26,17 @@ export async function generateMetadata(): Promise<Metadata> {
     path: "/",
     keywords: [
       "Nexatel",
-      "IT services Kuwait",
-      "IT services Kerala",
-      "fiber optics Kuwait",
-      "structured cabling Kerala",
-      "telecom infrastructure GCC",
-      "solar installation Kuwait",
-      "IT hardware supply Kuwait",
+      "Nexatel Private Limited",
+      "fiber optic installation India",
+      "FTTH GPON Kerala",
+      "telecom infrastructure India",
       "OFC backbone",
-      "BICSI cabling",
+      "ROW liaison India",
+      "HDD horizontal directional drilling",
+      "fiber splicing OTDR",
+      "network cabling Kerala",
+      "CCTV installation India",
+      "IT hardware supply India",
     ],
   });
   return {
@@ -52,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#0a2540",
+  themeColor: "#050816",
   width: "device-width",
   initialScale: 1,
 };
@@ -67,7 +69,7 @@ export default async function RootLayout({
   };
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <body className="min-h-screen flex flex-col bg-white text-[var(--foreground)]">
+      <body className="min-h-screen flex flex-col text-[var(--foreground)]" style={{ background: "var(--background)" }}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}

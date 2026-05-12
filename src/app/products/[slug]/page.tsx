@@ -1,9 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCompany, getProductBySlug, getProducts } from "@/lib/data";
+import { getCompany, getProductBySlug, getProducts, getSettings } from "@/lib/data";
 import { Icon } from "@/components/Icon";
-import { breadcrumbsJsonLd, buildMetadata, productJsonLd } from "@/lib/seo";
+import { ProductCard } from "@/components/ProductCard";
+import { ProductGallery } from "@/components/ProductGallery";
+import {
+  breadcrumbsJsonLd,
+  buildMetadata,
+  productJsonLd,
+  resolveDescription,
+  resolveOgImage,
+} from "@/lib/seo";
 
 export const dynamic = "force-static";
 export const revalidate = 60;
@@ -15,13 +22,18 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const p = await getProductBySlug(slug);
+  const [p, settings] = await Promise.all([getProductBySlug(slug), getSettings()]);
   if (!p) return buildMetadata({ title: "Product", description: "Nexatel product", path: `/products/${slug}` });
+
+  const title = p.seoTitle?.trim() || p.name;
+  const description = resolveDescription(p.seoDescription, p.description, p.shortDescription, settings);
+  const ogImage = resolveOgImage(p.seoImage, p.image, settings);
+
   return buildMetadata({
-    title: p.name,
-    description: p.shortDescription,
+    title,
+    description,
     path: `/products/${slug}`,
-    image: { url: p.image, alt: p.name },
+    image: ogImage ? { url: ogImage, alt: p.name } : undefined,
     ogType: "article",
     keywords: [p.name, p.category, "Nexatel product"],
   });
@@ -29,8 +41,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [product, company] = await Promise.all([getProductBySlug(slug), getCompany()]);
+  const [product, company, allProducts] = await Promise.all([
+    getProductBySlug(slug),
+    getCompany(),
+    getProducts(),
+  ]);
   if (!product) notFound();
+
+  const related = allProducts
+    .filter((p) => p.id !== product.id && p.category === product.category)
+    .slice(0, 3);
+
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
@@ -43,51 +64,175 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
     ],
   };
 
+  const sku = product.id.replace(/^nx-/, "").toUpperCase();
+
   return (
-    <section className="container-wide py-12 md:py-16">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
-      <Link href="/products" className="text-sm text-slate-500 hover:text-[var(--primary)] inline-flex items-center gap-1 mb-6">
-        ← All products
-      </Link>
-      <div className="grid lg:grid-cols-2 gap-10">
-        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100">
-          {product.image && (
-            <Image src={product.image} alt={product.name} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
-          )}
-        </div>
-        <div>
-          <span className="eyebrow">{product.category}</span>
-          <h1 className="mt-2 text-3xl md:text-4xl font-bold text-[var(--primary)] tracking-tight">{product.name}</h1>
-          <p className="mt-4 text-lg text-slate-600">{product.shortDescription}</p>
-          <p className="mt-4 text-slate-700 leading-relaxed">{product.description}</p>
+      <section className="container-wide pt-10 md:pt-14 pb-16 md:pb-20">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="text-sm text-slate-500 mb-8 flex flex-wrap items-center gap-2">
+          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+          <span aria-hidden>/</span>
+          <Link href="/products" className="hover:text-white transition-colors">Products</Link>
+          <span aria-hidden>/</span>
+          <span className="text-white font-medium">{product.name}</span>
+        </nav>
 
-          {product.features?.length > 0 && (
-            <>
-              <h2 className="mt-8 text-lg font-semibold text-[var(--primary)]">Key features</h2>
-              <ul className="mt-3 grid sm:grid-cols-2 gap-2.5">
-                {product.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-slate-700">
-                    <span className="text-[var(--accent-strong)] mt-0.5"><Icon name="check" size={18} /></span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
+          {/* Gallery */}
+          <ProductGallery images={product.image ? [product.image] : []} alt={product.name} />
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-primary">Request quotation <Icon name="arrow" size={16} /></Link>
-            {product.datasheetUrl && (
-              <a href={product.datasheetUrl} className="btn-outline" target="_blank" rel="noreferrer">
-                Datasheet
-              </a>
-            )}
+          {/* Detail panel */}
+          <div className="lg:pt-2">
+            <div className="flex items-center gap-2.5 flex-wrap">
+              <span
+                className="text-[10px] font-mono uppercase tracking-[0.18em] px-2.5 py-1 rounded-full"
+                style={{
+                  background: "rgba(124,58,237,0.10)",
+                  color: "#c4b5fd",
+                  border: "1px solid rgba(124,58,237,0.35)",
+                }}
+              >
+                {product.category}
+              </span>
+              <span
+                className="text-[10px] font-mono uppercase tracking-[0.18em] px-2.5 py-1 rounded-full"
+                style={{
+                  background: "rgba(16,185,129,0.10)",
+                  color: "#6ee7b7",
+                  border: "1px solid rgba(16,185,129,0.30)",
+                }}
+              >
+                ● In stock
+              </span>
+            </div>
+
+            <h1 className="mt-5 text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
+              {product.name}
+            </h1>
+            <div className="mt-3 text-xs font-mono uppercase tracking-[0.18em] text-slate-500">
+              SKU · {sku}
+            </div>
+
+            <p className="mt-6 text-lg text-slate-300 leading-relaxed">
+              {product.shortDescription}
+            </p>
+            <p className="mt-4 text-slate-400 leading-relaxed">{product.description}</p>
+
+            {/* CTA row */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-primary">
+                Request quotation <Icon name="arrow" size={16} />
+              </Link>
+              {product.datasheetUrl && (
+                <a href={product.datasheetUrl} className="btn-outline" target="_blank" rel="noreferrer">
+                  Download datasheet
+                </a>
+              )}
+              <Link href="/contact" className="btn-outline">
+                <Icon name="phone" size={14} /> Talk to sales
+              </Link>
+            </div>
+
+            {/* Trust strip */}
+            <ul className="mt-8 grid sm:grid-cols-3 gap-3">
+              {[
+                { icon: "shield" as const, label: "Tier-1 OEM" },
+                { icon: "check" as const, label: "Warranty registered" },
+                { icon: "globe" as const, label: "Pan-India delivery" },
+              ].map((item) => (
+                <li key={item.label} className="card-flat p-4 flex items-center gap-3">
+                  <span className="icon-tile" style={{ height: "2.25rem", width: "2.25rem" }}>
+                    <Icon name={item.icon} size={18} />
+                  </span>
+                  <span className="text-sm font-medium text-slate-200">{item.label}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Specifications */}
+      {product.features?.length > 0 && (
+        <section className="border-y border-[var(--border)]" style={{ background: "var(--background-2)" }}>
+          <div className="container-wide py-16 md:py-20">
+            <span className="eyebrow">Specifications</span>
+            <h2 className="section-title mt-3">Key features &amp; specs</h2>
+            <div className="mt-10 card overflow-hidden">
+              <dl>
+                {product.features.map((f, idx) => (
+                  <div
+                    key={f}
+                    className={`grid grid-cols-[auto_1fr] gap-4 px-6 py-4 items-start ${
+                      idx !== 0 ? "border-t border-[var(--border)]" : ""
+                    }`}
+                  >
+                    <dt className="text-xs font-mono uppercase tracking-[0.16em] text-slate-500 pt-1 min-w-[70px]">
+                      Spec {String(idx + 1).padStart(2, "0")}
+                    </dt>
+                    <dd className="text-[15px] text-slate-200 leading-relaxed">{f}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related products */}
+      {related.length > 0 && (
+        <section className="container-wide py-16 md:py-20">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+            <div>
+              <span className="eyebrow">Related products</span>
+              <h2 className="section-title mt-3">More in {product.category}</h2>
+            </div>
+            <Link href="/products" className="btn-outline w-fit">View all <Icon name="arrow" size={16} /></Link>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Inquiry CTA */}
+      <section className="container-wide pb-20">
+        <div
+          className="rounded-2xl p-8 md:p-12 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, rgba(124,58,237,0.18) 0%, rgba(15,23,42,1) 50%, rgba(6,182,212,0.16) 100%)",
+            border: "1px solid var(--border-strong)",
+          }}
+        >
+          <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
+          <div className="relative grid md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+                Bulk pricing or rate-contract enquiry?
+              </h2>
+              <p className="mt-3 text-slate-300 leading-relaxed">
+                We supply across India for enterprise, government and service-provider tenders. Tell
+                us quantities and timeline — we&rsquo;ll send a proposal.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row md:flex-col gap-3">
+              <Link href="/contact" className="btn-primary">
+                Request bulk quote <Icon name="arrow" size={16} />
+              </Link>
+              <a href={`mailto:${company.supportEmail}`} className="btn-outline">
+                <Icon name="mail" size={14} /> {company.supportEmail}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,3 +1,20 @@
+export interface Office {
+  city: string;
+  country: string;
+  address: string;
+  phone: string;
+  email: string;
+  isHeadquarters: boolean;
+}
+
+export interface PartnerCompany {
+  name: string;
+  legalName?: string;
+  url: string;
+  country: string;
+  note?: string;
+}
+
 export interface Company {
   name: string;
   legalName: string;
@@ -8,14 +25,7 @@ export interface Company {
   yearsOfExperience: number;
   stats: { label: string; value: string }[];
   verticals: string[];
-  offices: {
-    city: string;
-    country: string;
-    address: string;
-    phone: string;
-    email: string;
-    isHeadquarters: boolean;
-  }[];
+  offices: Office[];
   social: {
     linkedin: string;
     twitter: string;
@@ -24,6 +34,10 @@ export interface Company {
   };
   supportEmail: string;
   supportPhone: string;
+  mission?: string;
+  vision?: string;
+  values?: string[];
+  partner?: PartnerCompany;
 }
 
 export interface Service {
@@ -33,6 +47,24 @@ export interface Service {
   icon: string;
   highlights: string[];
   details: string;
+  image: string;
+}
+
+export interface CapabilityStep {
+  title: string;
+  description: string;
+}
+
+export interface Capability {
+  slug: string;
+  title: string;
+  shortTitle?: string;
+  summary: string;
+  description: string;
+  icon: string;
+  parentService: string;
+  processSteps: CapabilityStep[];
+  benefits: string[];
   image: string;
 }
 
@@ -47,6 +79,11 @@ export interface Product {
   image: string;
   datasheetUrl?: string;
   createdAt: string;
+  // SEO overrides (optional). When unset, the public detail page falls back to
+  // name / shortDescription / image, then to site-wide settings defaults.
+  seoTitle?: string;
+  seoDescription?: string;
+  seoImage?: string;
 }
 
 export interface Project {
@@ -65,6 +102,10 @@ export interface Settings {
   emailSubjectPrefix: string;
   autoReplyEnabled: boolean;
   updatedAt: string;
+  // Site-wide SEO defaults (optional). Used by buildMetadata when a page
+  // doesn't supply its own image / description.
+  defaultOgImage?: string;
+  defaultMetaDescription?: string;
 }
 
 export type SubmissionKind = "contact" | "quote";
