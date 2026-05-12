@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --app --src-dir --no-eslint --import-alias \"@/*\" --use-npm --turbopack --no-git --yes)"
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --app --src-dir --no-eslint --import-alias \"@/*\" --use-npm --turbopack --no-git --yes)",
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\terms\")",
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\privacy\")",
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\get-quote\")",
+      "Bash(Remove-Item -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\api\\\\quote\\\\route.ts\")",
+      "Bash(Remove-Item -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\components\\\\GetQuoteForm.tsx\")"
     ]
   }
 }

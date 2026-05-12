@@ -54,7 +54,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/get-quote" className="btn-primary">Get a quote</Link>
+          <Link href="/contact" className="btn-primary">Contact Us</Link>
         </div>
         <button
           className="md:hidden inline-flex items-center justify-center rounded-md p-2 border border-slate-200"
@@ -84,8 +84,8 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/get-quote" className="btn-primary mt-2 w-fit" onClick={() => setOpen(false)}>
-              Get a quote
+            <Link href="/contact" className="btn-primary mt-2 w-fit" onClick={() => setOpen(false)}>
+              Contact Us
             </Link>
           </div>
         </div>

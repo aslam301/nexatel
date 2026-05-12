@@ -243,7 +243,7 @@ export function productJsonLd(product: Product, company: Company) {
         priceCurrency: "USD",
         valueAddedTaxIncluded: false,
       },
-      url: `${SITE_URL}/get-quote?service=it-hardware`,
+      url: `${SITE_URL}/contact`,
     },
   };
 }

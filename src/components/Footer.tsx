@@ -55,8 +55,6 @@ export function Footer({ company }: { company: Company }) {
         <div className="container-wide py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <div>© {new Date().getFullYear()} {company.legalName}. All rights reserved.</div>
           <div className="flex gap-5">
-            <Link href="/privacy" className="hover:text-white">Privacy</Link>
-            <Link href="/terms" className="hover:text-white">Terms</Link>
             <Link href="/admin/login" className="hover:text-white">Admin</Link>
           </div>
         </div>
