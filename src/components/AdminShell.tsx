@@ -7,7 +7,11 @@ import { Logo } from "./Logo";
 
 const NAV: { href: string; label: string; icon: React.ReactNode; matchPrefix?: string }[] = [
   { href: "/admin/dashboard", label: "Dashboard", icon: <DashboardIcon /> },
+  { href: "/admin/site", label: "Site content", icon: <PaletteIcon />, matchPrefix: "/admin/site" },
+  { href: "/admin/company", label: "Company", icon: <FlagIcon />, matchPrefix: "/admin/company" },
+  { href: "/admin/services", label: "Services", icon: <LayersIcon />, matchPrefix: "/admin/services" },
   { href: "/admin/products", label: "Products", icon: <BoxIcon />, matchPrefix: "/admin/products" },
+  { href: "/admin/projects", label: "Projects", icon: <BriefcaseIcon />, matchPrefix: "/admin/projects" },
   { href: "/admin/submissions", label: "Submissions", icon: <InboxIcon />, matchPrefix: "/admin/submissions" },
   { href: "/admin/settings", label: "Settings", icon: <CogIcon /> },
 ];
@@ -161,6 +165,26 @@ export function AdminShell({ children, title, subtitle, actions }: { children: R
 function DashboardIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+  );
+}
+function PaletteIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a10 10 0 1 1 10-10 4 4 0 0 1-4 4h-2a2 2 0 0 0-2 2v2a2 2 0 0 1-2 2z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16.5" cy="10.5" r="1"/></svg>
+  );
+}
+function FlagIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M4 22V4"/><path d="M4 4h13l-2 4 2 4H4"/></svg>
+  );
+}
+function LayersIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+  );
+}
+function BriefcaseIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
   );
 }
 function BoxIcon() {

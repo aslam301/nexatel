@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { ConditionalFooter } from "@/components/ConditionalFooter";
-import { getCompany } from "@/lib/data";
+import { getCompany, getSite } from "@/lib/data";
 import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const geistSans = Geist({
@@ -21,28 +21,26 @@ const geistMono = Geist_Mono({
 export async function generateMetadata(): Promise<Metadata> {
   const company = await getCompany();
   const meta = buildMetadata({
-    title: `${company.name} — ${company.tagline}`,
+    title: `${company.name}, ${company.tagline}`,
     description: company.description,
     path: "/",
     keywords: [
       "Nexatel",
       "Nexatel Private Limited",
-      "fiber optic installation India",
-      "FTTH GPON Kerala",
+      "IT networking India",
+      "structured cabling Kerala",
+      "fibre optic installation India",
       "telecom infrastructure India",
       "OFC backbone",
       "ROW liaison India",
-      "HDD horizontal directional drilling",
-      "fiber splicing OTDR",
-      "network cabling Kerala",
-      "CCTV installation India",
-      "IT hardware supply India",
+      "CCTV access control India",
+      "enterprise IT hardware supplier India",
     ],
   });
   return {
     ...meta,
     title: {
-      default: `${company.name} — ${company.tagline}`,
+      default: `${company.name}, ${company.tagline}`,
       template: `%s · ${company.name}`,
     },
     icons: {
@@ -54,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#050816",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -62,7 +60,7 @@ export const viewport: Viewport = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const company = await getCompany();
+  const [company, site] = await Promise.all([getCompany(), getSite()]);
   const graph = {
     "@context": "https://schema.org",
     "@graph": [organizationJsonLd(company), websiteJsonLd(company)],
@@ -76,7 +74,7 @@ export default async function RootLayout({
         />
         <Header />
         <main className="flex-1">{children}</main>
-        <ConditionalFooter company={company} />
+        <ConditionalFooter company={company} footer={site.footer} />
       </body>
     </html>
   );

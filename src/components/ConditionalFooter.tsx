@@ -2,11 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import { Footer } from "./Footer";
-import type { Company } from "@/lib/types";
+import type { Company, FooterContent } from "@/lib/types";
 
-export function ConditionalFooter({ company }: { company: Company }) {
+export function ConditionalFooter({ company, footer }: { company: Company; footer: FooterContent }) {
   const pathname = usePathname();
-  // Admin pages render inside AdminShell, which provides its own chrome.
   if (pathname?.startsWith("/admin")) return null;
-  return <Footer company={company} />;
+  return <Footer company={company} footer={footer} />;
 }

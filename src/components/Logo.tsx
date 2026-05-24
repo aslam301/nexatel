@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function Logo({
   variant = "dark",
   size = 32,
@@ -7,39 +9,20 @@ export function Logo({
   size?: number;
   showWordmark?: boolean;
 }) {
-  // Wordmark colour: white-ish on dark surfaces, deep navy on light surfaces.
-  const wordmark = variant === "light" ? "#ffffff" : "#F1F5F9";
+  // Default to the surface-aware foreground token so the wordmark auto-flips
+  // between light and dark themes. `variant="light"` forces white for use over
+  // imagery / colored backgrounds.
+  const wordmark = variant === "light" ? "#ffffff" : "var(--foreground-strong)";
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }} aria-label="Nexatel logo">
-      <svg
+      <Image
+        src="/logo.png"
+        alt="Nexatel"
         width={size}
         height={size}
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-      >
-        {/* Stylised "N" — bold rounded strokes in brand blue */}
-        <g
-          fill="none"
-          stroke="#3B82F6"
-          strokeWidth={9}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          {/* Left vertical */}
-          <path d="M16 14 L16 54" />
-          {/* Diagonal */}
-          <path d="M16 14 L48 54" />
-          {/* Right vertical */}
-          <path d="M48 14 L48 54" />
-        </g>
-        {/* Wifi/signal arcs in brand orange */}
-        <g fill="none" stroke="#F59E0B" strokeWidth={3.5} strokeLinecap="round">
-          <path d="M52 14 A6 6 0 0 1 58 20" />
-          <path d="M48 10 A12 12 0 0 1 60 22" />
-          <path d="M44 6 A18 18 0 0 1 62 24" />
-        </g>
-      </svg>
+        priority
+        style={{ width: size, height: size, objectFit: "contain" }}
+      />
       {showWordmark && (
         <span
           style={{

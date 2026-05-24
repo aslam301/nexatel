@@ -129,7 +129,7 @@ export function SettingsForm({ initial, writable }: { initial: Settings; writabl
               placeholder="https://… or /og-default.png  (1200×630)"
             />
             <p className="text-xs text-slate-500 mt-1.5">
-              Used when a page has no image override and the content (product / service / capability) has no image either. 1200&times;630 PNG/JPG recommended.
+              Used when a page has no image override and the content (product, service or project) has no image either. 1200&times;630 PNG/JPG recommended.
             </p>
           </div>
           <div>

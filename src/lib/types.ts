@@ -15,6 +15,17 @@ export interface PartnerCompany {
   note?: string;
 }
 
+export interface ValuePillar {
+  title: string;
+  description: string;
+}
+
+export interface FocusArea {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
 export interface Company {
   name: string;
   legalName: string;
@@ -23,7 +34,6 @@ export interface Company {
   shortDescription: string;
   founded: string;
   yearsOfExperience: number;
-  stats: { label: string; value: string }[];
   verticals: string[];
   offices: Office[];
   social: {
@@ -34,11 +44,99 @@ export interface Company {
   };
   supportEmail: string;
   supportPhone: string;
-  mission?: string;
-  vision?: string;
-  values?: string[];
+  mission: string;
+  vision: string;
+  values: ValuePillar[];
+  areasOfFocus: FocusArea[];
   partner?: PartnerCompany;
 }
+
+// ─────────────────────────── Editable site content ───────────────────────────
+
+export interface CtaLink {
+  label: string;
+  href: string;
+}
+
+export interface HeroSlide {
+  eyebrow?: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  primaryCta?: CtaLink;
+  secondaryCta?: CtaLink;
+}
+
+export interface PageHero {
+  eyebrow?: string;
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+export interface HomeWhatWeDo {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  body: string;
+  image: string;
+}
+
+export interface CtaPanel {
+  title: string;
+  body: string;
+  primaryLabel: string;
+}
+
+export interface AboutBody {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  image: string;
+}
+
+export interface ContactIntro {
+  reachHeading: string;
+  reachSubheading: string;
+  formHeading: string;
+  formSubheading: string;
+}
+
+export interface FooterContent {
+  /** Column 1 heading (default: Company). */
+  companyHeading: string;
+  /** Column 2 heading (default: Verticals). */
+  verticalsHeading: string;
+  /** Column 3 heading (default: Office). */
+  officeHeading: string;
+  /** Copyright suffix; year is added automatically. */
+  copyrightSuffix: string;
+}
+
+export interface Site {
+  hero: { slides: HeroSlide[] };
+  home: {
+    whatWeDo: HomeWhatWeDo;
+    cta: CtaPanel;
+  };
+  about: {
+    hero: PageHero;
+    body: AboutBody;
+    cta: CtaPanel;
+  };
+  contact: {
+    hero: PageHero;
+    intro: ContactIntro;
+  };
+  pages: {
+    services: PageHero;
+    products: PageHero;
+    projects: PageHero;
+  };
+  footer: FooterContent;
+}
+
+// ─────────────────────────── Catalogue entities ───────────────────────────
 
 export interface Service {
   slug: string;
@@ -48,24 +146,7 @@ export interface Service {
   highlights: string[];
   details: string;
   image: string;
-}
-
-export interface CapabilityStep {
-  title: string;
-  description: string;
-}
-
-export interface Capability {
-  slug: string;
-  title: string;
-  shortTitle?: string;
-  summary: string;
-  description: string;
-  icon: string;
-  parentService: string;
-  processSteps: CapabilityStep[];
-  benefits: string[];
-  image: string;
+  featured?: boolean;
 }
 
 export interface Product {
@@ -79,8 +160,7 @@ export interface Product {
   image: string;
   datasheetUrl?: string;
   createdAt: string;
-  // SEO overrides (optional). When unset, the public detail page falls back to
-  // name / shortDescription / image, then to site-wide settings defaults.
+  featured?: boolean;
   seoTitle?: string;
   seoDescription?: string;
   seoImage?: string;
@@ -88,12 +168,15 @@ export interface Product {
 
 export interface Project {
   id: string;
+  slug?: string;
   title: string;
   client: string;
   category: string;
   summary: string;
+  description?: string;
   year: string;
   image: string;
+  featured?: boolean;
 }
 
 export interface Settings {
@@ -102,8 +185,6 @@ export interface Settings {
   emailSubjectPrefix: string;
   autoReplyEnabled: boolean;
   updatedAt: string;
-  // Site-wide SEO defaults (optional). Used by buildMetadata when a page
-  // doesn't supply its own image / description.
   defaultOgImage?: string;
   defaultMetaDescription?: string;
 }
@@ -119,15 +200,12 @@ export interface Submission {
   organisation?: string;
   phone?: string;
   topic?: string;
-  // Quote-specific
   serviceArea?: string;
   scope?: string;
   budget?: string;
   timeline?: string;
   location?: string;
-  // Common
   message: string;
-  // Delivery
   emailDelivered: boolean;
   emailError?: string;
   ip?: string;

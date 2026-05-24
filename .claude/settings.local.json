@@ -6,7 +6,8 @@
       "Bash(Remove-Item -Recurse -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\privacy\")",
       "Bash(Remove-Item -Recurse -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\get-quote\")",
       "Bash(Remove-Item -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\app\\\\api\\\\quote\\\\route.ts\")",
-      "Bash(Remove-Item -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\components\\\\GetQuoteForm.tsx\")"
+      "Bash(Remove-Item -Force \"C:\\\\dev\\\\zeebusiness\\\\poc_extracted\\\\poc_v2\\\\nexatel\\\\src\\\\components\\\\GetQuoteForm.tsx\")",
+      "Bash(grep -rn -E \"rgba\\\\\\(5,8,22|rgba\\\\\\(15,23,42,\\(0\\\\.[789]|1\\)|#0[58][0-9A-F]{4}|#1[01][0-9A-F]{4}|#1a2440|#131D36|#0F172A\" src/app src/components --include=\"*.tsx\")"
     ]
   }
 }

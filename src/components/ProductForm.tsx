@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { FeaturedToggle } from "./ServiceForm";
+import { ImageUploadField } from "./admin/ImageUploadField";
 import type { Product } from "@/lib/types";
 
 export function ProductForm({ product, mode }: { product?: Product; mode: "create" | "edit" }) {
@@ -9,6 +11,7 @@ export function ProductForm({ product, mode }: { product?: Product; mode: "creat
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [issues, setIssues] = useState<Record<string, string>>({});
+  const [featured, setFeatured] = useState<boolean>(product?.featured ?? false);
   const [seoOpen, setSeoOpen] = useState<boolean>(
     Boolean(product?.seoTitle || product?.seoDescription || product?.seoImage)
   );
@@ -35,6 +38,7 @@ export function ProductForm({ product, mode }: { product?: Product; mode: "creat
       seoDescription: fd.get("seoDescription"),
       seoImage: fd.get("seoImage"),
       features,
+      featured,
     };
     try {
       const url = mode === "create"
@@ -124,18 +128,26 @@ export function ProductForm({ product, mode }: { product?: Product; mode: "creat
         />
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label className="label" htmlFor="image">Image URL</label>
-          <input id="image" name="image" className="input" defaultValue={product?.image} placeholder="https://… or /image.jpg" />
-          {issues.image && <p className="field-error">{issues.image}</p>}
-        </div>
-        <div>
-          <label className="label" htmlFor="datasheetUrl">Datasheet URL</label>
-          <input id="datasheetUrl" name="datasheetUrl" className="input" defaultValue={product?.datasheetUrl} placeholder="optional" />
-          {issues.datasheetUrl && <p className="field-error">{issues.datasheetUrl}</p>}
-        </div>
+      <ImageUploadField
+        name="image"
+        defaultValue={product?.image}
+        scope="products"
+        slugHint={product?.slug ?? product?.id}
+        helperText="Upload a JPG, PNG, WebP, AVIF, GIF or SVG (max 10 MB). Stored on Cloudflare R2."
+        error={issues.image}
+      />
+
+      <div>
+        <label className="label" htmlFor="datasheetUrl">Datasheet URL</label>
+        <input id="datasheetUrl" name="datasheetUrl" className="input" defaultValue={product?.datasheetUrl} placeholder="optional" />
+        {issues.datasheetUrl && <p className="field-error">{issues.datasheetUrl}</p>}
       </div>
+
+      <FeaturedToggle
+        value={featured}
+        onChange={setFeatured}
+        label="Show in the homepage featured products grid"
+      />
 
       {/* SEO / Open Graph overrides — collapsible. All fields are optional and
           fall back to name / description / image when left blank. */}

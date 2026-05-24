@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "assets.nexatel.org" },
     ],
     formats: ["image/avif", "image/webp"],
   },

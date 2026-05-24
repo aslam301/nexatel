@@ -1,41 +1,52 @@
 import { Hero } from "@/components/Hero";
 import { ProductsCatalog } from "@/components/ProductsCatalog";
-import { getProducts } from "@/lib/data";
+import { getProducts, getSite } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 
-export const metadata = buildMetadata({
-  title: "Products",
-  description:
-    "Browse Nexatel's catalogue of fiber optic cables, transceivers, patch panels, FTTH FATs, ONUs and structured cabling components.",
-  path: "/products",
-  image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop&q=70&auto=format",
-  keywords: [
-    "fiber optic cable India",
-    "Cat6A cable",
-    "fiber optic transceiver SFP+",
-    "FTTH FAT",
-    "fiber patch panel ODF",
-    "ONU GPON India",
-    "fiber distribution box FDB",
-  ],
-});
+export async function generateMetadata() {
+  const site = await getSite();
+  return buildMetadata({
+    title: "Products",
+    description: site.pages.products.subtitle,
+    path: "/products",
+    image: site.pages.products.image,
+    keywords: [
+      "fibre optic products India",
+      "structured cabling accessories",
+      "network switch router firewall India",
+      "CCTV access control supplier",
+      "online UPS supplier Kerala",
+      "rooftop solar Kerala",
+    ],
+  });
+}
 
 export const revalidate = 60;
 
+const CATEGORY_ORDER = [
+  "Fibre Optics Products",
+  "Network Cabling Accessories",
+  "IT Hardware & Software",
+  "Security System Products",
+  "IT Network Products",
+  "Electrical UPS and Batteries",
+  "Renewable Energy Solutions",
+];
+
 export default async function ProductsPage() {
-  const products = await getProducts();
+  const [products, site] = await Promise.all([getProducts(), getSite()]);
   return (
     <>
       <Hero
-        eyebrow="Catalogue"
-        title="Engineered hardware, sourced and supplied."
-        subtitle="Tier-1 OEM fiber-optic and networking hardware backed by Nexatel warranty registration, asset tagging and on-site delivery across India."
+        eyebrow={site.pages.products.eyebrow}
+        title={site.pages.products.title}
+        subtitle={site.pages.products.subtitle}
         size="compact"
         showStatus={false}
-        backgroundImage="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=2000&q=70&auto=format&fit=crop"
+        backgroundImage={site.pages.products.image}
       />
       <section className="container-wide py-20 md:py-24 section-glow">
-        <ProductsCatalog products={products} />
+        <ProductsCatalog products={products} categoryOrder={CATEGORY_ORDER} />
       </section>
     </>
   );

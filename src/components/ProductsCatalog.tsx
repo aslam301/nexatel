@@ -7,11 +7,23 @@ import type { Product } from "@/lib/types";
 
 const ALL = "All";
 
-export function ProductsCatalog({ products }: { products: Product[] }) {
+export function ProductsCatalog({
+  products,
+  categoryOrder,
+}: {
+  products: Product[];
+  /** Optional preferred ordering for category pills; anything missing is appended. */
+  categoryOrder?: string[];
+}) {
   const categories = useMemo(() => {
     const set = new Set(products.map((p) => p.category));
+    if (categoryOrder && categoryOrder.length > 0) {
+      const ordered = categoryOrder.filter((c) => set.has(c));
+      const rest = Array.from(set).filter((c) => !categoryOrder.includes(c)).sort();
+      return [ALL, ...ordered, ...rest];
+    }
     return [ALL, ...Array.from(set).sort()];
-  }, [products]);
+  }, [products, categoryOrder]);
 
   const counts = useMemo(() => {
     const map: Record<string, number> = { [ALL]: products.length };
@@ -42,7 +54,7 @@ export function ProductsCatalog({ products }: { products: Product[] }) {
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div className="relative w-full md:max-w-sm">
           <span
-            className="pointer-events-none absolute left-3.5 top-0 bottom-0 flex items-center text-slate-500"
+            className="pointer-events-none absolute left-3.5 top-0 bottom-0 flex items-center text-muted-2"
             aria-hidden
           >
             <Icon name="search" size={16} />
@@ -58,7 +70,7 @@ export function ProductsCatalog({ products }: { products: Product[] }) {
           {query && (
             <button
               onClick={() => setQuery("")}
-              className="absolute right-3 top-0 bottom-0 flex items-center text-slate-500 hover:text-white transition-colors"
+              className="absolute right-3 top-0 bottom-0 flex items-center text-muted-2 hover:text-foreground-strong transition-colors"
               aria-label="Clear search"
               type="button"
             >
@@ -68,8 +80,8 @@ export function ProductsCatalog({ products }: { products: Product[] }) {
             </button>
           )}
         </div>
-        <div className="text-sm text-slate-400">
-          Showing <span className="text-white font-semibold">{filtered.length}</span> of {products.length} products
+        <div className="text-sm text-muted">
+          Showing <span className="text-foreground-strong font-semibold">{filtered.length}</span> of {products.length} products
         </div>
       </div>
 
@@ -82,12 +94,12 @@ export function ProductsCatalog({ products }: { products: Product[] }) {
               key={c}
               onClick={() => setActive(c)}
               className={`text-xs font-semibold tracking-wide uppercase rounded-full px-3.5 py-1.5 transition-all ${
-                isActive ? "text-white" : "text-slate-300 hover:text-white"
+                isActive ? "text-white" : "text-muted hover:text-foreground-strong"
               }`}
               style={{
                 background: isActive
                   ? "linear-gradient(135deg, rgba(124,58,237,0.95), rgba(79,70,229,0.95))"
-                  : "rgba(255,255,255,0.03)",
+                  : "rgba(15,23,42,0.03)",
                 border: isActive
                   ? "1px solid rgba(124,58,237,0.55)"
                   : "1px solid var(--border-strong)",
@@ -111,8 +123,8 @@ export function ProductsCatalog({ products }: { products: Product[] }) {
         </div>
       ) : (
         <div className="card p-12 text-center">
-          <h3 className="text-lg font-semibold text-white">No products match your search</h3>
-          <p className="text-slate-400 mt-2 text-sm">Try a different keyword or category.</p>
+          <h3 className="text-lg font-semibold text-foreground-strong">No products match your search</h3>
+          <p className="text-muted mt-2 text-sm">Try a different keyword or category.</p>
           <button
             onClick={() => {
               setActive(ALL);

@@ -14,7 +14,7 @@ export default function NotFound() {
       >
         Page not found
       </h1>
-      <p className="mt-4 text-slate-400 max-w-md mx-auto leading-relaxed">
+      <p className="mt-4 text-muted max-w-md mx-auto leading-relaxed">
         The page you&rsquo;re looking for has been moved or never existed.
       </p>
       <Link href="/" className="btn-primary mt-10">Go home</Link>

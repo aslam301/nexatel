@@ -10,7 +10,7 @@ export function ProductCard({ product }: { product: Product }) {
       className="group relative card flex flex-col overflow-hidden"
     >
       {/* Image area — bright surface to mimic studio product photography */}
-      <div className="relative aspect-[4/3] overflow-hidden" style={{ background: "linear-gradient(180deg, #1a2440 0%, #131D36 100%)" }}>
+      <div className="relative aspect-[4/3] overflow-hidden" style={{ background: "linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%)" }}>
         {product.image ? (
           <>
             <Image
@@ -30,9 +30,9 @@ export function ProductCard({ product }: { product: Product }) {
             <span
               className="absolute top-3 right-3 text-[10px] font-mono uppercase tracking-[0.16em] px-2 py-1 rounded-full backdrop-blur-md"
               style={{
-                background: "rgba(5,8,22,0.72)",
-                color: "#e0e7ff",
-                border: "1px solid rgba(255,255,255,0.10)",
+                background: "rgba(255,255,255,0.85)",
+                color: "var(--foreground)",
+                border: "1px solid rgba(15,23,42,0.10)",
               }}
             >
               {product.category}
@@ -52,24 +52,24 @@ export function ProductCard({ product }: { product: Product }) {
             </div>
           </>
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-slate-500 text-sm">No image</div>
+          <div className="absolute inset-0 flex items-center justify-center text-muted-2 text-sm">No image</div>
         )}
       </div>
       <div className="p-5 flex flex-col gap-2 flex-1">
-        <h3 className="text-base font-semibold text-white leading-snug line-clamp-2 min-h-[2.6em]">
+        <h3 className="text-base font-semibold text-foreground-strong leading-snug line-clamp-2 min-h-[2.6em]">
           {product.name}
         </h3>
-        <p className="text-sm text-slate-400 leading-relaxed line-clamp-2">{product.shortDescription}</p>
+        <p className="text-sm text-muted leading-relaxed line-clamp-2">{product.shortDescription}</p>
 
         <div className="mt-3 pt-3 border-t border-[var(--border)] flex items-center justify-between">
-          <span className="text-xs text-slate-500 font-mono uppercase tracking-[0.14em]">
+          <span className="text-xs text-muted-2 font-mono uppercase tracking-[0.14em]">
             SKU · {product.id.replace(/^nx-/, "").toUpperCase()}
           </span>
           <span className="inline-flex items-center gap-1 text-sm font-semibold">
-            <span style={{ background: "linear-gradient(90deg, #a78bfa, #67e8f9)", backgroundClip: "text", color: "transparent" }}>
+            <span style={{ background: "linear-gradient(90deg, var(--violet), var(--tech))", backgroundClip: "text", color: "transparent" }}>
               View
             </span>
-            <Icon name="arrow" size={14} className="text-slate-300 group-hover:text-white transition-colors" />
+            <Icon name="arrow" size={14} className="text-muted group-hover:text-foreground-strong transition-colors" />
           </span>
         </div>
       </div>

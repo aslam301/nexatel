@@ -2,33 +2,34 @@
   {
     "id": "nx-patch-cord-sc",
     "slug": "fiber-optic-patch-cord-sc-apc",
-    "name": "Fiber Optic Patch Cord — SC/APC",
-    "category": "Patch Cords & Pigtails",
-    "shortDescription": "Single-mode SC/APC patch cord with low insertion loss and high return loss for FTTH deployments.",
-    "description": "Pre-terminated SC/APC duplex single-mode patch cord ideal for FTTH, GPON and FTTx applications. Polished with high-precision ferrules for minimum insertion loss and excellent return loss performance.",
+    "name": "Fibre Patch Cord, SC/APC",
+    "category": "Fibre Optics Products",
+    "shortDescription": "Single mode SC/APC patch cord with low insertion loss for FTTH deployments.",
+    "description": "Pre-terminated SC/APC duplex single mode patch cord for FTTH, GPON and FTTx applications. Polished with high precision ferrules for low insertion loss and strong return loss.",
     "features": [
-      "SC/APC connectors, single-mode (G.657A1)",
-      "Insertion loss \u2264 0.30 dB",
-      "Return loss \u2265 60 dB",
+      "SC/APC connectors, single mode (G.657A1)",
+      "Insertion loss under 0.30 dB",
+      "Return loss over 60 dB",
       "LSZH yellow jacket",
-      "Available in 1m / 3m / 5m / 10m"
+      "Available in 1m, 3m, 5m and 10m"
     ],
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
-    "createdAt": "2025-08-15T00:00:00.000Z"
+    "createdAt": "2025-08-15T00:00:00.000Z",
+    "featured": true
   },
   {
     "id": "nx-pigtail-sc",
     "slug": "fiber-optic-pigtail-sc-apc-12c",
-    "name": "Fiber Optic Pigtail — SC/APC (12-Color)",
-    "category": "Patch Cords & Pigtails",
-    "shortDescription": "12-color SC/APC pigtail set for FDP and ODF termination in single-mode networks.",
-    "description": "Pre-polished SC/APC pigtail bundle with 12 standard fiber colours, used for splicing into ODFs, fiber distribution panels and joint closures during last-mile and backbone fiber deployments.",
+    "name": "Fibre Pigtail, SC/APC, 12 Colour",
+    "category": "Fibre Optics Products",
+    "shortDescription": "12 colour SC/APC pigtail set for FDP and ODF termination in single mode networks.",
+    "description": "Pre-polished SC/APC pigtail bundle in twelve standard fibre colours, used for splicing into ODFs, fibre distribution panels and joint closures during last mile and backbone deployments.",
     "features": [
-      "12-color set (TIA-598 standard)",
-      "Single-mode G.657A1, 0.9 mm tight buffer",
-      "Insertion loss \u2264 0.30 dB",
-      "Return loss \u2265 60 dB",
+      "12 colour set (TIA-598 standard)",
+      "Single mode G.657A1, 0.9 mm tight buffer",
+      "Insertion loss under 0.30 dB",
+      "Return loss over 60 dB",
       "1.5 m standard length"
     ],
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
@@ -38,33 +39,34 @@
   {
     "id": "nx-fo-sm-24",
     "slug": "single-mode-fiber-cable-24f",
-    "name": "Single-Mode Fiber Optic Cable (24F)",
-    "category": "Fiber Optic Cables",
-    "shortDescription": "Outdoor armoured single-mode 24-fiber cable for long-haul backbone and NLD deployments.",
-    "description": "G.652D-compliant single-mode loose-tube armoured cable rated for direct burial, duct and aerial installation. Compatible with all major splicing and termination platforms used across Indian telecom rollouts.",
+    "name": "Single Mode Fibre Cable, 24F",
+    "category": "Fibre Optics Products",
+    "shortDescription": "Outdoor armoured single mode 24 fibre cable for long haul backbone and NLD deployments.",
+    "description": "G.652D compliant single mode loose tube armoured cable, rated for direct burial, duct and aerial installation. Compatible with all major splicing and termination platforms used in Indian telecom rollouts.",
     "features": [
       "ITU-T G.652D compliant",
-      "Steel-tape armouring",
-      "Direct burial / aerial / duct rated",
+      "Steel tape armouring",
+      "Direct burial, aerial or duct rated",
       "PE outer sheath, UV stabilised",
-      "Operating temp: -40\u00b0C to +70\u00b0C"
+      "Operating temperature: -40 to +70 C"
     ],
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
-    "createdAt": "2025-09-01T00:00:00.000Z"
+    "createdAt": "2025-09-01T00:00:00.000Z",
+    "featured": true
   },
   {
     "id": "nx-fo-mm-12",
     "slug": "multi-mode-om4-fiber-cable-12f",
-    "name": "Multi-Mode OM4 Fiber Cable (12F)",
-    "category": "Fiber Optic Cables",
-    "shortDescription": "OM4 multi-mode 12-fiber riser cable for high-speed campus and data-centre backbones.",
-    "description": "Indoor / indoor-outdoor OM4 cable suitable for 10G / 40G / 100G short-reach backbone runs in campus and data-centre environments. LSZH jacket and tight-buffer construction for safe in-building deployment.",
+    "name": "Multi Mode OM4 Fibre Cable, 12F",
+    "category": "Fibre Optics Products",
+    "shortDescription": "OM4 multi mode 12 fibre riser cable for high speed campus and data centre backbones.",
+    "description": "Indoor or indoor-outdoor OM4 cable for 10G, 40G and 100G short reach backbone runs in campus and data centre environments. LSZH jacket and tight buffer construction for safe in building deployment.",
     "features": [
-      "OM4 multi-mode (50/125 \u00b5m)",
+      "OM4 multi mode (50/125 micron)",
       "10G to 550m, 40G/100G to 150m",
-      "LSZH tight-buffer construction",
-      "Riser-rated for vertical runs",
+      "LSZH tight buffer construction",
+      "Riser rated for vertical runs",
       "Compatible with MTP/MPO trunks"
     ],
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
@@ -72,89 +74,17 @@
     "createdAt": "2025-09-15T00:00:00.000Z"
   },
   {
-    "id": "nx-cat6a-utp",
-    "slug": "cat6a-utp-cable-305m",
-    "name": "Cat6A U/UTP Cable (305m)",
-    "category": "Network Cabling",
-    "shortDescription": "10G-ready Cat6A U/UTP LSZH cable in 305m pull box for structured cabling deployments.",
-    "description": "Tier-1 Cat6A U/UTP cable certified to TIA-568.2-D, supporting 10GBASE-T to 100m. LSZH jacket for indoor backbone and horizontal runs in commercial buildings, hospitals and data centres.",
-    "features": [
-      "TIA-568.2-D Cat6A certified",
-      "10GBASE-T to 100m",
-      "LSZH low-smoke zero-halogen jacket",
-      "23 AWG solid copper",
-      "Fluke channel & permanent-link tested"
-    ],
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
-    "datasheetUrl": "",
-    "createdAt": "2025-09-25T00:00:00.000Z"
-  },
-  {
-    "id": "nx-sfp-10g",
-    "slug": "fiber-optic-transceiver-sfp-10g",
-    "name": "Fiber Optic Transceiver \u2014 SFP+ 10G LR",
-    "category": "Transceivers",
-    "shortDescription": "10GBASE-LR SFP+ transceiver for single-mode fiber up to 10 km.",
-    "description": "Hot-pluggable SFP+ transceiver supporting 10GBASE-LR over single-mode fiber. Coded for compatibility with Cisco, Juniper, HPE, Aruba and other major switch platforms used across Indian enterprise and service-provider networks.",
-    "features": [
-      "10GBASE-LR, 1310 nm",
-      "Up to 10 km on G.652D fiber",
-      "LC duplex connector",
-      "DDM / DOM digital diagnostics",
-      "Cisco / Juniper / HPE compatible"
-    ],
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
-    "datasheetUrl": "",
-    "createdAt": "2025-10-04T00:00:00.000Z"
-  },
-  {
-    "id": "nx-mpo-cassette",
-    "slug": "mpo-cassette-12f",
-    "name": "MPO Cassette (12F)",
-    "category": "Patch Panels & ODF",
-    "shortDescription": "12-fiber MPO-to-LC cassette for high-density data-centre fiber distribution.",
-    "description": "Pre-terminated MPO/MTP-to-LC cassette delivering plug-and-play fiber distribution in data-centre racks. Designed for 10G / 40G / 100G migration paths and high-density LC patching.",
-    "features": [
-      "12 fibers, MPO to LC duplex",
-      "Single-mode or multi-mode (OM3/OM4) options",
-      "Plug-and-play factory terminated",
-      "Snap-fit into 1U fiber enclosures",
-      "Supports 10G/40G/100G migration"
-    ],
-    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
-    "datasheetUrl": "",
-    "createdAt": "2025-10-18T00:00:00.000Z"
-  },
-  {
-    "id": "nx-pp-24-lc",
-    "slug": "fiber-patch-panel-24-port-lc",
-    "name": "Fiber Optic Patch Panel \u2014 24-Port LC",
-    "category": "Patch Panels & ODF",
-    "shortDescription": "1U 24-port LC duplex fiber patch panel with sliding tray and splice cassette.",
-    "description": "Rack-mount 1U fiber patch panel for organised termination of single-mode or multi-mode cables in racks and ODF enclosures. Includes sliding tray, splice cassette and cable management for easy patching and maintenance.",
-    "features": [
-      "1U rack-mount, 24 LC duplex ports",
-      "Sliding tray with splice cassette",
-      "Front and rear cable management",
-      "Single-mode or multi-mode adapter options",
-      "Tool-less adapter plates"
-    ],
-    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
-    "datasheetUrl": "",
-    "createdAt": "2025-11-20T00:00:00.000Z"
-  },
-  {
     "id": "nx-fdb-24",
     "slug": "fiber-distribution-box-fdb-24",
-    "name": "Fiber Distribution Box (FDB) \u2014 24-port",
-    "category": "Enclosures & Boxes",
-    "shortDescription": "Wall-mount IP65 24-port FDB for FTTH last-mile splicing and distribution.",
-    "description": "Wall- or pole-mountable IP65-rated Fiber Distribution Box for FTTH neighbourhood drop distribution. Houses splice tray, splitter and 24 SC/APC adapters in a compact, weatherproof enclosure.",
+    "name": "Fibre Distribution Box, 24 Port",
+    "category": "Fibre Optics Products",
+    "shortDescription": "Wall mount IP65 24 port FDB for FTTH last mile splicing and distribution.",
+    "description": "Wall or pole mountable IP65 rated Fibre Distribution Box for FTTH neighbourhood drop distribution. Houses splice tray, splitter and 24 SC/APC adapters in a compact weatherproof enclosure.",
     "features": [
-      "IP65 outdoor-rated enclosure",
+      "IP65 outdoor rated enclosure",
       "24 SC/APC drop ports",
-      "Integrated 1:8 / 1:16 splitter capacity",
-      "Splice tray + cable management",
+      "Integrated 1:8 or 1:16 splitter capacity",
+      "Splice tray and cable management",
       "Wall and pole mountable"
     ],
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70&auto=format&fit=crop",
@@ -164,14 +94,14 @@
   {
     "id": "nx-fat-16",
     "slug": "ftth-fiber-access-terminal-16",
-    "name": "FTTH Fiber Access Terminal (16-port)",
-    "category": "Enclosures & Boxes",
-    "shortDescription": "Outdoor IP65 16-port fiber access terminal for last-mile FTTH drop connectivity.",
-    "description": "Wall- or pole-mounted IP65 FTTH FAT for last-mile drop connections in residential and commercial neighbourhoods. Houses pre-terminated SC/APC adapters, splice tray and integrated splitter capacity.",
+    "name": "FTTH Fibre Access Terminal, 16 Port",
+    "category": "Fibre Optics Products",
+    "shortDescription": "Outdoor IP65 16 port fibre access terminal for last mile FTTH drop connectivity.",
+    "description": "Wall or pole mounted IP65 FTTH FAT for last mile drop connections in residential and commercial neighbourhoods. Houses pre-terminated SC/APC adapters, splice tray and integrated splitter capacity.",
     "features": [
       "IP65 outdoor enclosure",
       "16 SC/APC drop ports",
-      "Integrated 1:8 / 1:16 splitter capacity",
+      "Integrated 1:8 or 1:16 splitter capacity",
       "Wall and pole mountable",
       "Splice tray and cable management included"
     ],
@@ -182,14 +112,14 @@
   {
     "id": "nx-joint-closure",
     "slug": "fiber-optic-joint-closure",
-    "name": "Fiber Optic Joint Closure",
-    "category": "Enclosures & Boxes",
-    "shortDescription": "Heavy-duty IP68 inline / dome joint closure for underground and aerial OFC splicing.",
-    "description": "Dome-style fiber-optic joint closure with high-tensile clamping and IP68 sealing for underground manhole, duct and aerial fiber splice points. Supports up to 96 fibers across multiple splice trays.",
+    "name": "Fibre Optic Joint Closure",
+    "category": "Fibre Optics Products",
+    "shortDescription": "Heavy duty IP68 inline or dome joint closure for underground and aerial OFC splicing.",
+    "description": "Dome style fibre optic joint closure with high tensile clamping and IP68 sealing for underground manhole, duct and aerial fibre splice points. Supports up to 96 fibres across multiple splice trays.",
     "features": [
       "IP68 sealed, dome construction",
-      "Up to 96 fibers across 4 trays",
-      "Multi-cable inlet / outlet ports",
+      "Up to 96 fibres across 4 trays",
+      "Multi cable inlet and outlet ports",
       "Reusable mechanical sealing",
       "Suitable for underground and aerial use"
     ],
@@ -198,21 +128,297 @@
     "createdAt": "2026-01-20T00:00:00.000Z"
   },
   {
+    "id": "nx-cat6a-utp",
+    "slug": "cat6a-utp-cable-305m",
+    "name": "Cat6A U/UTP Cable, 305m",
+    "category": "Network Cabling Accessories",
+    "shortDescription": "10G ready Cat6A U/UTP LSZH cable in 305m pull box for structured cabling deployments.",
+    "description": "Tier one Cat6A U/UTP cable certified to TIA-568.2-D, supporting 10GBASE-T to 100m. LSZH jacket for indoor backbone and horizontal runs in commercial buildings, hospitals and data centres.",
+    "features": [
+      "TIA-568.2-D Cat6A certified",
+      "10GBASE-T to 100m",
+      "LSZH low smoke zero halogen jacket",
+      "23 AWG solid copper",
+      "Fluke channel and permanent link tested"
+    ],
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "id": "nx-mpo-cassette",
+    "slug": "mpo-cassette-12f",
+    "name": "MPO Cassette, 12F",
+    "category": "Network Cabling Accessories",
+    "shortDescription": "12 fibre MPO to LC cassette for high density data centre fibre distribution.",
+    "description": "Pre-terminated MPO/MTP to LC cassette delivering plug and play fibre distribution in data centre racks. Designed for 10G, 40G and 100G migration paths and high density LC patching.",
+    "features": [
+      "12 fibres, MPO to LC duplex",
+      "Single mode or multi mode (OM3 or OM4) options",
+      "Plug and play factory terminated",
+      "Snap fit into 1U fibre enclosures",
+      "Supports 10G, 40G and 100G migration"
+    ],
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-10-18T00:00:00.000Z"
+  },
+  {
+    "id": "nx-pp-24-lc",
+    "slug": "fiber-patch-panel-24-port-lc",
+    "name": "Fibre Patch Panel, 24 Port LC",
+    "category": "Network Cabling Accessories",
+    "shortDescription": "1U 24 port LC duplex fibre patch panel with sliding tray and splice cassette.",
+    "description": "Rack mount 1U fibre patch panel for tidy termination of single mode or multi mode cables in racks and ODF enclosures. Includes sliding tray, splice cassette and cable management for easy patching and maintenance.",
+    "features": [
+      "1U rack mount, 24 LC duplex ports",
+      "Sliding tray with splice cassette",
+      "Front and rear cable management",
+      "Single mode or multi mode adapter options",
+      "Tool less adapter plates"
+    ],
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-11-20T00:00:00.000Z"
+  },
+  {
+    "id": "nx-sfp-10g",
+    "slug": "fiber-optic-transceiver-sfp-10g",
+    "name": "SFP+ 10G LR Transceiver",
+    "category": "IT Network Products",
+    "shortDescription": "10GBASE-LR SFP+ transceiver for single mode fibre up to 10 km.",
+    "description": "Hot pluggable SFP+ transceiver supporting 10GBASE-LR over single mode fibre. Coded for compatibility with Cisco, Juniper, HPE, Aruba and other major switch platforms used in Indian enterprise and service provider networks.",
+    "features": [
+      "10GBASE-LR, 1310 nm",
+      "Up to 10 km on G.652D fibre",
+      "LC duplex connector",
+      "DDM/DOM digital diagnostics",
+      "Cisco, Juniper and HPE compatible"
+    ],
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2025-10-04T00:00:00.000Z",
+    "featured": true
+  },
+  {
     "id": "nx-onu",
     "slug": "onu-optical-network-unit-gpon",
-    "name": "ONU \u2014 Optical Network Unit (GPON)",
-    "category": "Active Equipment",
-    "shortDescription": "GPON ONU with 4 LAN ports, Wi-Fi and VoIP for FTTH subscriber-side termination.",
-    "description": "GPON ONU/ONT designed for FTTH residential and small-business deployments. Supports 4-port GE LAN, dual-band Wi-Fi and a TEL/VoIP port. Compatible with major OLT platforms used by Indian operators.",
+    "name": "GPON Optical Network Unit (ONU)",
+    "category": "IT Network Products",
+    "shortDescription": "GPON ONU with 4 LAN ports, Wi-Fi and VoIP for FTTH subscriber side termination.",
+    "description": "GPON ONU/ONT for FTTH residential and small business deployments. Supports 4 port Gigabit LAN, dual band Wi-Fi and a TEL/VoIP port. Compatible with major OLT platforms used by Indian operators.",
     "features": [
-      "GPON \u2014 1.244 Gbps up / 2.488 Gbps down",
-      "4 \u00d7 Gigabit Ethernet LAN ports",
-      "Dual-band 2.4 / 5 GHz Wi-Fi",
-      "1 \u00d7 TEL / VoIP port",
+      "GPON, 1.244 Gbps up and 2.488 Gbps down",
+      "4 Gigabit Ethernet LAN ports",
+      "Dual band 2.4 and 5 GHz Wi-Fi",
+      "1 TEL/VoIP port",
       "TR-069 remote management"
     ],
     "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop",
     "datasheetUrl": "",
     "createdAt": "2026-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "nx-switch-48p-poe",
+    "slug": "48-port-poe-managed-switch",
+    "name": "48 Port Managed PoE+ Switch",
+    "category": "IT Network Products",
+    "shortDescription": "48 port Gigabit managed switch with PoE+ and four 10G SFP+ uplinks.",
+    "description": "Enterprise grade managed Layer 2+ switch for campus access deployments. PoE+ on every port supports IP phones, access points and cameras directly, with four 10G uplinks for fibre backbones.",
+    "features": [
+      "48 ports of Gigabit PoE+, 740W total budget",
+      "4 x 10G SFP+ uplinks",
+      "Layer 2+ with static routing",
+      "Web GUI, CLI and SNMP management",
+      "Lifetime warranty options on selected OEMs"
+    ],
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-10T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "id": "nx-firewall-ngfw",
+    "slug": "next-gen-firewall-1u",
+    "name": "Next Generation Firewall, 1U",
+    "category": "IT Network Products",
+    "shortDescription": "1U next generation firewall with threat prevention, VPN and 8 Gigabit interfaces.",
+    "description": "Perimeter firewall for corporate offices and mid sized campuses. Application aware policy, IPS, anti malware and SSL decryption with HA support. Supplied with installation, base policy and handover documentation.",
+    "features": [
+      "8 Gigabit copper interfaces, 2 SFP",
+      "Threat prevention and IPS",
+      "Site to site and remote access VPN",
+      "Active/passive high availability",
+      "Centralised logging and reporting"
+    ],
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-15T00:00:00.000Z"
+  },
+  {
+    "id": "nx-server-rack-1u",
+    "slug": "1u-rack-server",
+    "name": "1U Rack Server",
+    "category": "IT Network Products",
+    "shortDescription": "1U dual socket rack server for virtualisation, file services and on premise workloads.",
+    "description": "Dual socket Xeon Scalable rack server with redundant power, hot swap drives and remote management. Supplied configured and racked, with OS imaging if required.",
+    "features": [
+      "Dual Xeon Scalable CPUs",
+      "Up to 1 TB DDR4 ECC RAM",
+      "8 x 2.5 inch hot swap bays",
+      "Redundant 800W power supplies",
+      "Out of band management (iDRAC/iLO/IMM)"
+    ],
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-18T00:00:00.000Z"
+  },
+  {
+    "id": "nx-workstation-pro",
+    "slug": "business-laptop-i7",
+    "name": "Business Laptop, Intel i7",
+    "category": "IT Hardware & Software",
+    "shortDescription": "Mainstream business laptop for office and field users, with three year onsite warranty.",
+    "description": "Standard issue corporate laptop for office staff. Configured with Windows 11 Pro, Microsoft 365 licensing on request and asset tagging before delivery.",
+    "features": [
+      "Intel Core i7, 16 GB RAM, 512 GB NVMe SSD",
+      "14 or 15.6 inch FHD display",
+      "Windows 11 Pro pre installed",
+      "Three year onsite warranty",
+      "Asset tagging and BIOS lockdown on request"
+    ],
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-20T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "id": "nx-desktop-i5",
+    "slug": "office-desktop-i5",
+    "name": "Office Desktop, Intel i5",
+    "category": "IT Hardware & Software",
+    "shortDescription": "Small form factor desktop for office workstations and reception PCs.",
+    "description": "Compact tower PC for standard office productivity. Pre-installed and tagged, with optional Microsoft 365 and antivirus licensing as part of the supply.",
+    "features": [
+      "Intel Core i5, 16 GB RAM, 512 GB SSD",
+      "Small form factor chassis",
+      "Windows 11 Pro pre installed",
+      "Three year onsite warranty",
+      "Optional Microsoft 365 and AV licensing"
+    ],
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-21T00:00:00.000Z"
+  },
+  {
+    "id": "nx-cctv-bullet-4mp",
+    "slug": "ip-bullet-camera-4mp",
+    "name": "IP Bullet Camera, 4MP",
+    "category": "Security System Products",
+    "shortDescription": "4MP IP bullet camera with IR night vision and IP67 rating for outdoor perimeter coverage.",
+    "description": "Outdoor IP bullet camera for perimeter surveillance and parking lots. Compatible with major NVR/VMS platforms via ONVIF, with PoE power and IR night vision up to 30 metres.",
+    "features": [
+      "4MP 1/3 inch sensor, 25 fps",
+      "30m IR night vision",
+      "IP67 outdoor rated housing",
+      "PoE 802.3af powered",
+      "ONVIF Profile S compatible"
+    ],
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-22T00:00:00.000Z"
+  },
+  {
+    "id": "nx-cctv-nvr-16ch",
+    "slug": "16-channel-nvr-poe",
+    "name": "16 Channel NVR with PoE",
+    "category": "Security System Products",
+    "shortDescription": "16 channel network video recorder with built in PoE switching and 8 TB storage.",
+    "description": "Standalone NVR for small to mid sized CCTV deployments. Built in 16 port PoE switch removes the need for a separate access switch, with H.265 compression to keep storage requirements predictable.",
+    "features": [
+      "16 channel, 4K capable",
+      "Built in 16 port PoE+ switch",
+      "2 x 4 TB surveillance HDDs (expandable)",
+      "H.265+ compression",
+      "Mobile app and web access"
+    ],
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-23T00:00:00.000Z",
+    "featured": true
+  },
+  {
+    "id": "nx-access-controller",
+    "slug": "door-access-controller-4-door",
+    "name": "4 Door Access Controller",
+    "category": "Security System Products",
+    "shortDescription": "Network access controller supporting four doors, card, PIN and biometric readers.",
+    "description": "IP based access controller for office and campus deployments. Supports card, PIN and biometric credentials, with centralised software for scheduling, anti passback and audit reporting.",
+    "features": [
+      "4 doors, 8 readers",
+      "Card, PIN and biometric support",
+      "PoE powered",
+      "Anti passback and time schedules",
+      "Centralised management software"
+    ],
+    "image": "https://images.unsplash.com/photo-1597176116047-876a32798fcc?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-24T00:00:00.000Z"
+  },
+  {
+    "id": "nx-ups-6kva-online",
+    "slug": "online-ups-6kva",
+    "name": "Online UPS, 6 kVA",
+    "category": "Electrical UPS and Batteries",
+    "shortDescription": "Double conversion online UPS for server rooms, control rooms and small data centres.",
+    "description": "True double conversion online UPS with sealed maintenance free batteries. Sized for a half rack server load with about 15 to 20 minutes backup at full load, scalable with extended battery cabinets.",
+    "features": [
+      "6 kVA, double conversion online",
+      "Pure sine wave output",
+      "SNMP card and remote shutdown",
+      "Hot swap battery cabinets",
+      "Wall mount or floor stand options"
+    ],
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-25T00:00:00.000Z"
+  },
+  {
+    "id": "nx-battery-vrla-100ah",
+    "slug": "vrla-battery-12v-100ah",
+    "name": "VRLA Battery, 12V 100Ah",
+    "category": "Electrical UPS and Batteries",
+    "shortDescription": "Sealed maintenance free 12V VRLA battery for UPS and solar backup banks.",
+    "description": "AGM sealed maintenance free battery suitable for UPS banks, telecom outdoor cabinets and solar storage. Long service life under typical Indian temperatures.",
+    "features": [
+      "12V, 100Ah AGM",
+      "Sealed maintenance free",
+      "5 to 7 year design life",
+      "Wide operating temperature range",
+      "Suitable for UPS and solar systems"
+    ],
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-26T00:00:00.000Z"
+  },
+  {
+    "id": "nx-solar-rooftop-10kw",
+    "slug": "rooftop-solar-10kw",
+    "name": "Rooftop Solar System, 10 kW",
+    "category": "Renewable Energy Solutions",
+    "shortDescription": "Grid tied 10 kW rooftop solar system for commercial premises and small industrial sites.",
+    "description": "End to end 10 kW grid tied rooftop solar system covering panels, mounting, inverter, AC and DC protection, metering and net metering paperwork. Designed for offices, showrooms and light industrial buildings in Kerala.",
+    "features": [
+      "Tier one mono PERC panels",
+      "10 kW string inverter with Wi-Fi monitoring",
+      "Galvanised steel mounting structure",
+      "Net metering paperwork handled",
+      "Five year workmanship warranty"
+    ],
+    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=70&auto=format&fit=crop",
+    "datasheetUrl": "",
+    "createdAt": "2026-02-27T00:00:00.000Z",
+    "featured": true
   }
 ]

@@ -1,56 +1,72 @@
 [
   {
     "id": "p-001",
-    "title": "FTTH GPON Rollout \u2014 Residential Township",
+    "slug": "ftth-residential-township",
+    "title": "FTTH GPON Rollout, Residential Township",
     "client": "Service Provider, Kerala",
-    "category": "Fiber Optic",
-    "summary": "GPON FTTH deployment for 2,400 homes with full splicing, OTDR testing, FAT installation and OLT integration.",
+    "category": "Fibre Optic",
+    "summary": "GPON FTTH deployment for 2,400 homes covering splicing, OTDR testing, FAT installation and OLT integration.",
+    "description": "End to end FTTH build for a residential township project, from the splitter cabinets at the OLT down to the in home ONUs. Our crews handled the entire passive network, including FDBs, FATs and drop fibre installation, with OTDR traces for every spliced span.",
     "year": "2024",
-    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=1200&q=70&auto=format&fit=crop",
+    "featured": true
   },
   {
     "id": "p-002",
-    "title": "NLD Fiber Backbone \u2014 Inter-City Span",
+    "slug": "nld-backbone-intercity",
+    "title": "NLD Fibre Backbone, Inter City Span",
     "client": "Confidential, India",
-    "category": "Fiber Optic",
-    "summary": "120 km National Long Distance backbone with HDD river crossings, manhole infrastructure and end-to-end OTDR characterisation.",
+    "category": "Fibre Optic",
+    "summary": "120 km National Long Distance backbone with HDD river crossings, manhole infrastructure and full OTDR characterisation.",
+    "description": "Long span NLD backbone deployment with multiple HDD crossings under rivers and highways. Civil, splicing and testing handled by our in house teams, with detailed as built documentation for the operator.",
     "year": "2024",
-    "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=70&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=70&auto=format&fit=crop",
+    "featured": true
   },
   {
     "id": "p-003",
-    "title": "Right-of-Way Programme \u2014 State Highway",
+    "slug": "row-state-highway",
+    "title": "Right of Way Programme, State Highway",
     "client": "Telecom Operator, Kerala",
     "category": "Telecom Infrastructure",
-    "summary": "End-to-end ROW liaison and approval for a 90 km route across NHAI, PWD and municipal jurisdictions \u2014 zero programme delay.",
+    "summary": "Full ROW liaison and approvals for a 90 km route across NHAI, PWD and municipal jurisdictions, with no programme delay.",
+    "description": "A 90 km route involves a long list of authorities. We managed every application, every site visit and every restoration sign off so that the operator could focus on the build rather than the paperwork.",
     "year": "2024",
     "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=70&auto=format&fit=crop"
   },
   {
     "id": "p-004",
-    "title": "Tier-III Data Centre Cabling \u2014 Kochi",
+    "slug": "datacentre-cabling-kochi",
+    "title": "Tier III Data Centre Cabling, Kochi",
     "client": "InfoPark Tenant, Kerala",
     "category": "Network Cabling",
-    "summary": "1,800-port Cat6A and OM4 fiber cabling with full Fluke certification for a financial-services tenant.",
+    "summary": "1,800 port Cat6A and OM4 fibre cabling with full Fluke certification for a financial services tenant.",
+    "description": "Structured cabling for a financial services tenant fitting out a new data hall. Every port was tested, labelled and handed over with Fluke certification reports, with the entire build completed inside the tenant's tight cutover window.",
     "year": "2023",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=70&auto=format&fit=crop",
+    "featured": true
   },
   {
     "id": "p-005",
-    "title": "Campus Surveillance \u2014 240 IP Cameras",
+    "slug": "campus-surveillance-240-cameras",
+    "title": "Campus Surveillance, 240 IP Cameras",
     "client": "Education Group, Kerala",
-    "category": "CCTV",
-    "summary": "Campus-wide IP CCTV deployment with central NVR, structured backbone and PoE switching across 12 buildings.",
+    "category": "Security Systems",
+    "summary": "Campus wide IP CCTV deployment with central NVR, structured backbone and PoE switching across 12 buildings.",
+    "description": "Twelve building campus surveillance rollout, with PoE switching, structured cabling backbone, central NVR and remote monitoring access for the security control room. The same team handled cabling and CCTV, which kept the schedule clean.",
     "year": "2023",
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70&auto=format&fit=crop"
   },
   {
     "id": "p-006",
-    "title": "IT Hardware Refresh \u2014 Hospital Network",
+    "slug": "hospital-it-refresh",
+    "title": "IT Hardware Refresh, Hospital Group",
     "client": "Healthcare Group, Kerala",
     "category": "IT Hardware",
-    "summary": "Tier-1 OEM hardware refresh across 6 hospital sites \u2014 endpoints, networking, server racks and asset-tagged delivery.",
+    "summary": "Tier one OEM hardware refresh across 6 hospital sites covering endpoints, networking, server racks and asset tagged delivery.",
+    "description": "A staggered hardware refresh across six hospital sites without disrupting clinical operations. We coordinated with the hospital IT team to deliver, image and tag endpoints on a per ward schedule, with all old assets returned for secure disposal.",
     "year": "2022",
-    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop"
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&q=70&auto=format&fit=crop",
+    "featured": true
   }
 ]

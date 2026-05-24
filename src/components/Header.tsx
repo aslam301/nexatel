@@ -38,7 +38,7 @@ export function Header() {
     <header
       className="sticky top-0 z-40 transition-all"
       style={{
-        background: scrolled ? "rgba(5, 8, 22, 0.78)" : "rgba(5, 8, 22, 0.40)",
+        background: scrolled ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.55)",
         backdropFilter: "saturate(180%) blur(14px)",
         WebkitBackdropFilter: "saturate(180%) blur(14px)",
         borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
@@ -56,7 +56,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={`relative px-3 py-2 text-sm font-medium transition-colors ${
-                  active ? "text-white" : "text-slate-300 hover:text-white"
+                  active ? "text-foreground-strong" : "text-muted hover:text-foreground-strong"
                 }`}
               >
                 {item.label}
@@ -78,7 +78,7 @@ export function Header() {
           <Link href="/contact" className="btn-primary text-sm">Contact Us</Link>
         </div>
         <button
-          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 border border-[var(--border-strong)] text-slate-200 hover:bg-white/5"
+          className="lg:hidden inline-flex items-center justify-center rounded-md p-2 border border-[var(--border-strong)] text-foreground hover:bg-foreground/5"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -95,7 +95,7 @@ export function Header() {
       {open && (
         <div
           className="lg:hidden border-t border-[var(--border)]"
-          style={{ background: "rgba(5, 8, 22, 0.94)", backdropFilter: "blur(14px)" }}
+          style={{ background: "rgba(255, 255, 255, 0.96)", backdropFilter: "blur(14px)" }}
         >
           <div className="container-wide py-4 flex flex-col gap-1">
             {NAV.map((item) => {
@@ -105,7 +105,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   className={`px-3 py-2.5 rounded-md font-medium ${
-                    active ? "text-white bg-white/5" : "text-slate-300"
+                    active ? "text-foreground-strong bg-foreground/5" : "text-muted"
                   }`}
                   onClick={() => setOpen(false)}
                 >

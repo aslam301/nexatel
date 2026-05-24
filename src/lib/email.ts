@@ -55,7 +55,7 @@ function renderHtml(s: Submission): string {
 
 function renderText(s: Submission): string {
   const lines = [
-    `Nexatel — ${s.kind === "quote" ? "Quote request" : "Contact enquiry"}`,
+    `Nexatel: ${s.kind === "quote" ? "Quote request" : "Contact enquiry"}`,
     `Received: ${new Date(s.createdAt).toUTCString()}`,
     "",
     `Name: ${s.name}`,
@@ -74,7 +74,7 @@ function renderText(s: Submission): string {
 }
 
 export async function sendSubmissionEmail(submission: Submission, settings: Settings): Promise<EmailResult> {
-  const subject = `${settings.emailSubjectPrefix || "[Nexatel]"} ${submission.kind === "quote" ? "Quote request" : "Contact"} — ${submission.name}`;
+  const subject = `${settings.emailSubjectPrefix || "[Nexatel]"} ${submission.kind === "quote" ? "Quote request" : "Contact"}: ${submission.name}`;
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {

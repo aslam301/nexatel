@@ -70,9 +70,9 @@ export function ContactForm() {
           {status === "sending" ? "Sending…" : "Send enquiry"}
         </button>
         {status === "ok" && (
-          <span className="text-sm text-emerald-300">Thanks — we&rsquo;ll be in touch within 1 business day.</span>
+          <span className="text-sm text-emerald-700">Thanks, we will be in touch within one business day.</span>
         )}
-        {status === "error" && <span className="text-sm text-red-300">{error}</span>}
+        {status === "error" && <span className="text-sm text-red-700">{error}</span>}
       </div>
     </form>
   );

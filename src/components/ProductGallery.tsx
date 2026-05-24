@@ -41,8 +41,8 @@ export function ProductGallery({ images, alt, intervalMs = 4500 }: ProductGaller
   if (list.length === 0) {
     return (
       <div
-        className="relative aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-[var(--border-strong)] flex items-center justify-center text-sm text-slate-500"
-        style={{ background: "linear-gradient(180deg, #1a2440 0%, #131D36 100%)" }}
+        className="relative aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-[var(--border-strong)] flex items-center justify-center text-sm text-muted-2"
+        style={{ background: "linear-gradient(180deg, var(--background-2) 0%, var(--surface-3) 100%)" }}
       >
         No image
       </div>
@@ -52,7 +52,7 @@ export function ProductGallery({ images, alt, intervalMs = 4500 }: ProductGaller
   return (
     <div
       className="relative aspect-[4/3] rounded-2xl overflow-hidden ring-1 ring-[var(--border-strong)]"
-      style={{ background: "linear-gradient(180deg, #1a2440 0%, #131D36 100%)" }}
+      style={{ background: "linear-gradient(180deg, var(--background-2) 0%, var(--surface-3) 100%)" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -80,7 +80,7 @@ export function ProductGallery({ images, alt, intervalMs = 4500 }: ProductGaller
       <span className="hero-bracket hero-bracket--br" />
 
       {multi && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full px-3 py-2 backdrop-blur-md" style={{ background: "rgba(5,8,22,0.55)", border: "1px solid var(--border-strong)" }}>
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full px-3 py-2 backdrop-blur-md" style={{ background: "rgba(15,23,42,0.15)", border: "1px solid var(--border-strong)" }}>
           {list.map((_, i) => {
             const active = i === index;
             return (

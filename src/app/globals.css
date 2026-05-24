@@ -1,7 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark theme — deep navy throughout */
+  /* Light theme — white + slate-50 layered */
+  --background: #FFFFFF;
+  --background-2: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-2: #F8FAFC;
+  --surface-3: #F1F5F9;
+  --foreground: #0F172A;
+  --foreground-strong: #020617;
+  --muted: #475569;
+  --muted-2: #64748B;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+
+  /* Brand — unchanged */
+  --primary: #0a2540;
+  --primary-strong: #061a2e;
+  --violet: #7C3AED;
+  --violet-strong: #6D28D9;
+  --indigo: #4F46E5;
+  --tech: #06B6D4;
+  --tech-strong: #0891B2;
+  --accent: #F59E0B;
+  --accent-strong: #D97706;
+}
+
+/* Scoped dark theme — applied at /admin layout root so admin keeps the dark UI
+   without affecting the public site. */
+.theme-dark {
   --background: #050816;
   --background-2: #0A0F1F;
   --surface: #0F172A;
@@ -13,17 +40,9 @@
   --muted-2: #64748B;
   --border: rgba(148, 163, 184, 0.10);
   --border-strong: rgba(148, 163, 184, 0.20);
-
-  /* Brand */
-  --primary: #0a2540;
-  --primary-strong: #061a2e;
-  --violet: #7C3AED;
-  --violet-strong: #6D28D9;
-  --indigo: #4F46E5;
-  --tech: #06B6D4;
-  --tech-strong: #0891B2;
-  --accent: #F59E0B;
-  --accent-strong: #D97706;
+  color-scheme: dark;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 @theme inline {
@@ -55,12 +74,10 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   background: var(--background);
-  color-scheme: dark;
-  /* Decorative blurs/glows are positioned with negative offsets ( -right-24,
-     right-[-15%], left-[-10%], etc. ) and would otherwise spill past the
-     viewport on tablet / mobile, causing horizontal scroll. `overflow-x: clip`
-     prevents the spill without establishing a new scroll container, so
-     `position: sticky` (Header / AdminShell topbar) keeps working. */
+  color-scheme: light;
+  /* Decorative blurs/glows are positioned with negative offsets and would
+     otherwise spill past the viewport. overflow-x: clip prevents the spill
+     without establishing a new scroll container (sticky still works). */
   overflow-x: clip;
 }
 
@@ -74,13 +91,16 @@ body {
 }
 
 ::selection {
+  background: rgba(124, 58, 237, 0.20);
+  color: var(--foreground-strong);
+}
+.theme-dark ::selection {
   background: rgba(124, 58, 237, 0.45);
   color: #fff;
 }
 
-/* Wrapped in @layer base so Tailwind utility classes (text-white, text-slate-700,
-   etc.) override this default — without the layer, source-order would beat
-   utilities and cause unreadable text on dark backgrounds (e.g. admin sidebar). */
+/* Wrapped in @layer base so Tailwind utility classes (text-white, etc.)
+   override this default. */
 @layer base {
   a {
     color: inherit;
@@ -116,13 +136,13 @@ body {
   border-radius: 0.625rem;
   font-weight: 600;
   font-size: 0.9375rem;
-  border: 1px solid rgba(124, 58, 237, 0.35);
-  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.0), 0 8px 32px -10px rgba(124, 58, 237, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  box-shadow: 0 6px 20px -8px rgba(79, 70, 229, 0.35);
   transition: transform 0.15s ease, box-shadow 0.25s ease, border-color 0.2s ease;
 }
 .btn-primary:hover {
-  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.45), 0 14px 40px -8px rgba(124, 58, 237, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 10px 28px -8px rgba(79, 70, 229, 0.45);
+  border-color: rgba(124, 58, 237, 0.45);
 }
 .btn-primary:active { transform: translateY(1px); }
 
@@ -136,13 +156,13 @@ body {
   border-radius: 0.625rem;
   font-weight: 600;
   font-size: 0.9375rem;
-  border: 1px solid rgba(6, 182, 212, 0.35);
-  box-shadow: 0 8px 32px -10px rgba(6, 182, 212, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  box-shadow: 0 6px 20px -8px rgba(6, 182, 212, 0.4);
   transition: transform 0.15s ease, box-shadow 0.25s ease, border-color 0.2s ease;
 }
 .btn-accent:hover {
-  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.45), 0 14px 40px -8px rgba(6, 182, 212, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  border-color: rgba(6, 182, 212, 0.55);
+  box-shadow: 0 10px 28px -8px rgba(6, 182, 212, 0.5);
+  border-color: rgba(6, 182, 212, 0.45);
 }
 
 .btn-outline {
@@ -155,15 +175,16 @@ body {
   border-radius: 0.625rem;
   font-weight: 600;
   font-size: 0.9375rem;
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(8px);
+  background: transparent;
   transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 .btn-outline:hover {
   border-color: rgba(124, 58, 237, 0.55);
-  background: rgba(124, 58, 237, 0.08);
-  color: #fff;
+  background: rgba(124, 58, 237, 0.06);
+  color: var(--foreground-strong);
 }
+.theme-dark .btn-outline { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(8px); }
+.theme-dark .btn-outline:hover { background: rgba(124, 58, 237, 0.08); color: #fff; }
 
 .btn-tech {
   display: inline-flex;
@@ -182,7 +203,7 @@ body {
 
 /* ───────── Cards ───────── */
 .card {
-  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 1rem;
   overflow: hidden;
@@ -191,8 +212,14 @@ body {
 }
 .card:hover {
   border-color: var(--border-strong);
-  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.16), 0 24px 60px -28px rgba(124, 58, 237, 0.55);
+  box-shadow: 0 12px 32px -16px rgba(15, 23, 42, 0.18);
   transform: translateY(-2px);
+}
+.theme-dark .card {
+  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+}
+.theme-dark .card:hover {
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.16), 0 24px 60px -28px rgba(124, 58, 237, 0.55);
 }
 
 .card-flat {
@@ -204,13 +231,13 @@ body {
 
 /* ───────── Glow utilities ───────── */
 .glow-violet {
-  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.25), 0 18px 50px -12px rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.15), 0 14px 36px -16px rgba(124, 58, 237, 0.30);
 }
 .glow-cyan {
-  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.20), 0 18px 50px -12px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.15), 0 14px 36px -16px rgba(6, 182, 212, 0.28);
 }
 
-/* Icon "tile" — gradient-filled rounded square housing an SVG icon */
+/* Icon "tile" — light-themed soft-tinted square housing an SVG icon */
 .icon-tile {
   display: inline-flex;
   align-items: center;
@@ -218,8 +245,12 @@ body {
   height: 2.75rem;
   width: 2.75rem;
   border-radius: 0.75rem;
-  background: linear-gradient(140deg, rgba(124, 58, 237, 0.18), rgba(6, 182, 212, 0.14));
+  background: linear-gradient(140deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.08));
   border: 1px solid var(--border-strong);
+  color: var(--violet-strong);
+}
+.theme-dark .icon-tile {
+  background: linear-gradient(140deg, rgba(124, 58, 237, 0.18), rgba(6, 182, 212, 0.14));
   color: #fff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
@@ -235,9 +266,10 @@ body {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--tech);
+  color: var(--tech-strong);
   font-family: var(--font-mono), ui-monospace, monospace;
 }
+.theme-dark .eyebrow { color: var(--tech); }
 
 .section-title {
   font-size: clamp(1.75rem, 3.2vw, 2.75rem);
@@ -271,13 +303,30 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(800px 380px at 0% 10%, rgba(124, 58, 237, 0.10), transparent 60%),
-    radial-gradient(700px 360px at 100% 90%, rgba(6, 182, 212, 0.08), transparent 60%);
+    radial-gradient(800px 380px at 0% 10%, rgba(124, 58, 237, 0.05), transparent 60%),
+    radial-gradient(700px 360px at 100% 90%, rgba(6, 182, 212, 0.05), transparent 60%);
   pointer-events: none;
 }
+.theme-dark .section-glow::before {
+  background:
+    radial-gradient(800px 380px at 0% 10%, rgba(124, 58, 237, 0.10), transparent 60%),
+    radial-gradient(700px 360px at 100% 90%, rgba(6, 182, 212, 0.08), transparent 60%);
+}
 
-/* Hero gradient — deep cosmic with violet + cyan glow */
+/* Section helpers for layered light backgrounds */
+.section-alt {
+  background: var(--background-2);
+}
+
+/* Hero gradient — soft tints on white for the light theme */
 .hero-gradient {
+  background:
+    radial-gradient(1100px 520px at 85% -10%, rgba(124, 58, 237, 0.10), transparent 60%),
+    radial-gradient(900px 440px at -10% 30%, rgba(6, 182, 212, 0.08), transparent 60%),
+    radial-gradient(700px 500px at 60% 110%, rgba(79, 70, 229, 0.06), transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+.theme-dark .hero-gradient {
   background:
     radial-gradient(1100px 520px at 85% -10%, rgba(124, 58, 237, 0.30), transparent 60%),
     radial-gradient(900px 440px at -10% 30%, rgba(6, 182, 212, 0.18), transparent 60%),
@@ -288,14 +337,22 @@ body {
 /* Subtle grid pattern */
 .grid-pattern {
   background-image:
+    linear-gradient(rgba(15,23,42,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.theme-dark .grid-pattern {
+  background-image:
     linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
 }
 
 .dot-pattern {
-  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(15, 23, 42, 0.10) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+.theme-dark .dot-pattern {
+  background-image: radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
 }
 
 /* Animated horizontal scan line on hero */
@@ -311,10 +368,10 @@ body {
   left: -10%;
   right: -10%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.6), rgba(6, 182, 212, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4), rgba(6, 182, 212, 0.4), transparent);
   filter: blur(0.5px);
   animation: hero-scan 9s linear infinite;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 @keyframes hero-scan {
   0%   { transform: translateY(-10%); }
@@ -329,10 +386,11 @@ body {
   position: absolute;
   width: 22px;
   height: 22px;
-  border-color: rgba(255,255,255,0.20);
+  border-color: rgba(15, 23, 42, 0.18);
   border-style: solid;
   border-width: 0;
 }
+.theme-dark .hero-bracket { border-color: rgba(255, 255, 255, 0.20); }
 .hero-bracket--tl { top: 18px;    left: 18px;    border-top-width: 1px; border-left-width: 1px; }
 .hero-bracket--tr { top: 18px;    right: 18px;   border-top-width: 1px; border-right-width: 1px; }
 .hero-bracket--bl { bottom: 18px; left: 18px;    border-bottom-width: 1px; border-left-width: 1px; }
@@ -354,7 +412,11 @@ body {
 }
 .input:focus, .textarea:focus, .select:focus {
   outline: none;
-  border-color: rgba(124, 58, 237, 0.6);
+  border-color: rgba(124, 58, 237, 0.55);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+.theme-dark .input:focus, .theme-dark .textarea:focus, .theme-dark .select:focus {
   background: var(--surface-2);
   box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.18);
 }
@@ -378,10 +440,11 @@ body {
 }
 
 .field-error {
-  color: #fca5a5;
+  color: #b91c1c;
   font-size: 0.8125rem;
   margin-top: 0.3rem;
 }
+.theme-dark .field-error { color: #fca5a5; }
 
 /* Status badge */
 .badge {
@@ -391,11 +454,14 @@ body {
   padding: 0.25rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--border-strong);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(15, 23, 42, 0.03);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.6875rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
+}
+.theme-dark .badge {
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
 }

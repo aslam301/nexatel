@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { Capability, Company, Product, Service, Settings } from "./types";
+import type { Company, Product, Service, Settings } from "./types";
 
 /**
  * Truncate `text` to `max` characters at a word boundary, appending "…".
@@ -24,7 +24,7 @@ export function resolveDescription(
   body: string | undefined,
   summary: string | undefined,
   settings?: Settings | null,
-  fallback = "Nexatel Private Limited \u2014 telecom infrastructure and IT systems integrator headquartered in Kerala, India.",
+  fallback = "Nexatel Private Limited, IT networking and telecom infrastructure for enterprises across India.",
 ): string {
   if (explicit && explicit.trim()) return explicit.trim();
   if (body && body.trim()) return truncate(body, 160);
@@ -55,7 +55,7 @@ const DEFAULT_OG = {
   url: "/og-default.svg",
   width: 1200,
   height: 630,
-  alt: "Nexatel — Engineering Connections. Building Tomorrow.",
+  alt: "Nexatel, building Kerala's network backbone.",
 } as const;
 
 const SITE_NAME = "Nexatel";
@@ -261,29 +261,6 @@ export function serviceJsonLd(service: Service, company: Company) {
     areaServed: company.offices.map((o) => ({ "@type": "Country", name: o.country })),
     url: `${SITE_URL}/services/${service.slug}`,
     image: service.image,
-  };
-}
-
-export function capabilityJsonLd(capability: Capability, company: Company) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: capability.title,
-    description: capability.summary,
-    serviceType: capability.title,
-    provider: {
-      "@type": "Organization",
-      name: company.name,
-      url: SITE_URL,
-    },
-    areaServed: company.offices.map((o) => ({ "@type": "Country", name: o.country })),
-    url: `${SITE_URL}/capabilities/${capability.slug}`,
-    image: capability.image,
-    isPartOf: {
-      "@type": "Service",
-      name: capability.parentService,
-      url: `${SITE_URL}/services/${capability.parentService}`,
-    },
   };
 }
 

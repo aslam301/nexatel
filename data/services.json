@@ -1,77 +1,82 @@
 [
   {
     "slug": "fiber-optic",
-    "title": "Fiber Optic Projects",
-    "summary": "End-to-end fiber optic deployment \u2014 NLD backbones, FTTH/GPON, splicing, OTDR testing and commissioning across India.",
+    "title": "Fibre Supply and Installation",
+    "summary": "Fibre backbones, FTTH rollouts and inter site links. Splicing, OTDR testing and joint closures included.",
     "icon": "fiber",
     "highlights": [
-      "500+ km Optical Fiber Cable laid across India",
-      "NLD spans & last-mile FTTx connectivity",
-      "FTTH / GPON deployment in Kerala",
-      "Fusion splicing, OTDR & OPM testing",
-      "FDP, FAT, ODF and joint-closure installation"
+      "Single mode and multi mode fibre supply",
+      "NLD backbones, FTTH and last mile builds",
+      "Fusion splicing with OTDR and OPM certification",
+      "FDP, FAT, ODF and joint closure installation",
+      "Aerial, duct and direct buried deployments"
     ],
-    "details": "Nexatel specialises in laying, splicing and certifying optical fiber networks for service providers, enterprises and public projects. From National Long Distance backbones to Fiber-to-the-Home networks across Kerala, our crews deliver low-loss, fully-tested infrastructure under engineering leadership with 25+ years of fiber expertise.",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=70&auto=format&fit=crop"
+    "details": "Our fibre crews handle everything from a single inter building run to long span NLD backbones. Every joint is tested and documented, every span comes with an OTDR trace, and our engineers have spent the last twenty five years putting fibre in the ground across Kerala.",
+    "image": "https://assets.nexatel.org/images/services/fiber-optic-mpk1ac5fhlje.png",
+    "featured": true
   },
   {
     "slug": "telecom",
-    "title": "Telecom Infrastructure",
-    "summary": "Civil-to-active telecom build-out \u2014 HDD, manual trenching, manhole construction, pole erection, ROW liaison and road restoration.",
+    "title": "Telecom Infrastructure Works",
+    "summary": "The civil work behind every rollout. Manhole construction, pole erection, fencing, excavation, HDD and ROW liaison.",
     "icon": "tower",
     "highlights": [
-      "Horizontal Directional Drilling (HDD) for trenchless crossings",
-      "Manual trenching for congested & urban routes",
-      "Manhole (MH) installation & pole erection",
-      "Right-of-Way liaison with NHAI, PWD & local bodies",
-      "BMBC and interlocking road restoration"
+      "Horizontal Directional Drilling for trenchless crossings",
+      "Manual trenching for tight urban and congested routes",
+      "Manhole and chamber construction, pole erection, fencing",
+      "Right of Way liaison with NHAI, PWD and local bodies",
+      "BMBC and interlocking road restoration after the work is done"
     ],
-    "details": "We deliver the civil and infrastructure backbone behind every telecom rollout. Our turnkey teams handle ROW applications, route surveys, HDD and manual trenching, manhole construction, pole erection and authority-compliant road restoration \u2014 keeping projects on schedule and on standard.",
-    "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=70&auto=format&fit=crop"
+    "details": "Telecom build out is half engineering and half paperwork. We run both. Our teams handle route surveys, ROW applications, civil work, restoration and handover documentation so the network owner is not chasing approvals while the project runs.",
+    "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=70&auto=format&fit=crop",
+    "featured": true
   },
   {
     "slug": "network-cabling",
-    "title": "Network Cabling",
-    "summary": "Structured cabling for enterprises, campuses and data centres \u2014 Cat6 / Cat6A / Cat7 copper, OM3/OM4 fiber, racks and patching.",
+    "title": "Structured Cabling Supply and Installation",
+    "summary": "Cat6, Cat6A and Cat7 copper plus OM3 and OM4 fibre, designed and installed to standards your IT team can sign off on.",
     "icon": "cabling",
     "highlights": [
       "Cat6, Cat6A and Cat7 horizontal cabling",
-      "OM3 / OM4 multi-mode backbone",
-      "Patch panels, ODFs and rack build-outs",
-      "Fluke channel & permanent-link certification",
-      "Aerial and structured cabling for campuses"
+      "OM3 and OM4 multi mode fibre backbones",
+      "Patch panels, ODFs and full rack build outs",
+      "Fluke channel and permanent link certification",
+      "Aerial and inter building runs for multi block campuses"
     ],
-    "details": "Forge a sturdy network foundation with our high-quality cabling solutions. From single-floor offices to multi-building campuses and Tier-III data centres, we design, supply and install structured cabling that's certified, labelled and documented for the full lifetime of the network.",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=70&auto=format&fit=crop"
+    "details": "Structured cabling is the part of the network nobody sees until it fails. We design, install, label and certify every run, so audits are simple and adds and moves are predictable. From a single floor fitout to a multi building campus, the work is documented and certified before we hand over.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=70&auto=format&fit=crop",
+    "featured": true
   },
   {
-    "slug": "cctv",
-    "title": "CCTV Systems",
-    "summary": "IP camera, NVR and surveillance system supply, installation and maintenance for commercial, industrial and public sites.",
+    "slug": "security-systems",
+    "title": "Security System Projects",
+    "summary": "CCTV, access control and intrusion systems for offices, campuses, industrial sites and high security areas.",
     "icon": "cctv",
     "highlights": [
-      "IP and analogue camera systems",
-      "NVR / VMS deployment and integration",
-      "Perimeter, indoor and PTZ coverage design",
-      "PoE switching and structured backbone",
-      "Annual maintenance & remote monitoring"
+      "IP and analogue CCTV with NVR and VMS integration",
+      "Access control with card, biometric and mobile credentials",
+      "Perimeter, indoor and PTZ camera coverage design",
+      "PoE switching and structured backbone for camera networks",
+      "Annual maintenance and remote health monitoring"
     ],
-    "details": "Protect your assets with cutting-edge CCTV systems. We supply, install and maintain end-to-end surveillance infrastructure \u2014 from initial site survey and camera placement to NVR commissioning and 24x7 maintenance contracts that keep your security posture continuously online.",
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=70&auto=format&fit=crop"
+    "details": "We design CCTV and access control as part of the broader network, not bolted on afterwards. The cameras, the switches and the controllers all sit on infrastructure we install ourselves, which keeps the system predictable and the maintenance straightforward.",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=70&auto=format&fit=crop",
+    "featured": false
   },
   {
     "slug": "it-hardware",
-    "title": "IT Hardware Supply",
-    "summary": "Sourcing and supply of laptops, servers, networking gear, fiber optic products and audio-visual equipment from tier-1 OEMs.",
+    "title": "IT Hardware Supply and Support",
+    "summary": "Servers, switches, firewalls, workstations and the wiring that ties them together. Sourced, installed and supported under one contract.",
     "icon": "box",
     "highlights": [
-      "Laptops, desktops and workstations",
-      "Servers, storage and SAN",
-      "Switches, routers and Wi-Fi",
-      "Fiber optic cables, transceivers and patch panels",
-      "Annual rate contracts for enterprises & projects"
+      "Tier one OEM sourcing with warranty registration on every unit",
+      "Servers, storage, switches, routers, firewalls and Wi-Fi",
+      "Laptops, desktops and workstations for office fitouts",
+      "Asset tagging, configuration and on site delivery",
+      "Annual rate contracts for enterprises and large projects"
     ],
-    "details": "Through long-standing OEM relationships, we offer competitive pricing on tier-1 IT hardware and fiber-optic products \u2014 backed by warranty registration, asset tagging and on-site delivery across India. Bulk and rate-contract pricing available for government and enterprise tenders.",
-    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1600&q=70&auto=format&fit=crop"
+    "details": "We supply and install IT hardware for corporate offices, campuses and industrial sites across India. Long standing OEM relationships mean honest pricing and quick lead times, and our engineers handle racking, configuration and warranty paperwork so your IT team stays focused on users instead of logistics.",
+    "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=1600&q=70&auto=format&fit=crop",
+    "featured": true
   }
 ]

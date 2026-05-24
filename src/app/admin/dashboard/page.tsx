@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { AdminShell } from "@/components/AdminShell";
-import { getProducts, getSettings, getSubmissions, isFsWritable } from "@/lib/data";
+import { getProducts, getServices, getProjects, getSettings, getSubmissions, isFsWritable } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  const [products, submissions, settings] = await Promise.all([
+  const [products, services, projects, submissions, settings] = await Promise.all([
     getProducts(),
+    getServices(),
+    getProjects(),
     getSubmissions(),
     getSettings(),
   ]);
@@ -14,14 +16,13 @@ export default async function DashboardPage() {
   const contactCount = submissions.filter((s) => s.kind === "contact").length;
   const quoteCount = submissions.filter((s) => s.kind === "quote").length;
   const recent = submissions.slice(0, 5);
-  const last7 = submissions.filter((s) => Date.now() - new Date(s.createdAt).getTime() < 7 * 86400_000).length;
   const failed = submissions.filter((s) => !s.emailDelivered).length;
 
   const stats = [
+    { label: "Services", value: services.length, href: "/admin/services", tint: "#67e8f9" },
     { label: "Products", value: products.length, href: "/admin/products", tint: "#a78bfa" },
-    { label: "Contact enquiries", value: contactCount, href: "/admin/submissions?kind=contact", tint: "#67e8f9" },
-    { label: "Quote requests", value: quoteCount, href: "/admin/submissions?kind=quote", tint: "#6ee7b7" },
-    { label: "Last 7 days", value: last7, href: "/admin/submissions", tint: "#fbbf24" },
+    { label: "Projects", value: projects.length, href: "/admin/projects", tint: "#6ee7b7" },
+    { label: "Submissions", value: contactCount + quoteCount, href: "/admin/submissions", tint: "#fbbf24" },
   ];
 
   return (

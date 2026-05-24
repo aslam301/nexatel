@@ -2,64 +2,54 @@ import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Icon } from "@/components/Icon";
-import { getCompany } from "@/lib/data";
+import { MissionVisionValues } from "@/components/MissionVisionValues";
+import { AreasOfFocus } from "@/components/AreasOfFocus";
+import { getCompany, getSite } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata() {
-  const company = await getCompany();
+  const [company, site] = await Promise.all([getCompany(), getSite()]);
   return buildMetadata({
     title: "About",
-    description: `${company.name} Private Limited is a specialised telecom infrastructure company headquartered in Kerala, India.`,
+    description: `${company.legalName} is a specialist IT networking and telecom infrastructure company based in Kerala, India.`,
     path: "/about",
-    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&h=630&fit=crop&q=70&auto=format",
+    image: site.about.hero.image,
     keywords: [
       "about Nexatel",
-      "telecom infrastructure India",
-      "fiber optic Kerala",
-      "FTTH provider Kochi",
-      "ROW liaison India",
+      "IT networking India",
+      "telecom infrastructure Kerala",
+      "structured cabling Kochi",
+      "enterprise IT supplier India",
     ],
   });
 }
 
 export default async function AboutPage() {
-  const company = await getCompany();
+  const [company, site] = await Promise.all([getCompany(), getSite()]);
   return (
     <>
       <Hero
-        eyebrow="About Nexatel"
-        title="Quiet engineering. Loud results."
-        subtitle="We build and maintain the telecom infrastructure that powers ambitious operators, enterprises and public projects across India — under engineering leadership with 25+ years in fiber optics."
+        eyebrow={site.about.hero.eyebrow}
+        title={site.about.hero.title}
+        subtitle={site.about.hero.subtitle}
         size="compact"
         showStatus={false}
-        backgroundImage="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=2000&q=75&auto=format&fit=crop"
+        backgroundImage={site.about.hero.image}
       />
 
       {/* Who we are */}
       <section className="container-wide py-24 md:py-28 grid lg:grid-cols-5 gap-12">
         <div className="lg:col-span-3 space-y-6">
-          <span className="eyebrow">Who we are</span>
-          <h2 className="section-title">Engineering depth, delivered on the ground.</h2>
-          <p className="lead">
-            {company.legalName} is a specialised company in telecom systems, electrical project
-            installations, network cabling and IT hardware supply &amp; installation in India,
-            currently running major projects across Kerala. We are engaged in diverse business
-            activities headed by a well-experienced management team and technocrats in their
-            relevant fields.
-          </p>
-          <p className="lead">
-            Our genuine strength is derived from the excellent support we get from prominent
-            manufacturers and export houses around the world. Our philosophy is straightforward:
-            save your time and money while ensuring that your operation runs smoothly &mdash; and
-            go the extra mile to make sure your requirements are met with top-notch quality and
-            reliability, backed by exceptional service from dedicated professionals who feel like
-            part of your extended team.
-          </p>
+          <span className="eyebrow">{site.about.body.eyebrow}</span>
+          <h2 className="section-title">{site.about.body.title}</h2>
+          {site.about.body.paragraphs.map((p, i) => (
+            <p key={i} className={i === 0 ? "lead" : "text-muted leading-relaxed"}>{p}</p>
+          ))}
         </div>
         <div className="lg:col-span-2 relative aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-[var(--border-strong)]">
           <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70&auto=format&fit=crop"
-            alt="Nexatel project review"
+            src={site.about.body.image}
+            alt="Nexatel team on site"
             fill
             sizes="(min-width: 1024px) 40vw, 100vw"
             className="object-cover"
@@ -67,59 +57,32 @@ export default async function AboutPage() {
           <div
             className="absolute inset-0"
             aria-hidden
-            style={{ background: "linear-gradient(180deg, transparent 40%, rgba(5,8,22,0.6))" }}
+            style={{ background: "linear-gradient(180deg, transparent 40%, rgba(15,23,42,0.14))" }}
           />
         </div>
       </section>
 
-      {/* Mission / Vision */}
+      {/* Mission / Vision / Values */}
       <section className="border-y border-[var(--border)] section-glow" style={{ background: "var(--background-2)" }}>
         <div className="container-wide py-24 md:py-28">
-          <span className="eyebrow">Direction</span>
-          <h2 className="section-title mt-3 max-w-3xl">Mission &amp; vision.</h2>
-          <div className="mt-12 grid lg:grid-cols-2 gap-5">
-            {company.mission && (
-              <div className="card p-8 lg:p-10">
-                <div className="icon-tile icon-tile-lg">
-                  <Icon name="globe" size={26} />
-                </div>
-                <h3 className="mt-6 text-xl font-semibold text-white">Our mission</h3>
-                <p className="mt-3 text-[15px] text-slate-400 leading-relaxed">{company.mission}</p>
-              </div>
-            )}
-            {company.vision && (
-              <div className="card p-8 lg:p-10">
-                <div className="icon-tile icon-tile-lg">
-                  <Icon name="sparkle" size={26} />
-                </div>
-                <h3 className="mt-6 text-xl font-semibold text-white">Our vision</h3>
-                <p className="mt-3 text-[15px] text-slate-400 leading-relaxed">{company.vision}</p>
-              </div>
-            )}
+          <div className="max-w-2xl">
+            <span className="eyebrow">Direction</span>
+            <h2 className="section-title mt-3">What drives the work.</h2>
+          </div>
+          <div className="mt-12">
+            <MissionVisionValues company={company} />
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      {company.values && company.values.length > 0 && (
-        <section className="container-wide py-24 md:py-28">
-          <span className="eyebrow">What we stand for</span>
-          <h2 className="section-title mt-3 max-w-3xl">Our values.</h2>
-          <p className="lead mt-4">
-            Excel with integrity, expertise, teamwork and client focus.
-          </p>
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {company.values.map((v) => (
-              <div key={v} className="card p-6 flex items-center gap-4">
-                <div className="icon-tile shrink-0">
-                  <Icon name="check" size={20} />
-                </div>
-                <h3 className="text-base font-semibold text-white">{v}</h3>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+      {/* Areas of focus */}
+      <section className="container-wide py-24 md:py-28">
+        <div className="max-w-2xl mb-12">
+          <span className="eyebrow">Who we work with</span>
+          <h2 className="section-title mt-3">Built for the sectors that cannot afford downtime.</h2>
+        </div>
+        <AreasOfFocus areas={company.areasOfFocus} />
+      </section>
 
       {/* Office */}
       <section className="border-y border-[var(--border)]" style={{ background: "var(--background-2)" }}>
@@ -133,7 +96,7 @@ export default async function AboutPage() {
                   <div className="icon-tile">
                     <Icon name="pin" size={20} />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-foreground-strong">
                     {o.city}, {o.country}
                     {o.isHeadquarters && (
                       <span
@@ -143,10 +106,10 @@ export default async function AboutPage() {
                     )}
                   </h3>
                 </div>
-                <p className="mt-5 text-sm text-slate-400 leading-relaxed">{o.address}</p>
-                <div className="mt-5 flex flex-col gap-2 text-sm text-slate-300">
+                <p className="mt-5 text-sm text-muted leading-relaxed">{o.address}</p>
+                <div className="mt-5 flex flex-col gap-2 text-sm text-muted">
                   <span className="inline-flex items-center gap-2"><Icon name="phone" size={16} /> {o.phone}</span>
-                  <a href={`mailto:${o.email}`} className="inline-flex items-center gap-2 hover:text-white transition-colors"><Icon name="mail" size={16} /> {o.email}</a>
+                  <a href={`mailto:${o.email}`} className="inline-flex items-center gap-2 hover:text-foreground-strong transition-colors"><Icon name="mail" size={16} /> {o.email}</a>
                 </div>
               </div>
             ))}
@@ -161,7 +124,7 @@ export default async function AboutPage() {
                   <div className="icon-tile">
                     <Icon name="partner" size={20} />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-foreground-strong">
                     {company.partner.name}, {company.partner.country}
                     <span
                       className="ml-2 align-middle text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded"
@@ -169,9 +132,9 @@ export default async function AboutPage() {
                     >Sister</span>
                   </h3>
                 </div>
-                <p className="mt-5 text-sm text-slate-400 leading-relaxed">{company.partner.note}</p>
-                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-2.5 transition-all">
-                  <span style={{ background: "linear-gradient(90deg, #a78bfa, #67e8f9)", backgroundClip: "text", color: "transparent" }}>
+                <p className="mt-5 text-sm text-muted leading-relaxed">{company.partner.note}</p>
+                <div className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground-strong group-hover:gap-2.5 transition-all">
+                  <span style={{ background: "linear-gradient(90deg, var(--violet), var(--tech))", backgroundClip: "text", color: "transparent" }}>
                     Visit {company.partner.name}
                   </span>
                   <Icon name="arrow" size={16} />
@@ -186,11 +149,11 @@ export default async function AboutPage() {
       <section className="container-wide py-20">
         <div className="card p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
           <div>
-            <h3 className="text-xl md:text-2xl font-semibold text-white tracking-tight">Plan your project with us.</h3>
-            <p className="text-slate-400 mt-2">Tell us about scope, location and timeline — we&rsquo;ll come back with a clear proposal.</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground-strong tracking-tight">{site.about.cta.title}</h3>
+            <p className="text-muted mt-2">{site.about.cta.body}</p>
           </div>
           <div className="flex gap-3">
-            <Link href="/contact" className="btn-primary">Request a quote <Icon name="arrow" size={16} /></Link>
+            <Link href="/contact" className="btn-primary">{site.about.cta.primaryLabel} <Icon name="arrow" size={16} /></Link>
           </div>
         </div>
       </section>

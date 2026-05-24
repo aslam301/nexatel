@@ -1,31 +1,25 @@
 {
   "name": "Nexatel",
   "legalName": "Nexatel Private Limited",
-  "tagline": "Engineering India's connected future.",
-  "description": "Nexatel Private Limited is a specialised telecom infrastructure company headquartered in Kerala, India. We design, deploy and maintain fiber optic, telecom, network cabling, CCTV and IT hardware systems for service providers, enterprises and public projects \u2014 led by engineering leadership with 25+ years in fiber optics.",
-  "shortDescription": "Telecom infrastructure & IT systems integrator headquartered in Kerala, India.",
-  "founded": "2020",
-  "yearsOfExperience": 25,
-  "stats": [
-    { "label": "km of OFC deployed", "value": "500+" },
-    { "label": "km of ROW managed", "value": "500+" },
-    { "label": "yrs engineering leadership", "value": "25+" },
-    { "label": "service pillars", "value": "5" }
-  ],
+  "tagline": "Building Kerala's network backbone, one fibre at a time.",
+  "description": "Nexatel Private Limited is a specialist IT networking and telecom infrastructure company based in Kerala, India. We design, supply and install enterprise networks, structured cabling, fibre optic systems, telecom civil works and security systems for corporate clients and large infrastructure projects.",
+  "shortDescription": "Nexatel Private Limited is a specialist company in telecom systems, electrical installations, network cabling and IT hardware supply and installation in India. We are headquartered in Kerala and currently delivering major projects across the state.",
+  "founded": "2026",
+  "yearsOfExperience": 1,
   "verticals": [
-    "Fiber Optic Projects",
+    "Fibre Supply and Installation",
+    "Structured Cabling",
     "Telecom Infrastructure",
-    "Network Cabling",
-    "CCTV Systems",
-    "IT Hardware Supply"
+    "IT Hardware Supply and Support",
+    "Security Systems"
   ],
   "offices": [
     {
       "city": "Kochi",
       "country": "India",
-      "address": "InfoPark Phase II, Kakkanad, Kochi, Kerala 682030, India",
-      "phone": "+91 484 000 0000",
-      "email": "sales@nexatel.org",
+      "address": "PEEDIKAYIL BUILDING, KODIKUTTUMALA, ASOKAPURAM, ALUVA, ERNAKULAM, 683101, KERALA, INDIA",
+      "phone": "+91 956 781 1587",
+      "email": "info@nexatel.org",
       "isHeadquarters": true
     }
   ],
@@ -35,20 +29,57 @@
     "facebook": "",
     "instagram": ""
   },
-  "supportEmail": "sales@nexatel.org",
-  "supportPhone": "+91 484 000 0000",
-  "mission": "To become a leading and trusted telecom infrastructure company, delivering world-class solutions in telecom, electrical and IT networking infrastructure with superior quality, innovation and reliability \u2014 connecting communities and enabling digital growth across India.",
-  "vision": "Lead global tech trends with seamless telecom and IT services.",
+  "supportEmail": "info@nexatel.org",
+  "supportPhone": "+91 956 781 1587",
+  "mission": "To be a trusted partner for telecom, electrical and IT networking infrastructure in India, delivering reliable, high quality systems that help our clients run smoother operations and reach more communities.",
+  "vision": "To set the standard for seamless telecom and IT services in India, and grow alongside the clients and sectors we serve.",
   "values": [
-    "Integrity",
-    "Expertise",
-    "Teamwork",
-    "Client focus",
-    "Quality",
-    "Innovation"
+    {
+      "title": "Integrity",
+      "description": "We do what we say we will, and we say what we mean. No hidden line items, no shifted blame."
+    },
+    {
+      "title": "Expertise",
+      "description": "Twenty five years of fibre and networking experience sits behind every project, from the survey to the sign off."
+    },
+    {
+      "title": "Teamwork",
+      "description": "Our engineers work as part of your team, not separate from it. Decisions are made together, in the open."
+    },
+    {
+      "title": "Client focus",
+      "description": "Your timeline, your site constraints and your budget shape the plan. We adjust to your operation, not the other way around."
+    }
+  ],
+  "areasOfFocus": [
+    {
+      "title": "Corporate enterprises",
+      "description": "Office campuses, multi-floor buildings and corporate parks needing structured cabling and IT networking that scales with the business.",
+      "icon": "building"
+    },
+    {
+      "title": "Telecom and ISP",
+      "description": "Service providers building fibre backbones, FTTH rollouts and last mile networks across Kerala and South India.",
+      "icon": "fiber"
+    },
+    {
+      "title": "Oil, Gas and Energy",
+      "description": "Field networks, hazardous area cabling and industrial CCTV for refineries, terminals and power plants.",
+      "icon": "bolt"
+    },
+    {
+      "title": "Defence and Shipyards",
+      "description": "Secure communications, perimeter surveillance and resilient networking for restricted access sites.",
+      "icon": "tower"
+    },
+    {
+      "title": "Campus networks",
+      "description": "Universities, hospitals and large institutional campuses with multi-building cabling, wireless coverage and access control.",
+      "icon": "cabling"
+    }
   ],
   "partner": {
-    "name": "Fanr",
+    "name": "Fanr KWT",
     "legalName": "Al Fanr Establishment",
     "url": "https://www.fanrkwt.com",
     "country": "Kuwait",

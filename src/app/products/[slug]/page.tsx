@@ -74,12 +74,12 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
       />
       <section className="container-wide pt-10 md:pt-14 pb-16 md:pb-20">
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="text-sm text-slate-500 mb-8 flex flex-wrap items-center gap-2">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
+        <nav aria-label="Breadcrumb" className="text-sm text-muted-2 mb-8 flex flex-wrap items-center gap-2">
+          <Link href="/" className="hover:text-foreground-strong transition-colors">Home</Link>
           <span aria-hidden>/</span>
-          <Link href="/products" className="hover:text-white transition-colors">Products</Link>
+          <Link href="/products" className="hover:text-foreground-strong transition-colors">Products</Link>
           <span aria-hidden>/</span>
-          <span className="text-white font-medium">{product.name}</span>
+          <span className="text-foreground-strong font-medium">{product.name}</span>
         </nav>
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14">
@@ -111,17 +111,17 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
               </span>
             </div>
 
-            <h1 className="mt-5 text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
+            <h1 className="mt-5 text-3xl md:text-4xl font-semibold text-foreground-strong tracking-tight leading-tight">
               {product.name}
             </h1>
-            <div className="mt-3 text-xs font-mono uppercase tracking-[0.18em] text-slate-500">
+            <div className="mt-3 text-xs font-mono uppercase tracking-[0.18em] text-muted-2">
               SKU · {sku}
             </div>
 
-            <p className="mt-6 text-lg text-slate-300 leading-relaxed">
+            <p className="mt-6 text-lg text-muted leading-relaxed">
               {product.shortDescription}
             </p>
-            <p className="mt-4 text-slate-400 leading-relaxed">{product.description}</p>
+            <p className="mt-4 text-muted leading-relaxed">{product.description}</p>
 
             {/* CTA row */}
             <div className="mt-8 flex flex-wrap gap-3">
@@ -149,7 +149,7 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
                   <span className="icon-tile" style={{ height: "2.25rem", width: "2.25rem" }}>
                     <Icon name={item.icon} size={18} />
                   </span>
-                  <span className="text-sm font-medium text-slate-200">{item.label}</span>
+                  <span className="text-sm font-medium text-foreground">{item.label}</span>
                 </li>
               ))}
             </ul>
@@ -172,10 +172,10 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
                       idx !== 0 ? "border-t border-[var(--border)]" : ""
                     }`}
                   >
-                    <dt className="text-xs font-mono uppercase tracking-[0.16em] text-slate-500 pt-1 min-w-[70px]">
+                    <dt className="text-xs font-mono uppercase tracking-[0.16em] text-muted-2 pt-1 min-w-[70px]">
                       Spec {String(idx + 1).padStart(2, "0")}
                     </dt>
-                    <dd className="text-[15px] text-slate-200 leading-relaxed">{f}</dd>
+                    <dd className="text-[15px] text-foreground leading-relaxed">{f}</dd>
                   </div>
                 ))}
               </dl>
@@ -207,19 +207,19 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
         <div
           className="rounded-2xl p-8 md:p-12 relative overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, rgba(124,58,237,0.18) 0%, rgba(15,23,42,1) 50%, rgba(6,182,212,0.16) 100%)",
+            background: "linear-gradient(135deg, rgba(124,58,237,0.06) 0%, var(--background-2) 50%, rgba(6,182,212,0.06) 100%)",
             border: "1px solid var(--border-strong)",
           }}
         >
           <div className="absolute inset-0 grid-pattern opacity-30" aria-hidden />
           <div className="relative grid md:grid-cols-[1fr_auto] gap-6 items-center">
             <div>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+              <h2 className="text-2xl md:text-3xl font-semibold text-foreground-strong tracking-tight">
                 Bulk pricing or rate-contract enquiry?
               </h2>
-              <p className="mt-3 text-slate-300 leading-relaxed">
+              <p className="mt-3 text-muted leading-relaxed">
                 We supply across India for enterprise, government and service-provider tenders. Tell
-                us quantities and timeline — we&rsquo;ll send a proposal.
+                us the quantities and timeline, and we will send a proposal.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row md:flex-col gap-3">

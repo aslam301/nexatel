@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Nexatel — Engineering Connections. Building Tomorrow.",
+    name: "Nexatel, building Kerala's network backbone.",
     short_name: "Nexatel",
     description:
-      "Multi-vertical engineering and technology group serving Kerala and Kuwait. IT, fiber optics, telecom, and clean-energy installations.",
+      "IT networking, structured cabling, fibre, telecom infrastructure and security systems for enterprises and large infrastructure projects across India.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

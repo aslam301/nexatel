@@ -110,7 +110,7 @@ export function GetQuoteForm({ defaultServiceArea }: { defaultServiceArea?: stri
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-        <p className="text-xs text-slate-500">We&rsquo;ll usually reply within one business day. Your details are emailed to our project team and stored securely.</p>
+        <p className="text-xs text-muted-2">We&rsquo;ll usually reply within one business day. Your details are emailed to our project team and stored securely.</p>
         <button type="submit" className="btn-primary" disabled={status === "sending"}>
           {status === "sending" ? "Submitting…" : "Request quote"}
         </button>
@@ -118,16 +118,16 @@ export function GetQuoteForm({ defaultServiceArea }: { defaultServiceArea?: stri
 
       {status === "ok" && (
         <div
-          className="rounded-lg px-4 py-3 text-sm text-emerald-200"
-          style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.30)" }}
+          className="rounded-lg px-4 py-3 text-sm text-emerald-700"
+          style={{ background: "rgba(16,185,129,0.10)", border: "1px solid rgba(16,185,129,0.35)" }}
         >
-          Thanks — your request has been received. We&rsquo;ll be in touch shortly.
+          Thanks, your request has been received. We will be in touch shortly.
         </div>
       )}
       {status === "error" && (
         <div
-          className="rounded-lg px-4 py-3 text-sm text-red-200"
-          style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.30)" }}
+          className="rounded-lg px-4 py-3 text-sm text-red-700"
+          style={{ background: "rgba(239,68,68,0.10)", border: "1px solid rgba(239,68,68,0.35)" }}
         >{error}</div>
       )}
     </form>

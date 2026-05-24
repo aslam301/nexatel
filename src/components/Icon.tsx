@@ -1,4 +1,4 @@
-type IconName =
+export type IconName =
   | "cpu"
   | "fiber"
   | "tower"

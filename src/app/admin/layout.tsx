@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  // AdminShell renders its own sidebar + topbar, so the layout is just a passthrough.
-  // Login page has its own minimal layout; everything else is wrapped by AdminShell.
-  return <>{children}</>;
+  // Admin keeps the dark theme while the public site is light. The theme-dark
+  // class re-declares the dark token values for everything beneath this layout.
+  return <div className="theme-dark min-h-screen">{children}</div>;
 }

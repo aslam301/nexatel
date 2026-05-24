@@ -1,0 +1,138 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "eyebrow": "IT Network and Hardware",
+        "title": "Networks built for the way your business actually runs.",
+        "subtitle": "Switches, routers, firewalls and servers, sourced from the OEMs you would already shortlist and installed by engineers who stay with the project after handover.",
+        "image": "https://assets.nexatel.org/images/misc/hero-1-mpk28n2kflry.webp",
+        "primaryCta": {
+          "label": "Explore IT and networking",
+          "href": "/projects/nld-backbone-intercity"
+        },
+        "secondaryCta": {
+          "label": "Talk to us",
+          "href": "/contact"
+        }
+      },
+      {
+        "eyebrow": "Structured cabling",
+        "title": "Cabling that earns a clean Fluke report on day one.",
+        "subtitle": "Cat6, Cat6A, Cat7 and OM3 or OM4 fibre, planned with your IT team, labelled to standard and certified before we hand over the racks.",
+        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=2400&q=75&auto=format&fit=crop",
+        "primaryCta": {
+          "label": "See structured cabling",
+          "href": "/services/network-cabling"
+        },
+        "secondaryCta": {
+          "label": "Talk to us",
+          "href": "/contact"
+        }
+      },
+      {
+        "eyebrow": "Fibre optic projects",
+        "title": "Building Kerala's network backbone, one fibre at a time.",
+        "subtitle": "Twenty five years of fibre experience in our crews, from inter building runs to long span NLD backbones. Every splice tested, every span documented.",
+        "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=2400&q=75&auto=format&fit=crop",
+        "primaryCta": {
+          "label": "See fibre projects",
+          "href": "/services/fiber-optic"
+        },
+        "secondaryCta": {
+          "label": "Talk to us",
+          "href": "/contact"
+        }
+      },
+      {
+        "eyebrow": "Telecom infrastructure",
+        "title": "The civil work that keeps a telecom rollout on schedule.",
+        "subtitle": "Manhole construction, pole erection, fencing, HDD and excavation. We also run the Right of Way paperwork with NHAI, PWD and local bodies.",
+        "image": "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=2400&q=75&auto=format&fit=crop",
+        "primaryCta": {
+          "label": "See telecom works",
+          "href": "/services/telecom"
+        },
+        "secondaryCta": {
+          "label": "Talk to us",
+          "href": "/contact"
+        }
+      }
+    ]
+  },
+  "home": {
+    "whatWeDo": {
+      "eyebrow": "What we do",
+      "title": "Telecom, networking and IT, under one roof.",
+      "lead": "Nexatel Private Limited is a specialist company in telecom systems, electrical installations, network cabling and IT hardware supply and installation in India. We are headquartered in Kerala and currently delivering major projects across the state.",
+      "body": "Our pitch is simple. We save you time and money, and we keep your operation running smoothly while we work. We take responsibility for the requirement and deliver it with the quality and the after sales support that comes from a team that treats your project as their own.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=70&auto=format&fit=crop"
+    },
+    "cta": {
+      "title": "Have a project on the table?",
+      "body": "Whether it is a fibre span between two buildings, a campus network for a new office, or a hundred port CCTV install, we can scope, price and deliver it. Tell us what you are working on.",
+      "primaryLabel": "Request a proposal"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About Nexatel",
+      "title": "An engineering team for the long projects.",
+      "subtitle": "We design, supply and install enterprise networks, structured cabling, fibre, telecom infrastructure and security systems. Headquartered in Kerala, working across India.",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=2000&q=75&auto=format&fit=crop"
+    },
+    "body": {
+      "eyebrow": "Who we are",
+      "title": "Telecom, networking and IT, by one team.",
+      "paragraphs": [
+        "Nexatel Private Limited is a specialist company in telecom systems, electrical installations, network cabling and IT hardware supply and installation in India, currently delivering major projects in Kerala. The company is led by a management team and engineers who have spent their careers in these fields.",
+        "Our pitch is straightforward. We save you time and money, and we keep your operation running smoothly while we work. We take responsibility for delivering the requirement at top quality, backed by support from people who feel like part of your team. The OEMs we work with give us strong commercial backing, and that translates into honest pricing and quick lead times for the clients we serve."
+      ],
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=70&auto=format&fit=crop"
+    },
+    "cta": {
+      "title": "Plan your project with us.",
+      "body": "Send us the scope, the location and the timeline. We will come back with a clear proposal.",
+      "primaryLabel": "Request a quote"
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let us scope your next deployment.",
+      "subtitle": "Tell us about the project. We usually reply within one business day.",
+      "image": "https://assets.nexatel.org/images/misc/contact-hero-mpk289qwmja9.webp"
+    },
+    "intro": {
+      "reachHeading": "Reach us directly",
+      "reachSubheading": "India HQ + Kuwait via our sister company.",
+      "formHeading": "Send us a message",
+      "formSubheading": "All fields marked with * are required."
+    }
+  },
+  "pages": {
+    "services": {
+      "eyebrow": "Services",
+      "title": "Networking, cabling, fibre and telecom, by one team.",
+      "subtitle": "Five practices that cover the full stack of an enterprise network, from the rack to the right of way. Same engineers from survey to handover.",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=2000&q=70&auto=format&fit=crop"
+    },
+    "products": {
+      "eyebrow": "Catalogue",
+      "title": "Hardware we install, sourced from the OEMs we trust.",
+      "subtitle": "Fibre, cabling, networking, security, IT, UPS and renewable energy products, supplied with warranty registration, asset tagging and on site delivery across India.",
+      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=2000&q=70&auto=format&fit=crop"
+    },
+    "projects": {
+      "eyebrow": "Selected work",
+      "title": "Projects we have built across Kerala and India.",
+      "subtitle": "A short selection of recent Nexatel deployments. Most of these were delivered out of our Kerala office, with crews mobilised on site.",
+      "image": "https://images.unsplash.com/photo-1545987796-200677ee1011?w=2000&q=70&auto=format&fit=crop"
+    }
+  },
+  "footer": {
+    "companyHeading": "Company",
+    "verticalsHeading": "Verticals",
+    "officeHeading": "Office",
+    "copyrightSuffix": "All rights reserved."
+  }
+}

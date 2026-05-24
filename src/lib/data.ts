@@ -1,40 +1,23 @@
-import { promises as fs } from "node:fs";
-import path from "node:path";
-import type { Company, Service, Capability, Product, Project, Settings, Submission } from "./types";
-
-const DATA_DIR = path.join(process.cwd(), "data");
-
-async function readJson<T>(file: string): Promise<T> {
-  const buf = await fs.readFile(path.join(DATA_DIR, file), "utf8");
-  return JSON.parse(buf) as T;
-}
-
-async function writeJson<T>(file: string, value: T): Promise<void> {
-  const target = path.join(DATA_DIR, file);
-  const tmp = target + ".tmp";
-  await fs.writeFile(tmp, JSON.stringify(value, null, 2) + "\n", "utf8");
-  await fs.rename(tmp, target);
-}
+import type { Company, Service, Product, Project, Settings, Site, Submission } from "./types";
+import { isPersistenceWritable, readJson, readJsonOr, writeJson } from "./storage";
 
 export const getCompany = (): Promise<Company> => readJson<Company>("company.json");
 export const getServices = (): Promise<Service[]> => readJson<Service[]>("services.json");
-export const getCapabilities = (): Promise<Capability[]> => readJson<Capability[]>("capabilities.json");
 export const getProducts = (): Promise<Product[]> => readJson<Product[]>("products.json");
 export const getProjects = (): Promise<Project[]> => readJson<Project[]>("projects.json");
+export const getSite = (): Promise<Site> => readJson<Site>("site.json");
+
+export async function saveCompany(company: Company): Promise<void> {
+  await writeJson("company.json", company);
+}
+
+export async function saveSite(site: Site): Promise<void> {
+  await writeJson("site.json", site);
+}
 
 export async function getServiceBySlug(slug: string): Promise<Service | undefined> {
   const list = await getServices();
   return list.find((s) => s.slug === slug);
-}
-
-export async function getCapabilityBySlug(slug: string): Promise<Capability | undefined> {
-  const list = await getCapabilities();
-  return list.find((c) => c.slug === slug);
-}
-
-export async function getCapabilitiesByService(serviceSlug: string): Promise<Capability[]> {
-  const list = await getCapabilities();
-  return list.filter((c) => c.parentService === serviceSlug);
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {
@@ -47,8 +30,21 @@ export async function getProductById(id: string): Promise<Product | undefined> {
   return list.find((p) => p.id === id);
 }
 
+export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
+  const list = await getProjects();
+  return list.find((p) => p.slug === slug);
+}
+
 export async function saveProducts(products: Product[]): Promise<void> {
   await writeJson("products.json", products);
+}
+
+export async function saveServices(services: Service[]): Promise<void> {
+  await writeJson("services.json", services);
+}
+
+export async function saveProjects(projects: Project[]): Promise<void> {
+  await writeJson("projects.json", projects);
 }
 
 const DEFAULT_SETTINGS: Settings = {
@@ -60,11 +56,7 @@ const DEFAULT_SETTINGS: Settings = {
 };
 
 export async function getSettings(): Promise<Settings> {
-  try {
-    return await readJson<Settings>("settings.json");
-  } catch {
-    return DEFAULT_SETTINGS;
-  }
+  return readJsonOr<Settings>("settings.json", DEFAULT_SETTINGS);
 }
 
 export async function saveSettings(settings: Settings): Promise<void> {
@@ -72,23 +64,17 @@ export async function saveSettings(settings: Settings): Promise<void> {
 }
 
 export async function getSubmissions(): Promise<Submission[]> {
-  try {
-    const list = await readJson<Submission[]>("submissions.json");
-    return Array.isArray(list) ? list : [];
-  } catch {
-    return [];
-  }
+  const list = await readJsonOr<Submission[]>("submissions.json", []);
+  return Array.isArray(list) ? list : [];
 }
 
 export async function appendSubmission(submission: Submission): Promise<{ saved: boolean; reason?: string }> {
-  if (!isFsWritable()) {
-    // On Vercel runtime, the filesystem is read-only — skip persistence.
+  if (!isPersistenceWritable()) {
     return { saved: false, reason: "read-only-fs" };
   }
   try {
     const list = await getSubmissions();
     list.unshift(submission);
-    // Cap to a reasonable size to keep the JSON small.
     const capped = list.slice(0, 500);
     await writeJson("submissions.json", capped);
     return { saved: true };
@@ -97,7 +83,9 @@ export async function appendSubmission(submission: Submission): Promise<{ saved:
   }
 }
 
+// Back-compat alias. Older admin pages and API routes import this name; it now
+// reflects "can the app persist edits in this environment" rather than literal
+// filesystem writability, since Blob is also a write target.
 export function isFsWritable(): boolean {
-  // Vercel serverless filesystem is read-only at runtime.
-  return process.env.VERCEL !== "1";
+  return isPersistenceWritable();
 }
