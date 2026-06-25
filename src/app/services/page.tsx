@@ -1,3 +1,5 @@
+export const revalidate = 60;
+
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { ServiceCard } from "@/components/ServiceCard";
